@@ -1,6 +1,7 @@
 <%@page import="com.sun.org.apache.bcel.internal.generic.AALOAD"%>
 <!DOCTYPE html>
 <html>
+    <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
         <title>Start Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,11 +13,15 @@
        
         <% 
           DichVuDAO dvd =new DichVuDAO();
-           DichVu dv = new DichVu() ;
           
-            String s = "Xin ch‡o"+ convertParamToLocalDateTime("2021-10-10T01%3A46") ;
-            
-        %>
-        <h1> <%=s%> </h1>
+        DichVu[] list =dvd.getByTenDV("ch") ;
+          String s= "" ;
+          for(int i=0;i<list.length;i++){
+            s+="" +list[i]+'\n';
+            }
+         %>
+         <h1> <%=s%> </h1>
+         
+        <h1>ch√†o</h1>
     </body>
 </html>
