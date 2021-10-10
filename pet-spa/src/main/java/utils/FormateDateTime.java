@@ -26,4 +26,9 @@ public class FormateDateTime {
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
         return ldt.format(myFormatObj);
     }
+    public static LocalDateTime convertParamToLocalDateTime(String s){
+        String[] s1 = s.split("T");
+        String[] s2 = s1[1].split("%3A");
+        return convertDBToLocalDateTime(Date.valueOf(s1[0]), Time.valueOf(s2[0]+":"+s2[1]+":00"));
+    }
 }
