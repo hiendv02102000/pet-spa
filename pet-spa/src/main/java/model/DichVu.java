@@ -4,8 +4,12 @@
  */
 package model;
 
+import com.mysql.cj.result.LocalDateTimeValueFactory;
 import java.math.BigInteger;
-import java.sql.Date;
+import java.sql.*;
+import java.time.*;
+import java.time.LocalDateTime;
+import static utils.FormateDateTime.formatDateTimeVi;
 /**
  *
  * @author admin
@@ -16,13 +20,14 @@ public class DichVu {
     private BigInteger giaCa;
     private int gioiHan;
     private String moTa;
-    private Date ngayTao;
-    private Date ngayXoa;
+    private LocalDateTime ngayTao;
+    private LocalDateTime ngayXoa;
 
     public DichVu() {
+
     }
 
-    public DichVu(int id, String ten, BigInteger giaCa, int gioiHan, String moTa, Date ngayTao, Date ngayXoa) {
+    public DichVu(int id, String ten, BigInteger giaCa, int gioiHan, String moTa, LocalDateTime ngayTao, LocalDateTime ngayXoa) {
         this.id = id;
         this.ten = ten;
         this.giaCa = giaCa;
@@ -32,10 +37,14 @@ public class DichVu {
         this.ngayXoa = ngayXoa;
     }
 
+    
+
     @Override
-    public String toString() {
+    public String toString() { 
         
-        return id+" "+ten+" "+ngayTao+" "+ngayXoa;//To change body of generated methods, choose Tools | Templates.
+        //this.ngayTao.setHours(1);
+      
+        return id+" "+ten+" "+formatDateTimeVi(this.ngayTao)+" "+ngayXoa;//To change body of generated methods, choose Tools | Templates.
     }
 
    

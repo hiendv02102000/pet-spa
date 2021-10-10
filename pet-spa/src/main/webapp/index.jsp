@@ -10,10 +10,10 @@
     <body>
        
         <% 
-           DichVuDAO dvd =new DichVuDAO();
-           DichVu dv = dvd.getByID(1) ;
+          DichVuDAO dvd =new DichVuDAO();
+           DichVu dv = new DichVu() ;
           
-            String s = ""+dv;
+            String s = "XIn chào"+dvd.getByID(2);
             
         %>
         <h1> <%=s%> </h1>
