@@ -15,8 +15,8 @@ import static utils.FormateDateTime.formatDateTimeVi;
  * @author admin
  */
 public class DichVu {
-    private int id;
-    private String ten;
+    protected int id;
+    protected String ten;
     private BigInteger giaCa;
     private int gioiHan;
     private String moTa;
