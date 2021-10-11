@@ -15,13 +15,13 @@
           DichVuDAO dvd =new DichVuDAO();
           
         DichVu[] list =dvd.getByTenDV("ch") ;
-          String s= "" ;
+          String s= "s" ;
           for(int i=0;i<list.length;i++){
             s+="" +list[i]+'\n';
             }
          %>
          <h1> <%=s%> </h1>
          
-        <h1>chào</h1>
+        <h1>chàosssss</h1>
     </body>
 </html>
