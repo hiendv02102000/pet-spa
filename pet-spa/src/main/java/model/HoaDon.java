@@ -18,4 +18,5 @@ public class HoaDon {
     protected String moTa;
     protected KhachHang khachHang;
     private NhanVien nhanVien;
+    private HoaDonDichVu[] listHDDV;
 }

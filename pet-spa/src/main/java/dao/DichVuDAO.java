@@ -20,12 +20,12 @@ import utils.FormateDateTime;
  * @author admin
  */
 public class DichVuDAO extends DAO{
-
+    private final String ConditionsOfExist =  "ngayxoa IS  NULL";
     public DichVuDAO() {
         super();
     }
     public DichVu getByID(int ID){
-       String sql = "Select * from tblDichVu Where id = "+ID;
+       String sql = "Select * from tblDichVu Where id = "+ID+"AND"+ConditionsOfExist;
        ResultSet rs;
         try{ 
             Statement statement = this.conn.createStatement();
@@ -48,7 +48,7 @@ public class DichVuDAO extends DAO{
     }
     public DichVu[] getByTenDV(String tenDV){
      // tenDV = FormatVI.encodeVI(tenDV);
-      String sql = "Select * from tblDichVu WHERE ten LIKE '%"+tenDV+"%'";
+      String sql = "Select * from tblDichVu WHERE ten LIKE '%"+tenDV+"%'"+"AND"+ConditionsOfExist;
       Vector<DichVu> listDV = new Vector<DichVu>();
       DichVu[] result;
         ResultSet rs;
@@ -74,7 +74,7 @@ public class DichVuDAO extends DAO{
         return listDV.toArray(result);
     }
     public DichVu[] getAll(){
-         String sql = "Select * from tblDichVu";
+         String sql = "Select * from tblDichVu"+"AND"+ConditionsOfExist;
          Vector<DichVu> listDV = new Vector<DichVu>();
          DichVu[] result;
         ResultSet rs;

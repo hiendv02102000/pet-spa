@@ -17,4 +17,5 @@ public class LichHen {
     private BigInteger giaDuKien;
     private LocalDateTime ngayXoa;
     private KhachHang khachHang;
+    private LichHenDichVu[] listLHDV;
 }

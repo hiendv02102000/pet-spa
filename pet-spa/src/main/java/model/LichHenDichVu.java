@@ -10,7 +10,13 @@ package model;
  */
 public class LichHenDichVu {
     private int id;
-    private LichHen lichHen;
     private DichVu dichVu;
     private int soLuong;
+
+    public LichHenDichVu(int id, DichVu dichVu, int soLuong) {
+        this.id = id;
+        this.dichVu = dichVu;
+        this.soLuong = soLuong;
+    }
+    
 }

@@ -10,7 +10,6 @@ package model;
  */
 public class HoaDonDichVu {
     private int id;
-    private HoaDon hoaDon;
     private DichVu dichVu;
     private int soLuong;
 }
