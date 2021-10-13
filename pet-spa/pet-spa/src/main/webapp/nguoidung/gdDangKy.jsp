@@ -30,7 +30,7 @@
             <div class="container2">
             <div class="login-form">
                 <form action="" method="post">
-                    <h1>Đăng nhập vào website</h1>
+                    <h1>Đăng ký</h1>
                     <div class="input-box">
                         <i ></i>
                         <input type="text" placeholder="Nhập username">
@@ -39,9 +39,21 @@
                         <i ></i>
                         <input type="password" placeholder="Nhập mật khẩu">
                     </div>
+                    <div class="input-box">
+                        <i ></i>
+                        <input type="password" placeholder="Nhập lại mật khẩu">
+                    </div>
+                    <div class="input-box">
+                        <i ></i>
+                        <input type="text" placeholder="Nhập email">
+                    </div>
+                    <div class="input-box">
+                        <i ></i>
+                        <input type="text" placeholder="Nhập SĐT">
+                    </div>
                     <div class="btn-box">
                         <button type="submit">
-                            Đăng nhập
+                            Đăng ký
                         </button>
                     </div>
                 </form>
