@@ -23,8 +23,8 @@
                 <li><a href="#dv">Dịch vụ</a></li>             
                 <li><a href="#contact">Liên hệ</a></li>
                 <li><a href="#gt">Giới thiệu</a></li>
-                <li ><a href="./Login/login.html">đăng nhập </a></li>
-                <li ><a href="./Register/register.html">đăng ký</a></li>
+                <li ><a href="./nguoidung/gdDangNhap.jsp">đăng nhập </a></li>
+                <li ><a href="./khachhang/gdDangKy.jsp">đăng ký</a></li>
             </ul> 
            
            

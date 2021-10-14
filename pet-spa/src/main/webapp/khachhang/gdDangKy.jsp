@@ -1,31 +1,35 @@
 <%-- 
-    Document   : gdDangKy
-    Created on : Oct 9, 2021, 7:42:54 PM
+    Document   : dangnhap
+    Created on : Oct 9, 2021, 7:30:34 PM
     Author     : admin
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.sun.org.apache.bcel.internal.generic.AALOAD"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Đăng nhập vào website</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="./register.css" rel="stylesheet" type="text/css"/>
-    </head>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../style/loginregister.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../assets/css/fonts/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
     <body>
         <header>
             <div class="container1">
                 <div class="nav1">
                     <div class="logo">
-                        <a href="./index.html"><img src="./assets/css/img/logo.png" alt="logo" class="place-img"> </a>
+                        <a href="./index.html"><img src="../assets/img/logo.png" alt="logo" class="place-img"> </a>
                     </div>
             </div>
         </header>
         <main>
             <div class="container2">
             <div class="login-form">
-                <form action="" method="post">
+                <form action="?check=true" method="post">
                     <h1>Đăng ký</h1>
                     <div class="input-box">
                         <i ></i>
