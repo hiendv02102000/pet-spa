@@ -14,6 +14,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import utils.FormateDateTime;
 /**
  *
@@ -44,6 +46,22 @@ public class DichVuDAO extends DAO{
             return null;
         }catch(Exception e){
             return null;
+        }
+    }
+    public String insert(DichVu dv){
+        try {
+            String sql = "INSERT INTO tblDichVu (ten, giaca, gioihan, mota, ngaytao)" +
+                    "VALUES (?, ?, ?, ?, ?);";
+            PreparedStatement prepareStatement=this.conn.prepareStatement(sql);
+            prepareStatement.setString(1, dv.getTen().toString());
+            prepareStatement.setString(2,dv.getGiaCa().toString());
+            prepareStatement.setInt(3, dv.getGioiHan());
+            prepareStatement.setString(4, dv.getMoTa());
+            prepareStatement.setString(5, LocalDateTime.now().toString());
+            int rowCount= prepareStatement.executeUpdate();
+            return rowCount+"";
+        } catch (Exception ex) {
+            return ex.getMessage();
         }
     }
     public DichVu[] getByTenDV(String tenDV){
