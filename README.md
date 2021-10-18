@@ -4,6 +4,6 @@
      + git checkout têm_branch_của_mình
      + git pull origin main 
      + git merge main
-- Import database dùng cái example1
+- Import database dùng cái example_update.sql
 - Đọc dữ liệu db trong java thì dùng exceQuerry còn thêm sửa xoá dùng exceUpdate
 - test thì dùng tạo public static void main(){} chạy bằng cách ấn shift+f6
