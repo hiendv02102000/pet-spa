@@ -92,7 +92,7 @@ public class DichVuDAO extends DAO{
         return listDV.toArray(result);
     }
     public DichVu[] getAll(){
-         String sql = "Select * from tblDichVu"+"AND"+ConditionsOfExist;// câu lệnh sql
+         String sql = "Select * from tblDichVu"+" Where"+ConditionsOfExist;// câu lệnh sql
          Vector<DichVu> listDV = new Vector<DichVu>();
          DichVu[] result;
          ResultSet rs;
