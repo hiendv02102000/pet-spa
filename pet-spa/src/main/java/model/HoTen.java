@@ -9,8 +9,24 @@ package model;
  * @author admin
  */
 public class HoTen {
-    private int id;
     private String ho;
     private String tenDem;
     private String ten;
+
+    public HoTen(String ho, String tenDem, String ten) {
+        this.ho = ho;
+        this.tenDem = tenDem;
+        this.ten = ten;
+    }
+
+    public String getHo() {
+        return ho;
+    }
+    public String getTenDem() {
+        return tenDem;
+    }
+
+    public String getTen() {
+        return ten;
+    }
 }

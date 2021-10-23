@@ -9,5 +9,9 @@ package dao;
  * @author admin
  */
 public class NhanVienDAO {
+
+    public NhanVienDAO() {
+        super();
+    }
     
 }
