@@ -65,11 +65,4 @@ public class KhachHangDAO extends DAO{
             Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public static void main(String[] args) {
-        HoTen h = new HoTen("do", "va", "ren");
-        DiaChi dc = new DiaChi("1", "sa", "sa", "sa", "sa");
-        KhachHang kh1 =new KhachHang("hien123", "123456", LocalDate.now(), "123ds", "092143525", "00212310401", h, dc);
-        KhachHangDAO khd = new KhachHangDAO();
-        khd.insert(kh1);
-    }
 }
