@@ -58,7 +58,7 @@ public class DichVuDAO extends DAO{
             prepareStatement.setInt(3, dv.getGioiHan());
             prepareStatement.setString(4, dv.getMoTa());
             prepareStatement.setString(5, LocalDateTime.now().toString());
-            int rowCount= prepareStatement.executeUpdate();
+            int rowCount= prepareStatement.executeUpdate();//thực thi làm thay đổi dữ liệu
             return rowCount+"";
         } catch (Exception ex) {
             return ex.getMessage();
@@ -92,24 +92,23 @@ public class DichVuDAO extends DAO{
         return listDV.toArray(result);
     }
     public DichVu[] getAll(){
-         String sql = "Select * from tblDichVu"+"AND"+ConditionsOfExist;
+         String sql = "Select * from tblDichVu"+"AND"+ConditionsOfExist;// câu lệnh sql
          Vector<DichVu> listDV = new Vector<DichVu>();
          DichVu[] result;
-        ResultSet rs;
+         ResultSet rs;
         try{ 
-            Statement statement = this.conn.createStatement();
-            rs=statement.executeQuery(sql);
+            Statement statement = this.conn.createStatement();// dùng để thực thi câu lệnh
+            rs=statement.executeQuery(sql);// thực thi không làm thay đổi dữ liệu
             int count =0;
-           while(rs.next()){
-                DichVu dv = new DichVu(rs.getInt(1),
+           while(rs.next()){// đọc dòng tiếp theo của kết quả
+                DichVu dv = new DichVu(rs.getInt(1),//
                 rs.getString(2),
                 BigInteger.valueOf(rs.getInt(3)),
                 rs.getInt(4),
                 rs.getString(5),
                 FormateDateTime.convertDBToLocalDateTime(rs.getDate(6), rs.getTime(6)),
                 FormateDateTime.convertDBToLocalDateTime(rs.getDate(7), rs.getTime(7)));
-            
-             listDV.add(dv);
+                listDV.add(dv);
            }
            result = new DichVu[count];
         }catch(Exception e){
@@ -117,5 +116,11 @@ public class DichVuDAO extends DAO{
         }
         return listDV.toArray(result);
     }
-    
+    public static void main (){
+        DichVuDAO dvdao = new DichVuDAO();
+        DichVu[] list = dvdao.getAll();
+        for(int i=0;i<list.length;i++){
+            System.out.print(list[i].toString());
+        }
+    }
 }
