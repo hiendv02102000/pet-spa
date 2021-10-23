@@ -12,5 +12,11 @@ import java.math.BigInteger;
  */
 public class TKKhachHang extends KhachHang{
     private int solan;
+    private String loai;
+    private float khuyenmai;
     private BigInteger tongThanhToan;
+
+    public TKKhachHang() {
+    }
+    
 }

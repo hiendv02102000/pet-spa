@@ -53,7 +53,7 @@ public class DichVuDAO extends DAO{
             String sql = "INSERT INTO tblDichVu (ten, giaca, gioihan, mota, ngaytao)" +
                     "VALUES (?, ?, ?, ?, ?);";
             PreparedStatement prepareStatement=this.conn.prepareStatement(sql);
-            prepareStatement.setString(1, dv.getTen().toString());
+            prepareStatement.setString(1, dv.getTen());
             prepareStatement.setString(2,dv.getGiaCa().toString());
             prepareStatement.setInt(3, dv.getGioiHan());
             prepareStatement.setString(4, dv.getMoTa());
