@@ -4,10 +4,19 @@
  */
 package dao;
 
+import model.TKKhachHang;
+
 /**
  *
  * @author admin
  */
-public class TKKhachHangDAO {
+public class TKKhachHangDAO extends DAO{
+    private final String ConditionsOfExist="ngayxoa IS NULL";
+    public TKKhachHangDAO(){
+        super();
+    }
+    public TKKhachHang[] getOnMonth(int thang, int nam){
+        String sql=""
+    }
     
 }
