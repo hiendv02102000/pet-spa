@@ -23,25 +23,7 @@ public class LichHenDAO extends DAO{
         super();
     }
     public LichHen[] getByKhachHangID(int khID){
-<<<<<<< HEAD
-        return null;
-    }
-    public void delete(int ID){
-        
-    }
-     public boolean insert(LichHen lh){
-        return true;
-    }
-     public LichHen getByIDWithPreLoadKhachHang(int id ){
-         return null;
-     }
-     public LichHen[] getAll(){
-        return null;
-    }
-      public LichHen[] getByKhachHangCondition(String condition){
-        return null;
-=======
-         String sql = "Select * from tblLichHen Where tblKhachHangid = "+khID+" AND"+ConditionsOfExist;
+                String sql = "Select * from tblLichHen Where tblKhachHangid = "+khID+" AND "+ConditionsOfExist;
        ResultSet rs;
        Vector<LichHen> listLH = new Vector<LichHen>();
         LichHen[] result;
@@ -58,21 +40,29 @@ public class LichHenDAO extends DAO{
              listLH.add(lh);
              //return FormatVI.decodeVI(rs.getString(2));
            }
-           
+
            result = new LichHen[count];
-           
-          
+
+
         }catch(Exception e){
             return null;
         }
         return listLH.toArray(result);
     }
-    public static void main(String[] args) {
-       LichHenDAO lhd = new LichHenDAO();
-       LichHen[] l = lhd.getByKhachHangID(1);
-       for(LichHen lh:l){
-           System.out.println(lh);
-       }
->>>>>>> 09d1135ef0002a2594ce14916e0ec93ca742378e
+    
+    public void delete(int ID){
+        
+    }
+     public boolean insert(LichHen lh){
+        return true;
+    }
+     public LichHen getByIDWithPreLoadKhachHang(int id ){
+         return null;
+     }
+     public LichHen[] getAll(){
+        return null;
+    }
+      public LichHen[] getByKhachHangCondition(String condition){
+        return null;
     }
 }

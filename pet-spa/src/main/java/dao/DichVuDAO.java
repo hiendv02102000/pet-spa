@@ -66,7 +66,7 @@ public class DichVuDAO extends DAO{
     }
     public DichVu[] getByName(String name){
      // tenDV = FormatVI.encodeVI(tenDV);
-      String sql = "Select * from tblDichVu WHERE ten LIKE '%"+tenDV+"%'"+" AND "+ConditionsOfExist;
+      String sql = "Select * from tblDichVu WHERE ten LIKE '%"+name+"%'"+" AND "+ConditionsOfExist;
       Vector<DichVu> listDV = new Vector<DichVu>();
       DichVu[] result;
         ResultSet rs;
@@ -115,14 +115,9 @@ public class DichVuDAO extends DAO{
             return null;
         }
         return listDV.toArray(result);
-    }
-<<<<<<< HEAD
-    
-    public static void main (){
-=======
+    }   
     public static void main (String[] args){
->>>>>>> 09d1135ef0002a2594ce14916e0ec93ca742378e
-        DichVuDAO dvdao = new DichVuDAO();
+         DichVuDAO dvdao = new DichVuDAO();
         DichVu[] list = dvdao.getAll();
         for(int i=0;i<list.length;i++){
             System.out.print(list[i].toString());
