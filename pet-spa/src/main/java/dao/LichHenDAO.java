@@ -23,7 +23,32 @@ public class LichHenDAO extends DAO{
         super();
     }
     public LichHen[] getByKhachHangID(int khID){
-        return null;
+                String sql = "Select * from tblLichHen Where tblKhachHangid = "+khID+" AND "+ConditionsOfExist;
+       ResultSet rs;
+       Vector<LichHen> listLH = new Vector<LichHen>();
+        LichHen[] result;
+        try{ 
+            Statement statement = this.conn.createStatement();
+            rs=statement.executeQuery(sql);
+            int count =0;
+           while(rs.next()){
+                LichHen lh = new LichHen(rs.getInt(1), 
+                        FormateDateTime.convertDBToLocalDateTime(rs.getDate(2), rs.getTime(2)), 
+                        new BigInteger(rs.getString(3)), 
+                        null, 
+                        null);
+             listLH.add(lh);
+             //return FormatVI.decodeVI(rs.getString(2));
+           }
+
+           result = new LichHen[count];
+
+
+        }catch(Exception e){
+            return null;
+        }
+        return listLH.toArray(result);
+    }
     }
     public void delete(int ID){
         

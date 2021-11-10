@@ -66,7 +66,7 @@ public class DichVuDAO extends DAO{
     }
     public DichVu[] getByName(String name){
      // tenDV = FormatVI.encodeVI(tenDV);
-      String sql = "Select * from tblDichVu WHERE ten LIKE '%"+tenDV+"%'"+" AND "+ConditionsOfExist;
+      String sql = "Select * from tblDichVu WHERE ten LIKE '%"+name+"%'"+" AND "+ConditionsOfExist;
       Vector<DichVu> listDV = new Vector<DichVu>();
       DichVu[] result;
         ResultSet rs;
