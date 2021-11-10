@@ -23,6 +23,24 @@ public class LichHenDAO extends DAO{
         super();
     }
     public LichHen[] getByKhachHangID(int khID){
+<<<<<<< HEAD
+        return null;
+    }
+    public void delete(int ID){
+        
+    }
+     public boolean insert(LichHen lh){
+        return true;
+    }
+     public LichHen getByIDWithPreLoadKhachHang(int id ){
+         return null;
+     }
+     public LichHen[] getAll(){
+        return null;
+    }
+      public LichHen[] getByKhachHangCondition(String condition){
+        return null;
+=======
          String sql = "Select * from tblLichHen Where tblKhachHangid = "+khID+" AND"+ConditionsOfExist;
        ResultSet rs;
        Vector<LichHen> listLH = new Vector<LichHen>();
@@ -55,5 +73,6 @@ public class LichHenDAO extends DAO{
        for(LichHen lh:l){
            System.out.println(lh);
        }
+>>>>>>> 09d1135ef0002a2594ce14916e0ec93ca742378e
     }
 }

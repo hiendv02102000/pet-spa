@@ -4,10 +4,17 @@
  */
 package dao;
 
+import model.HoaDonDichVu;
+
 /**
  *
  * @author admin
  */
 public class HoaDonDichVuDAO {
-    
+
+    public HoaDonDichVuDAO() {
+    }
+    public HoaDonDichVu[] getByHoaDonID(int hdid){
+        return null;
+    }
 }

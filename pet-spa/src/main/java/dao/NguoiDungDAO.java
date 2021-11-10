@@ -4,10 +4,24 @@
  */
 package dao;
 
+import model.NguoiDung;
+
 /**
  *
  * @author admin
  */
 public class NguoiDungDAO {
-    
+
+    public NguoiDungDAO() {
+        super();
+    }
+    public boolean check(NguoiDung nd){
+        return false;
+    }
+    public void update (NguoiDung nd){
+       
+    }
+    public NguoiDung getByID(int ID){
+        return null;
+    }
 }

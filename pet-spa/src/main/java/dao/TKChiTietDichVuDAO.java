@@ -4,20 +4,19 @@
  */
 package dao;
 
-import model.TKDoanhThu;
-import model.TKKhachHang;
+import model.TKChiTietDichVu;
 
 /**
  *
  * @author admin
  */
-public class TKKhachHangDAO {
+public class TKChiTietDichVuDAO {
 
-    public TKKhachHangDAO() {
+    public TKChiTietDichVuDAO() {
         super();
     }
-    
-     public TKKhachHang[] getOnMonth(int thang,int nam){
+    public TKChiTietDichVu[] getAll(){
         return null;
     }
+    
 }
