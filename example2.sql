@@ -280,7 +280,6 @@ DROP TABLE IF EXISTS `tblnhanvien`;
 CREATE TABLE `tblnhanvien` (
   `id` int NOT NULL AUTO_INCREMENT,
   `tblNguoiDungid` int NOT NULL,
-  `ngaytao` datetime DEFAULT NULL,
   `ngayxoa` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UC_nguoidung` (`tblNguoiDungid`),
@@ -294,7 +293,7 @@ CREATE TABLE `tblnhanvien` (
 
 LOCK TABLES `tblnhanvien` WRITE;
 /*!40000 ALTER TABLE `tblnhanvien` DISABLE KEYS */;
-INSERT INTO `tblnhanvien` VALUES (1,2,'2021-10-10 16:21:08',NULL);
+INSERT INTO `tblnhanvien` VALUES (1,2,NULL);
 /*!40000 ALTER TABLE `tblnhanvien` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -307,4 +306,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-23 14:17:35
+-- Dump completed on 2021-10-23 14:26:19
