@@ -49,7 +49,7 @@ public class LichHenDAO extends DAO{
         }
         return listLH.toArray(result);
     }
-    }
+    
     public void delete(int ID){
         
     }
