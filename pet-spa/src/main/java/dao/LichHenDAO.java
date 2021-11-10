@@ -4,9 +4,6 @@
  */
 package dao;
 
-<<<<<<< HEAD
-import model.LichHen;
-=======
 import java.math.BigInteger;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -15,19 +12,13 @@ import java.util.Vector;
 import model.DichVu;
 import model.LichHen;
 import utils.FormateDateTime;
->>>>>>> 09d1135ef0002a2594ce14916e0ec93ca742378e
 
 /**
  *
  * @author admin
  */
-<<<<<<< HEAD
-public class LichHenDAO {
-
-=======
 public class LichHenDAO extends DAO{
     private final String ConditionsOfExist =  " ngayxoa IS  NULL";
->>>>>>> 09d1135ef0002a2594ce14916e0ec93ca742378e
     public LichHenDAO() {
         super();
     }
