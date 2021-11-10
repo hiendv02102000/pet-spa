@@ -22,11 +22,11 @@ public class TKDoanhThuDAO extends DAO{
     public TKDoanhThuDAO(){
         super();
     }
-    public TKDoanhThu[] getOnMonth(int thang){
+    public TKDoanhThu[] getOnMonth(int thang, int nam){
         String sql="select sum(tkdt.thanhtien), tkdt.ngaytao1 "
                 + "from (select thanhtien, date(ngaytao) as ngaytao1 "
                 + "from pet_spa.tblhoadon "
-                + "where month(ngaytao)="+thang+") as tkdt "
+                + "where month(ngaytao)="+thang+" AND year(ngaytao)="+nam+" ) as tkdt "
                 + "group by tkdt.ngaytao1;";
         
         Vector<TKDoanhThu> listTK=new Vector<TKDoanhThu>();
@@ -51,7 +51,8 @@ public class TKDoanhThuDAO extends DAO{
     }
     public static void main(String[] args) {
         TKDoanhThuDAO dtDAO=new TKDoanhThuDAO();
-        TKDoanhThu[] dt=dtDAO.getOnMonth(10);
+        TKDoanhThu[] dt=dtDAO.getOnMonth(10,2021);
+        System.out.println("Thong ke doanh thu thang 10");
         for (TKDoanhThu tKDoanhThu : dt) {
             System.out.println(tKDoanhThu);
             System.out.println(" ");

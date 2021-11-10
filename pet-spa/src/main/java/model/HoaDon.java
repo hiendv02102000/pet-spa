@@ -5,6 +5,7 @@
 package model;
 
 import java.math.BigInteger;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -32,21 +33,36 @@ public class HoaDon {
         this.nhanVien = nhanVien;
         this.listHDDV = listHDDV;
     }
-
-    public HoaDon(int id, BigInteger thanhTien, LocalDateTime ngayTao, String moTa, KhachHang khachHang, NhanVien nhanVien) {
+    
+    //hoa don chi tiet cho thong ke khach hang
+    public HoaDon(int id, BigInteger thanhTien, LocalDateTime ngayTao, String moTa, HoTen tenNV) {
         this.id = id;
         this.thanhTien = thanhTien;
         this.ngayTao = ngayTao;
         this.moTa = moTa;
-        this.khachHang = khachHang;
-        this.nhanVien = nhanVien;
+        this.nhanVien=new NhanVien();
+        this.nhanVien.setHoTen(tenNV);
     }
-
-    @Override
-    public String toString() {
-        return  id + " " + thanhTien + " /" + ngayTao + " /" + moTa + " " + khachHang + " " + nhanVien ;
+    //hoa don chi tiet thong ke hoa don
+    public HoaDon(int id, BigInteger thanhTien, LocalDateTime ngayTao, String moTa, HoTen tenKH, HoTen tenNV) {
+        this.id = id;
+        this.thanhTien = thanhTien;
+        this.ngayTao = ngayTao;
+        this.moTa = moTa;
+        this.khachHang=new KhachHang();
+        this.khachHang.setHoTen(tenKH);
+        this.nhanVien=new NhanVien();
+        this.nhanVien.setHoTen(tenNV);
     }
+    //cho thong ke chi tiet khach hang
     
+    public String toStringCTKhachHang() {
+        return  id + " " + thanhTien + " " + ngayTao + " " + moTa + " " + this.nhanVien.getHoTen() ;
+    }
+    //cho chi tiet thong ke doanh thu
+    public String toStringCTHoaDon() {
+        return  id + " " + thanhTien + " " + ngayTao + " " + moTa +" " + this.khachHang.getHoTen() + " " + this.nhanVien.getHoTen() ;
+    }
 
     public int getId() {
         return id;

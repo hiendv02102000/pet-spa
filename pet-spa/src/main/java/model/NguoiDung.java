@@ -39,6 +39,10 @@ public class NguoiDung {
         this.diaChi = diaChi;
     }
 
+    public void setHoTen(HoTen hoTen) {
+        this.hoTen = hoTen;
+    }
+    
     public int getId() {
         return id;
     }

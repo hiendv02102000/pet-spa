@@ -24,6 +24,7 @@ public class KhachHang extends NguoiDung{
     public KhachHang(String tenDangNhap, String matKhau, LocalDate ngaySinh, String email, String sdt, String soCCCD, HoTen hoTen, DiaChi diaChi) {
         super(tenDangNhap, matKhau, ngaySinh, email, sdt, soCCCD, "KH", hoTen, diaChi);
     }
+    
 
 
     

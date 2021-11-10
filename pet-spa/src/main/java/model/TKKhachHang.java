@@ -13,24 +13,32 @@ import java.time.LocalDateTime;
  * @author admin
  */
 public class TKKhachHang extends KhachHang{
+    protected KhachHang khachHang;
     private int solan;
     private String loai;
     private float khuyenmai;
     private BigInteger tongThanhToan;
-
+    private int idKH;
     public TKKhachHang() {
     }
 
-    public TKKhachHang(int solan, String loai, float khuyenmai, BigInteger tongThanhToan) {
+    public TKKhachHang(int idKH, HoTen tenKH, int solan, String loai, float khuyenmai, BigInteger tongThanhToan) {
+        this.idKH=idKH;
+        this.khachHang=new KhachHang();
+        this.khachHang.setHoTen(tenKH);
         this.solan = solan;
         this.loai = loai;
         this.khuyenmai = khuyenmai;
         this.tongThanhToan = tongThanhToan;
     }
 
+    
+
+    
+
     @Override
     public String toString() {
-        return solan + "/" + loai + "/" + khuyenmai + "/" + tongThanhToan ;
+        return idKH+" "+this.khachHang.getHoTen()+" "+solan + " " + loai + " " + khuyenmai + " " + tongThanhToan ;
     }
 
     public int getSolan() {
