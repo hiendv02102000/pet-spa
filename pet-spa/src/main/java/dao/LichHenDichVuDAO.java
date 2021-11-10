@@ -50,4 +50,10 @@ public class LichHenDichVuDAO extends  DAO{
         }
         return listLHDV.toArray(result);
     }
+    public void delete(int ID){
+        
+    }
+     public boolean insert(LichHenDichVu lh){
+        return true;
+    }
 }

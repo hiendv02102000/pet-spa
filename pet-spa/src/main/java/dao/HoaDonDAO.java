@@ -4,10 +4,22 @@
  */
 package dao;
 
+import model.HoaDon;
+import model.TKDoanhThu;
+
 /**
  *
  * @author admin
  */
 public class HoaDonDAO {
-    
+
+    public HoaDonDAO() {
+        super();
+    }
+    public HoaDon getByID(int id){
+        return null;
+    }
+    public TKDoanhThu[] getOnMonthByIDKH(int ID,int thang,int nam){
+        return null;
+    }
 }

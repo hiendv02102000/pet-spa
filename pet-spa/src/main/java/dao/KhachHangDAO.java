@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import model.DiaChi;
 import model.HoTen;
 import model.KhachHang;
+import model.NhanVien;
 
 /**
  *
@@ -24,6 +25,9 @@ public class KhachHangDAO extends DAO{
 
     public KhachHangDAO() {
         super();
+    }
+    public KhachHang getByID(int id){
+        return null;
     }
     public void insert (KhachHang kh){
         String sql1 = "INSERT INTO tblNguoiDung (tendangnhap, matkhau, soCCCD, ngaysinh, ngaytao,email,sdt,"
@@ -58,7 +62,7 @@ public class KhachHangDAO extends DAO{
             if(rs.next()){
                 ndID = rs.getInt(1);
             }
-            String sql3 = "INSERT INTO tblKhachHang (tichluy,tblNguoiDungid,tblLoaiKhachHangid)"
+            String sql3 = "INSERT INTO tblKhachHang (tichluy,tblNguoiDungid,tblLoaiKhachHangid) "
                     + "value(0,"+ndID+",4)";
             statement.executeUpdate(sql3);
         } catch (SQLException ex) {

@@ -4,10 +4,18 @@
  */
 package dao;
 
+import model.TKDoanhThu;
+
 /**
  *
  * @author admin
  */
 public class TKDoanhThuDAO {
-    
+
+    public TKDoanhThuDAO() {
+        super();
+    }
+    public TKDoanhThu[] getOnMonth(int thang,int nam){
+        return null;
+    }
 }
