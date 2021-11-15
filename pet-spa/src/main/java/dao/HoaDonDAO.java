@@ -25,7 +25,7 @@ public class HoaDonDAO extends DAO{
         super();
     }
     //chi tiet hoa don cho thong ke doanh thu
-    public HoaDon[] getOnDay(int ngay, int thang){
+    public HoaDon[] getOnDay(int ngay, int thang, int nam){
         String sql="select tb.idhd, tb.ttien,tb.ngaytao1,tb.mota1,tb.hokh, tb.tendemkh, tb.tenkh, tb.honv, tb.tendemnv, tb.tennv\n" +
             "from\n" +
             "(select hd.id as idhd, hd.thanhtien as ttien, hd.ngaytao as ngaytao1, hd.mota as mota1, nd1.ho as honv, nd1.tendem as tendemnv, nd1.ten as tennv\n" +
@@ -35,7 +35,7 @@ public class HoaDonDAO extends DAO{
             "inner join pet_spa.tblnguoidung nd1 on nv.tblNguoiDungid=nd1.id)\n" +
             "inner join pet_spa.tblkhachhang kh on hd.tblKhachHangid=kh.id)\n" +
             "inner join pet_spa.tblnguoidung nd2 on kh.tblNguoiDungid=nd2.id ) as tb\n" +
-            "where  month(ngaytao1)="+thang+" and day(ngaytao1)="+ngay+";";
+            "where  month(ngaytao1)="+thang+" and day(ngaytao1)="+ngay+" and year(ngaytao1)="+nam+" ;";
         
         Vector<HoaDon> listHD=new Vector<HoaDon>();
         ResultSet rs;
@@ -60,7 +60,7 @@ public class HoaDonDAO extends DAO{
         return listHD.toArray(result);
     }
     //chi tiet hoa don cho thong ke khach hang
-    public HoaDon[] getByIDKH(int id, int thang){
+    public HoaDon[] getByIDKH(int id, int thang, int nam){
         String sql="select tb.idhd, tb.ttien,tb.ngaytao1,tb.mota1, tb.honv, tb.tendemnv, tb.tennv\n" +
             "from\n" +
             "(select kh.id as idkh,hd.id as idhd, hd.thanhtien as ttien, hd.ngaytao as ngaytao1, hd.mota as mota1,nd.ho as honv, nd.tendem as tendemnv, nd.ten as tennv\n" +
@@ -68,7 +68,7 @@ public class HoaDonDAO extends DAO{
             "inner join pet_spa.tblnhanvien nv on hd.tblNhanVienid=nv.id)\n" +
             "inner join pet_spa.tblnguoidung nd on nv.tblNguoiDungid=nd.id)\n" +
             "inner join pet_spa.tblkhachhang kh on hd.tblKhachHangid=kh.id) as tb\n" +
-            "where tb.idkh=1 and month(ngaytao1)=10;";
+            "where tb.idkh="+id+" and month(ngaytao1)="+thang+" and year(ngaytao1)="+nam+";";
         ResultSet rs;
         Vector<HoaDon> listHD=new Vector<HoaDon>();
         HoaDon[] result;
@@ -92,13 +92,13 @@ public class HoaDonDAO extends DAO{
     }
     public static void main(String[] args) {
         HoaDonDAO hdd=new HoaDonDAO();
-        HoaDon[] hd=hdd.getOnDay(10,10);
+        HoaDon[] hd=hdd.getOnDay(10,10,2021);
         System.out.println("Chi tiet hoa don thong ke doanh thu");
         for (HoaDon hoaDon : hd) {
             System.out.println(hoaDon.toStringCTHoaDon());
         }
         
-        HoaDon[] hd1=hdd.getByIDKH(1,10);
+        HoaDon[] hd1=hdd.getByIDKH(1,10,2021);
         System.out.println("Chi tiet hoa don cua khach hang");
         for (HoaDon hoaDon : hd1) {
             

@@ -22,18 +22,18 @@ public class TKKhachHangDAO extends DAO{
     }
     public TKKhachHang[] getOnMonth(int thang, int nam){
         String sql="select tb.idkh,tb.hokh, tb.temdemkh, tb.tenkh,count(tb.idkh) as solan, tb.loai1, tb.khuyenmai1, sum(tb.thanhtien1)\n" +
-"from\n" +
-"(select  nd.ho as hokh, nd.tendem as temdemkh, nd.ten as tenkh,\n" +
-"kh.id as idkh, loaikh.loai as loai1, loaikh.khuyenmai as khuyenmai1 ,\n" +
-"hd.thanhtien as thanhtien1, hd.ngaytao as ngaytao1\n" +
-"from (((pet_spa.tblkhachhang kh\n" +
-"inner join pet_spa.tblhoadon hd on kh.id=hd.tblKhachHangid )\n" +
-"inner join pet_spa.tblloaikhachhang loaikh on loaikh.id=kh.tblLoaiKhachHangid)\n" +
-"inner join pet_spa.tblnguoidung nd on kh.tblNguoiDungid=nd.id )\n" +
-"-- group by kh.id\n" +
-") as tb\n" +
-"where month(ngaytao1)=10 and year(ngaytao1)=2021\n" +
-"group by tb.idkh;";
+            "from\n" +
+            "(select  nd.ho as hokh, nd.tendem as temdemkh, nd.ten as tenkh,\n" +
+            "kh.id as idkh, loaikh.loai as loai1, loaikh.khuyenmai as khuyenmai1 ,\n" +
+            "hd.thanhtien as thanhtien1, hd.ngaytao as ngaytao1\n" +
+            "from (((pet_spa.tblkhachhang kh\n" +
+            "inner join pet_spa.tblhoadon hd on kh.id=hd.tblKhachHangid )\n" +
+            "inner join pet_spa.tblloaikhachhang loaikh on loaikh.id=kh.tblLoaiKhachHangid)\n" +
+            "inner join pet_spa.tblnguoidung nd on kh.tblNguoiDungid=nd.id )\n" +
+            "-- group by kh.id\n" +
+            ") as tb\n" +
+            "where month(ngaytao1)="+thang+" and year(ngaytao1)="+nam+"\n" +
+            "group by tb.idkh;";
         Vector<TKKhachHang> listTK=new Vector<TKKhachHang>();
         TKKhachHang[] result;
         ResultSet rs;
