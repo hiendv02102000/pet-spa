@@ -18,5 +18,7 @@ public class TKChiTietDichVuDAO {
     public TKChiTietDichVu[] getAll(){
         return null;
     }
-    
+    public TKChiTietDichVu[] getByDichVuIDOnMonth(int dvid,int thang,int nam){
+        return null;
+    }
 }

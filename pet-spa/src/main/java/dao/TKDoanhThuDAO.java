@@ -18,4 +18,7 @@ public class TKDoanhThuDAO {
     public TKDoanhThu[] getOnMonth(int thang,int nam){
         return null;
     }
+    public TKDoanhThu[] getOnDay(int thang,int nam){
+        return null;
+    }
 }

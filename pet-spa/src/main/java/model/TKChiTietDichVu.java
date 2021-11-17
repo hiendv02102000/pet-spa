@@ -4,10 +4,13 @@
  */
 package model;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author admin
  */
 public class TKChiTietDichVu extends DichVu{
-    
+    private int solan ;
+    private LocalDate ngay;
 }

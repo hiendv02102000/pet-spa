@@ -65,4 +65,7 @@ public class LichHenDAO extends DAO{
       public LichHen[] getByKhachHangCondition(String condition){
         return null;
     }
+       public LichHen[] getByLichHenID(int khID){
+        return null;
+    }
 }

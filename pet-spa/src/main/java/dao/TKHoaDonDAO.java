@@ -4,10 +4,14 @@
  */
 package dao;
 
+import model.HoaDon;
+
 /**
  *
  * @author admin
  */
-public class TKHoaDonDAO {
-    
+public class TKHoaDonDAO extends DAO{
+    public HoaDon[] getAllonday(){
+        return null;
+    }
 }
