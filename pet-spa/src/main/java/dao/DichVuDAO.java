@@ -116,7 +116,18 @@ public class DichVuDAO extends DAO{
         }
         return listDV.toArray(result);
     }
-    
+    public boolean update(DichVu dv){
+        return false;
+    }
+    public boolean delete(DichVu dv){
+        return false;
+    }
+    public DichVu[] getOnDay(int ngay ,int nam,int thang){
+        return null;
+    }
+    public DichVu[] getOnMonthbyIDKH(int idkh ,int nam,int thang){
+        return null;
+    }
     public static void main (){
         DichVuDAO dvdao = new DichVuDAO();
         DichVu[] list = dvdao.getAll();
