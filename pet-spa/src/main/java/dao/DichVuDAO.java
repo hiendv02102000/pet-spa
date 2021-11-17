@@ -27,7 +27,7 @@ public class DichVuDAO extends DAO{
         super();
     }
     public DichVu getByID(int ID){
-       String sql = "Select * from tblDichVu Where id = "+ID+"AND"+ConditionsOfExist;
+       String sql = "Select * from tblDichVu Where id = "+ID+" AND "+ConditionsOfExist;
        ResultSet rs;
         try{ 
             Statement statement = this.conn.createStatement();
@@ -66,7 +66,7 @@ public class DichVuDAO extends DAO{
     }
     public DichVu[] getByName(String name){
      // tenDV = FormatVI.encodeVI(tenDV);
-      String sql = "Select * from tblDichVu WHERE ten LIKE '%"+name+"%'"+"AND"+ConditionsOfExist;
+      String sql = "Select * from tblDichVu WHERE ten LIKE '%"+name+"%'"+" AND "+ConditionsOfExist;
       Vector<DichVu> listDV = new Vector<DichVu>();
       DichVu[] result;
         ResultSet rs;
@@ -92,7 +92,7 @@ public class DichVuDAO extends DAO{
         return listDV.toArray(result);
     }
     public DichVu[] getAll(){
-         String sql = "Select * from tblDichVu"+" Where"+ConditionsOfExist;// câu lệnh sql
+         String sql = "Select * from tblDichVu"+" Where "+ConditionsOfExist;// câu lệnh sql
          Vector<DichVu> listDV = new Vector<DichVu>();
          DichVu[] result;
          ResultSet rs;
@@ -115,6 +115,7 @@ public class DichVuDAO extends DAO{
             return null;
         }
         return listDV.toArray(result);
+
     }
     public boolean update(DichVu dv){
         return false;
@@ -127,6 +128,8 @@ public class DichVuDAO extends DAO{
     }
     public DichVu[] getOnMonthbyIDKH(int idkh ,int nam,int thang){
         return null;
-    }
+
+    }   
+   
    
 }
