@@ -33,4 +33,7 @@ public class LichHenDAO {
       public LichHen[] getByKhachHangCondition(String condition){
         return null;
     }
+       public LichHen[] getByLichHenID(int khID){
+        return null;
+    }
 }

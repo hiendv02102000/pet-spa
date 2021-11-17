@@ -30,4 +30,7 @@ public class NhanVienDAO {
     public void delete(NhanVien nv){
        // return false;
     }
+    public NhanVien [] getByTen(String tenNV) {
+        return null;
+    }
 }

@@ -11,7 +11,7 @@ import model.TKDoanhThu;
  *
  * @author admin
  */
-public class HoaDonDAO {
+public class HoaDonDAO extends DAO{
 
     public HoaDonDAO() {
         super();
@@ -19,7 +19,10 @@ public class HoaDonDAO {
     public HoaDon getByID(int id){
         return null;
     }
-    public TKDoanhThu[] getOnMonthByIDKH(int ID,int thang,int nam){
+    public HoaDon[] getOnMonthByIDKH(int ID,int thang,int nam){
         return null;
+    }
+    public void insert(HoaDon hd){
+        
     }
 }

@@ -11,7 +11,7 @@ import model.TKKhachHang;
  *
  * @author admin
  */
-public class TKKhachHangDAO {
+public class TKKhachHangDAO extends DAO{
 
     public TKKhachHangDAO() {
         super();

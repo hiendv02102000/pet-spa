@@ -4,10 +4,19 @@
  */
 package dao;
 
+import model.TKDichVu;
+
 /**
  *
  * @author admin
  */
-public class TKDichVuDAO {
+public class TKDichVuDAO extends DAO{
+
+    public TKDichVuDAO() {
+        super();;
+    }
     
+     public TKDichVu[] getAllOnMonth(int thang,int nam){
+        return null;
+    }
 }
