@@ -128,11 +128,5 @@ public class DichVuDAO extends DAO{
     public DichVu[] getOnMonthbyIDKH(int idkh ,int nam,int thang){
         return null;
     }
-    public static void main (){
-        DichVuDAO dvdao = new DichVuDAO();
-        DichVu[] list = dvdao.getAll();
-        for(int i=0;i<list.length;i++){
-            System.out.print(list[i].toString());
-        }
-    }
+   
 }
