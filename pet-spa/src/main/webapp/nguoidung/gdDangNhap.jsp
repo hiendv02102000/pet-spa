@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Đăng nhập</title>
     <link href="../style/loginregister.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="../assets/css/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -22,7 +22,7 @@
             <div class="container1">
                 <div class="nav1">
                     <div class="logo">
-                        <a href="./index.html"><img src="../assets/img/logo.png" alt="logo" class="place-img"> </a>
+                        <a href="../index.jsp"><img src="../assets/img/logo.png" alt="logo" class="place-img"> </a>
                     </div>
             </div>
         </header>

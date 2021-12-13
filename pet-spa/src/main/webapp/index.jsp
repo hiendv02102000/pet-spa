@@ -22,9 +22,10 @@
                 <li><a href="#content">Trang chủ </a></li>
                 <li><a href="#dv">Dịch vụ</a></li>             
                 <li><a href="#contact">Liên hệ</a></li>
-                <li><a href="#gt">Giới thiệu</a></li>
-                <li ><a href="./Login/login.html">đăng nhập </a></li>
-                <li ><a href="./Register/register.html">đăng ký</a></li>
+                <li><a href="nguoidung/gdSuaThongTin.jsp">Sửa thông tin</a></li>
+                <li ><a href="nguoidung/gdDangNhap.jsp">Đăng nhập</a></li>
+                <li ><a href="nguoidung/gdDangNhap.jsp">Đăng nhập</a></li>
+                <li ><a href="khachhang/gdDangKy.jsp">Đăng ký</a></li>
             </ul> 
            
            
@@ -73,8 +74,7 @@
                             <h3 class="place-heading">Cắt tỉa lông</h3>
                             <p class="place-time">100,000 đ</p>
                             <p class="place-desc">Thú cưng của bạn sẽ có một bộ lông sành điệu</p>
-                            <a href="./Cattialong/catia.html" class="place-buy-btn">Xem thêm</a>
-
+                            <a href="quanly/gdChiTietDichVu.jsp" class="place-buy-btn">Xem thêm</a>
                         </div>
                     </div>
                     <div class="place-item">

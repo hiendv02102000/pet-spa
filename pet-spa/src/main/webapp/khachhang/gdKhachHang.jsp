@@ -12,26 +12,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Khách hàng</title>
     <link href="../style/main.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="../assets/css/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <div id="main">
-        <div id="header">
-            <!-- begin nav -->
+         <div id="header">
             <div class="logo">
                 <a href="#content"><img src="../assets/img/logo.png" alt="logo" class="place-img"> </a>
             </div>
             <ul id="nav">
+                
                 <li><a href="#content">Trang chủ </a></li>
                 <li><a href="#dv">Dịch vụ</a></li>             
                 <li><a href="#contact">Liên hệ</a></li>
                 <li><a href="#gt">Giới thiệu</a></li>
                 <li>
-                    <a href="./Datlich/datlich.html">
-                        Đặt lịch
+                    <a href="gdXemLichHen.jsp">
+                                    Xem lịch hẹn
                         <i class="nav-arrow-down ti-angle-down"></i>
                     </a>
                 </li>
@@ -41,8 +41,7 @@
         </div>
 
         <div class="calender">
-            <a href="#"><img src="../assets/img/pngwing.com.png" alt="calender"  class="place-img"></a>
-
+            <a href="gdDatLich.jsp"><img src="../assets/img/pngwing.com.png" alt="calender"  class="place-img"></a>
         </div>
 
         <div id="content">

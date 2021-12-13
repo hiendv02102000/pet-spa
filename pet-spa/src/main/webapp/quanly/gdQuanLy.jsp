@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quản lý</title>
     <link href="../style/main.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="../assets/css/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -28,21 +28,10 @@
                 <li><a href="#content">Trang chủ </a></li>
                 <li><a href="#dv">Dịch vụ</a></li>             
                 <li><a href="#gt">Giới thiệu</a></li>
-                <li><a href="./DichVuSD/dichvusd.html">Thống kê dịch vụ sử dụng</a></li>
-                <li><a href="./Addservice/addservice.html">Thêm dịch vụ</a></li>
-                
-                <li><a href="./Doanhthu/Doanhthu.html">Thống kê doanh thu</a></li>
-                <li>
-                    <a href="#">
-                        Quản lý
-                        <i class="nav-arrow-down ti-angle-down"></i>
-                    </a>
-                    <ul class="subnav">
-                        <li><a href="./Chamcong/chamcong.html">Chấm công</a></li>
-                        <li><a href="./Chinhsuaweb/chinhsuaweb.html">Chỉnh sửa thông tin nhân viên</a></li>
-                    </ul>
-                </li>
-                <li><a href="./Tinhluong/tinhluong.html">Tính lương</a></li>
+                <li><a href="gdTKDichVu.jsp">TK dịch vụ</a></li>
+                <li><a href="gdTKDoanhThu.jsp">TK doanh thu</a></li>   
+                <li><a href="gdQuanLyNV.jsp">QL Nhân viên</a></li>
+                <li><a href="gdQLDichVu.jsp">QL Dịch vụ</a></li>
             </ul> 
            
            
@@ -103,7 +92,7 @@
                         </div>
                     </div>
                     <div class="place-item">
-                        <img src="../assets//css/img/pet3.jpg" alt="San Francisco" class="place-img">
+                        <img src="../assets//img/pet3.jpg" alt="San Francisco" class="place-img">
                         <div class="place-body">
                             <h3 class="place-heading">Mát xa</h3>
                             <p class="place-time">300,000 đ</p>

@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nhân viên</title>
     <link href="../style/main.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="../assets/css/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -30,10 +30,14 @@
                 <li><a href="#contact">Liên hệ</a></li>
                 <li><a href="#gt">Giới thiệu</a></li>
                 <li>
-                    <a href="./Kiemtralich/kiemtralich.html">
-                        Kiểm tra lịch hẹn
-                        <i class="nav-arrow-down ti-angle-down"></i>
+                    <a href="gdTaoHoaDon.jsp">Tạo hóa đơn</a>
                     </a>
+                </li>
+                <li>
+                    <a href="gdKTLichHen.jsp">KT Lịch hẹn</a>
+                </li>
+                <li>
+                    <a href="gdTKHoaDon.jsp">TK Hóa đơn</a>
                 </li>
             </ul> 
            
