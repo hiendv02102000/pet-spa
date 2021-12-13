@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
 import model.DichVu;
+import model.LichHen;
 import model.LichHenDichVu;
 import utils.FormateDateTime;
 
@@ -49,5 +50,11 @@ public class LichHenDichVuDAO extends  DAO{
             return null;
         }
         return listLHDV.toArray(result);
+    }
+    public boolean delete(LichHen lh){
+        return false;
+    }
+     public boolean insert(LichHenDichVu lh){
+        return true;
     }
 }

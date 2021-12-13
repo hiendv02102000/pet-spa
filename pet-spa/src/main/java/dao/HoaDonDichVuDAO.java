@@ -4,10 +4,20 @@
  */
 package dao;
 
+import model.HoaDonDichVu;
+
 /**
  *
  * @author admin
  */
-public class HoaDonDichVuDAO {
-    
+public class HoaDonDichVuDAO extends DAO{
+
+    public HoaDonDichVuDAO() {
+    }
+    public HoaDonDichVu[] getByHoaDonID(int hdid){
+        return null;
+    }
+    public boolean insert(int idhd ,HoaDonDichVu hddv){
+        return true;
+    }
 }

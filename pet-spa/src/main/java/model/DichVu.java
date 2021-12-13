@@ -47,6 +47,34 @@ public class DichVu {
         return id+" "+ten+" "+formatDateTimeVi(this.ngayTao)+" "+ngayXoa;//To change body of generated methods, choose Tools | Templates.
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getTen() {
+        return ten;
+    }
+
+    public BigInteger getGiaCa() {
+        return giaCa;
+    }
+
+    public int getGioiHan() {
+        return gioiHan;
+    }
+
+    public String getMoTa() {
+        return moTa;
+    }
+
+    public LocalDateTime getNgayTao() {
+        return ngayTao;
+    }
+
+    public LocalDateTime getNgayXoa() {
+        return ngayXoa;
+    }
+
    
     
 }

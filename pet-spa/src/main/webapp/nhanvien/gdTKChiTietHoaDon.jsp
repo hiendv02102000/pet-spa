@@ -1,6 +1,6 @@
 <%-- 
-    Document   : gdThanhToan
-    Created on : Nov 17, 2021, 9:04:31 PM
+    Document   : gdTKChiTietHoaDon
+    Created on : Nov 17, 2021, 9:04:22 PM
     Author     : admin
 --%>
 

@@ -4,25 +4,21 @@
  */
 package dao;
 
-import model.HoaDon;
-import model.TKDoanhThu;
+import model.TKChiTietDichVu;
 
 /**
  *
  * @author admin
  */
-public class HoaDonDAO extends DAO{
+public class TKChiTietDichVuDAO {
 
-    public HoaDonDAO() {
+    public TKChiTietDichVuDAO() {
         super();
     }
-    public HoaDon getByID(int id){
+    public TKChiTietDichVu[] getAll(){
         return null;
     }
-    public HoaDon[] getOnMonthByIDKH(int ID,int thang,int nam){
+    public TKChiTietDichVu[] getByDichVuIDOnMonth(int dvid,int thang,int nam){
         return null;
-    }
-    public void insert(HoaDon hd){
-        
     }
 }

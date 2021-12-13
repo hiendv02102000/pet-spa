@@ -1,11 +1,9 @@
 <%-- 
     Document   : gdQuanLy
-    Created on : Oct 9, 2021, 7:32:32 PM
+    Created on : Nov 17, 2021, 8:54:18 PM
     Author     : admin
 --%>
 
-<%@page import="com.sun.org.apache.bcel.internal.generic.AALOAD"%>
-<!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html lang="vi">
 <head>

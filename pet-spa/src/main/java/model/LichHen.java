@@ -18,4 +18,16 @@ public class LichHen {
     private LocalDateTime ngayXoa;
     private KhachHang khachHang;
     private LichHenDichVu[] listLHDV;
+
+    public LichHen(int id, LocalDateTime thoiGianHen, BigInteger giaDuKien, KhachHang khachHang, LichHenDichVu[] listLHDV) {
+        this.id = id;
+        this.thoiGianHen = thoiGianHen;
+        this.giaDuKien = giaDuKien;
+        this.khachHang = khachHang;
+        this.listLHDV = listLHDV;
+    }
+
+    
+    
+    
 }

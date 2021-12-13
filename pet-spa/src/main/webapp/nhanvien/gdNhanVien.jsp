@@ -1,12 +1,11 @@
 <%-- 
     Document   : gdNhanVien
-    Created on : Oct 9, 2021, 7:36:43 PM
+    Created on : Nov 17, 2021, 9:04:01 PM
     Author     : admin
 --%>
 
-<%@page import="com.sun.org.apache.bcel.internal.generic.AALOAD"%>
-<!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -133,4 +132,15 @@
         </div>
     </div>
 </body>
+=======
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+    </body>
+>>>>>>> 59193a021af4fb8609813029d6b95979406f5524
 </html>
