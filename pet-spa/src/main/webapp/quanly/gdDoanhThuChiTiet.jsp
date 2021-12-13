@@ -13,7 +13,7 @@
             <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <link href="../style/table.css" rel="stylesheet" type="text/css"/>
-            <title>Thống kê doanh thu</title>
+            <title>Doanh thu chi tiết</title>
             </head>
             
             <body>
@@ -25,23 +25,19 @@
                         </div>
                 </div>
             </header>
-            <h1 style="font-family: emoji; font-size: 250%;">Doanh thu theo tháng</h1>
-            <form class="date" style = "margin-left: 20px">
-                <label for="Daytime">Tháng:</label>
-                <input type="month" id="NgayThang" name="NgayThang">
-              </form> 
+            <h1 style="font-family: emoji; font-size: 250%;">Thống kê chi tiết doanh thu</h1>
             <table class="table">
               <tr>
                 <th class="table__heading">STT</th>
-                <th class="table__heading">Ca</th>
-                <th class="table__heading">Ngày</th>
-                <th class="table__heading">Nhân viên chốt ca</th>
-                <th class="table__heading">Doanh thu</th>
+                <th class="table__heading">Mã hóa đơn</th>
+                <th class="table__heading">Ca làm</th>
+                <th class="table__heading">Ngày tạo</th>
+                <th class="table__heading">Thành tiền</th>
               <tr class="table__row">
                 <td class="table__content" >1</td>
+                <td class="table__content" >INT1</td>
+                <td class="table__content" >Cắt tỉa lông, tắm</td>
                 <td class="table__content" >Sáng</td>
-                <td class="table__content" >20</td>
-                <td class="table__content" > <a href="gdDoanhThuChiTiet.jsp">Đỗ Văn Hiển</a></td>
                 <td class="table__content" >100.000đ</td>
               </tr>
               <tr class="table__row" style="font-weight: bold" >
@@ -55,4 +51,4 @@
             </body>
             
             
-</html>
+</html> 
