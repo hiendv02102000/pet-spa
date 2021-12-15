@@ -1,11 +1,6 @@
 <%-- 
-<<<<<<< HEAD
-    Document   : gdKTLichHen
-    Created on : Oct 9, 2021, 7:36:13 PM
-=======
     Document   : gdChiTietLichHen
     Created on : Nov 17, 2021, 9:03:50 PM
->>>>>>> 59193a021af4fb8609813029d6b95979406f5524
     Author     : admin
 --%>
 

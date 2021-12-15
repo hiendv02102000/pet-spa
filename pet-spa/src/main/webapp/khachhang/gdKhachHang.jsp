@@ -5,7 +5,6 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -132,15 +131,3 @@
         </div>
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
->>>>>>> 59193a021af4fb8609813029d6b95979406f5524
