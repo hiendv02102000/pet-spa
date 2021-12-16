@@ -23,14 +23,14 @@
                 <div class="nav1">
                     <div class="logo">
                         
-                        <a href="gdKhachHang.jsp"><img src="../assets/img/logo.png" alt="logo" class="place-img"> </a>
+                        <a href="../"><img src="../assets/img/logo.png" alt="logo" class="place-img"> </a>
                     </div>
             </div>
         </header>
         <main>
             <div class="container2">
             <div class="login-form">
-                <form action="" method="post">
+                <form action="doLuuDangKy.jsp" method="post">
                     <h1>Đăng ký</h1>
                     <div class="input-box">
                         <i ></i>

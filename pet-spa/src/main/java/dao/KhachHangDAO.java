@@ -29,7 +29,7 @@ public class KhachHangDAO extends DAO{
     public KhachHang getByID(int id){
         return null;
     }
-    public void insert (KhachHang kh){
+    public boolean insert (KhachHang kh){
         String sql1 = "INSERT INTO tblNguoiDung (tendangnhap, matkhau, soCCCD, ngaysinh, ngaytao,email,sdt,"
                 + "loaitaikhoan,ho,tendem,ten,sonha,cumdancu,xaphuong,quanhuyen,tinhthanh)" +
                     "VALUES (?, ?, ?, ?, ?,?,?,?,"
@@ -53,7 +53,8 @@ public class KhachHangDAO extends DAO{
             prepareStatement.setString(15, kh.getDiaChi().getQuanHuyen());
             prepareStatement.setString(16, kh.getDiaChi().getTinhThanh());
             
-            int rowCount= prepareStatement.executeUpdate();int ndID=0;System.out.print("abcs");
+            int rowCount= prepareStatement.executeUpdate();int ndID=0;
+            if(rowCount <=0) return false;
            String sql2 = "Select id from tblNguoiDung "
                    + "ORDER BY id Desc"; 
            Statement statement = this.conn.createStatement();
@@ -65,8 +66,12 @@ public class KhachHangDAO extends DAO{
             String sql3 = "INSERT INTO tblKhachHang (tichluy,tblNguoiDungid,tblLoaiKhachHangid) "
                     + "value(0,"+ndID+",4)";
             statement.executeUpdate(sql3);
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
+           
             Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+         ///   System.out.println("ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+            return false;
         }
+        return true;
     }
 }
