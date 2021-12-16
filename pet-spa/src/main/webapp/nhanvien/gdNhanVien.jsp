@@ -28,6 +28,7 @@
                 <li><a href="#dv">Dịch vụ</a></li>             
                 <li><a href="#contact">Liên hệ</a></li>
                 <li><a href="#gt">Giới thiệu</a></li>
+                <li><a href="../nguoidung/gdSuaThongTin.jsp">Sửa thông tin</a></li>
                 <li>
                     <a href="gdTaoHoaDon.jsp">Tạo hóa đơn</a>
                     </a>
@@ -38,6 +39,7 @@
                 <li>
                     <a href="gdTKHoaDon.jsp">TK Hóa đơn</a>
                 </li>
+                <li ><a href="#">Đăng xuất</a></li>
             </ul> 
            
            

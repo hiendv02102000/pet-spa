@@ -7,7 +7,7 @@
 <%@page import="com.sun.org.apache.bcel.internal.generic.AALOAD"%>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<html lang="vi">
+<html lang="vi" style="background-color: greenyellow">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,7 +29,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sửa thông tin</title>
+    <title>Thêm nhân viên</title>
     <link href="../style/register.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="../assets/css/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -40,7 +40,7 @@
                 <div class="nav1">
                     <div class="logo">
                         
-                        <img src="../assets/img/logo.png" alt="logo" class="place-img"> 
+                         <a href="gdQuanLy.jsp"><img src="../assets/img/logo.png" alt="logo" class="place-img"> </a>
                     </div>
             </div>
         </header>
@@ -49,7 +49,7 @@
                 <div class="wrapper wrapper--w790">
                     <div class="card card-5">
                         <div class="card-heading" style = "margin-top: 35px">
-                            <h2 class="title">Sửa thông tin</h2>
+                            <h2 class="title">Thêm nhân viên</h2>
                         </div>
                         <div class="card-body">
                             <form method="POST">
@@ -182,8 +182,7 @@
                                 </div>
 
                                 <div>
-                                    <button class="btn btn--radius-2 btn--red" type="submit" style = "background-color: rgb(51, 236, 51); margin-right: 10px">Xác nhận</button>
-                                    <button class="btn btn--radius-2 btn--red" type="submit">Hủy</button>
+                                    <button class="btn btn--radius-2 btn--red" type="submit">Xác nhận</button>
                                 </div>
                             </form>
                         </div>

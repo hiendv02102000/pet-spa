@@ -5,14 +5,13 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập</title>
-    <link href="../style/loginregister.css" rel="stylesheet" type="text/css"/>
+    <link href="../style/login.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="../assets/css/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -47,15 +46,5 @@
             </div>
             </div>
         </main>
-=======
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
->>>>>>> 59193a021af4fb8609813029d6b95979406f5524
     </body>
 </html>
