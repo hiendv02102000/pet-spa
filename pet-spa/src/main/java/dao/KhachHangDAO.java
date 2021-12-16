@@ -53,7 +53,8 @@ public class KhachHangDAO extends DAO{
             prepareStatement.setString(15, kh.getDiaChi().getQuanHuyen());
             prepareStatement.setString(16, kh.getDiaChi().getTinhThanh());
             
-            int rowCount= prepareStatement.executeUpdate();int ndID=0;
+            int rowCount= prepareStatement.executeUpdate();
+            int ndID=0;
             if(rowCount <=0) return false;
            String sql2 = "Select id from tblNguoiDung "
                    + "ORDER BY id Desc"; 
