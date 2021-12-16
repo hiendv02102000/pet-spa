@@ -1,47 +1,40 @@
-<%-- 
-    Document   : gdKhachHang
-    Created on : Oct 9, 2021, 7:40:52 PM
-    Author     : admin
---%>
-
+<%@page import="com.sun.org.apache.bcel.internal.generic.AALOAD"%>
+<!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khách hàng</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/main.css">
     <link href="../style/main.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="../assets/css/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <div id="main">
-         <div id="header">
+        <div id="header">
             <div class="logo">
                 <a href="#content"><img src="../assets/img/logo.png" alt="logo" class="place-img"> </a>
             </div>
+            <!-- begin nav -->
             <ul id="nav">
-                
                 <li><a href="#content">Trang chủ </a></li>
                 <li><a href="#dv">Dịch vụ</a></li>             
                 <li><a href="#contact">Liên hệ</a></li>
-                <li><a href="#gt">Giới thiệu</a></li>
-                <li>
-                    <a href="gdXemLichHen.jsp">
-                                    Xem lịch hẹn
-                        <i class="nav-arrow-down ti-angle-down"></i>
-                    </a>
-                </li>
+                <li><a href="gdXemLichHen.jsp">Xem lịch hẹn</a></li>
+                <li><a href="../nguoidung/gdSuaThongTin.jsp">Sửa thông tin</a></li>
+                <li ><a href="#">Đăng xuất</a></li>
+                
+
             </ul> 
            
            
         </div>
-
+        
         <div class="calender">
             <a href="gdDatLich.jsp"><img src="../assets/img/pngwing.com.png" alt="calender"  class="place-img"></a>
         </div>
-
         <div id="content">
             <!-- About section -->
             <div class="content-section1">
@@ -70,8 +63,8 @@
             <div class="tour-section" id="dv">
                 <div class="content-section">
                     <div class="place-list">
-                        <h2 style="font-size: 50px;" class="section-heading text-black">Dịch vụ</h2> 
-                        <p style="font-size: 30px;" class="section-sub-heading text-black">Chúng tôi sẽ tạo ra trải nghiệm tốt nhất với thú cưng của bạn</p>
+                        <h2 style="font-size: 45px;" class="section-heading text-white">Dịch vụ</h2> 
+                        <p style="font-size: 25px;" class="section-sub-heading text-white">Chúng tôi sẽ tạo ra trải nghiệm tốt nhất với thú cưng của bạn</p>
                     </div>
                     </div>
                     <div class="clear"></div>
@@ -79,17 +72,16 @@
                 <div class = "kind">
 
                     <div class="place-item">
-                        <img src="../assets/img/pet1.jpg" alt="New York" class="place-img">
+                        <img src="./assets/img/pet1.jpg" alt="New York" class="place-img">
                         <div class="place-body">
                             <h3 class="place-heading">Cắt tỉa lông</h3>
                             <p class="place-time">100,000 đ</p>
                             <p class="place-desc">Thú cưng của bạn sẽ có một bộ lông sành điệu</p>
-                            <a href="./Cattialong/catia.html" class="place-buy-btn">Xem thêm</a>
-
+                            <a href="quanly/gdChiTietDichVu.jsp" class="place-buy-btn">Xem thêm</a>
                         </div>
                     </div>
                     <div class="place-item">
-                        <img src="../assets/img/pet2.jpg" alt="Paris" class="place-img">
+                        <img src="./assets/img/pet2.jpg" alt="Paris" class="place-img">
                         <div class="place-body">
                             <h3 class="place-heading">Tắm</h3>
                             <p class="place-time">200,000 đ</p>
@@ -99,7 +91,7 @@
                         </div>
                     </div>
                     <div class="place-item">
-                        <img src="../assets/img/pet3.jpg" alt="San Francisco" class="place-img">
+                        <img src="./assets/img/pet3.jpg" alt="San Francisco" class="place-img">
                         <div class="place-body">
                             <h3 class="place-heading">Mát xa</h3>
                             <p class="place-time">300,000 đ</p>
@@ -125,9 +117,15 @@
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </div>
 
-            </div>       
+            </div>
+        </div>
         <div id="footer">
 
         </div>
+    </div>
 </body>
 </html>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 570ff5e1ceeb6f2c9b60ce649062a5519718e819
