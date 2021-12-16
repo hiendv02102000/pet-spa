@@ -43,7 +43,7 @@
               
                 if(!matKhau.equals(nhaplaiMatkhau)){
                    // response.setHeader("Location", "./gdDangKy.jsp");
-                    err = "không trùng";
+                    err = "pass_word_fail";
                  
                 }
                LocalDate ngaySinh = LocalDate.parse(request.getParameter("ngaysinh"));
@@ -67,15 +67,20 @@
                 //response.sendRedirect("./gdDangKy.jsp");
                
                 if(err.isEmpty()){
-                       if( !dao.insert(kh))err = "fail";
-                       else err = "ok";
+                       if( !dao.insert(kh))err = "tên đăng nhập trùng";
+                       else {
+                          request.setAttribute("khachhang", kh);
+                         // KhachHang kh1 =(KhachHang)request.getAttribute("khachhang");
+                          
+                          response.sendRedirect("./gdKhachHang.jsp"); 
+                       }
                 }
                 
             }catch(Exception e){
-                err += e.getMessage();
-                //response.sendRedirect("./gdDangKy.jsp"); 
+               
+                response.sendRedirect("./gdDangKy.jsp?err="+err); 
             }
-
+            response.sendRedirect("./gdDangKy.jsp?err="+err); 
         %>
          <h1><%= err %> </h1>
     </body>
