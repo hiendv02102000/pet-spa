@@ -69,8 +69,8 @@
                 if(err.isEmpty()){
                        if( !dao.insert(kh))err = "tên đăng nhập trùng";
                        else {
-                          request.setAttribute("khachhang", kh);
-                         // KhachHang kh1 =(KhachHang)request.getAttribute("khachhang");
+                          session.setAttribute("khachhang", kh);
+                         // KhachHang kh1 =(KhachHang)session.getAttribute("khachhang");
                           
                           response.sendRedirect("./gdKhachHang.jsp"); 
                        }
