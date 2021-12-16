@@ -40,11 +40,16 @@
                 <div class="nav1">
                     <div class="logo">
                         
+<<<<<<< HEAD
                         <img src="../assets/img/logo.png" alt="logo" class="place-img"> 
+=======
+                        <a href="../"><img src="../assets/img/logo.png" alt="logo" class="place-img"> </a>
+>>>>>>> 570ff5e1ceeb6f2c9b60ce649062a5519718e819
                     </div>
             </div>
         </header>
         <main>
+<<<<<<< HEAD
             <div class="page-wrapper bg-gra-03 p-t-45 p-b-50" >
                 <div class="wrapper wrapper--w790">
                     <div class="card card-5">
@@ -186,6 +191,36 @@
                                 </div>
                             </form>
                         </div>
+=======
+            <div class="container2">
+            <div class="login-form">
+                <form action="doLuuDangKy.jsp" method="post">
+                    <h1>Đăng ký</h1>
+                    <div class="input-box">
+                        <i ></i>
+                        <input type="text" placeholder="Nhập username">
+                    </div>
+                    <div class="input-box">
+                        <i ></i>
+                        <input type="password" placeholder="Nhập mật khẩu">
+                    </div>
+                    <div class="input-box">
+                        <i ></i>
+                        <input type="password" placeholder="Nhập lại mật khẩu">
+                    </div>
+                    <div class="input-box">
+                        <i ></i>
+                        <input type="text" placeholder="Nhập email">
+                    </div>
+                    <div class="input-box">
+                        <i ></i>
+                        <input type="text" placeholder="Nhập SĐT">
+                    </div>
+                    <div class="btn-box">
+                        <button type="submit">
+                            Đăng ký
+                        </button>
+>>>>>>> 570ff5e1ceeb6f2c9b60ce649062a5519718e819
                     </div>
                 </div>
             </div>

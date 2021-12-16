@@ -27,7 +27,7 @@ public class DAO {
     public DAO(){
         try{
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                String connectionURL = "jdbc:mysql://" + HostName + ":3306/" + DBName+"?zeroDateTimeBehavior=convertToNull";
+                String connectionURL = "jdbc:mysql://" + HostName + ":3307/" + DBName+"?zeroDateTimeBehavior=convertToNull";
                 this.conn = DriverManager.getConnection(connectionURL, UserName, Password);
             }
             catch(Exception e){
