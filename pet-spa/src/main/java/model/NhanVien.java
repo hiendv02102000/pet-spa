@@ -19,6 +19,9 @@ public class NhanVien extends NguoiDung{
         super(tenDangNhap, matKhau, ngaySinh, email, sdt, soCCCD, loaiTaiKhoan, hoTen, diaChi);
     }
 
+    public NhanVien() {
+    }
+
     
     
 }

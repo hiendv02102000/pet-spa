@@ -63,6 +63,14 @@ public class NguoiDung {
         return email;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setHoTen(HoTen hoTen) {
+        this.hoTen = hoTen;
+    }
+
     public String getSoCCCD() {
         return soCCCD;
     }

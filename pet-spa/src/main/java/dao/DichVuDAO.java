@@ -48,7 +48,7 @@ public class DichVuDAO extends DAO{
             return null;
         }
     }
-    public boolean insert(DichVu dv){
+    public String insert(DichVu dv){
         try {
             String sql = "INSERT INTO tblDichVu (ten, giaca, gioihan, mota, ngaytao)" +
                     "VALUES (?, ?, ?, ?, ?);";
@@ -59,14 +59,14 @@ public class DichVuDAO extends DAO{
             prepareStatement.setString(4, dv.getMoTa());
             prepareStatement.setString(5, LocalDateTime.now().toString());
             int rowCount= prepareStatement.executeUpdate();//thực thi làm thay đổi dữ liệu
-            return true;
+            return rowCount+"";
         } catch (Exception ex) {
-            return false;
+            return ex.getMessage();
         }
     }
-    public DichVu[] getByName(String name){
+    public DichVu[] getByTenDV(String tenDV){
      // tenDV = FormatVI.encodeVI(tenDV);
-      String sql = "Select * from tblDichVu WHERE ten LIKE '%"+name+"%'"+" AND "+ConditionsOfExist;
+      String sql = "Select * from tblDichVu WHERE ten LIKE '%"+tenDV+"%'"+" AND "+ConditionsOfExist;
       Vector<DichVu> listDV = new Vector<DichVu>();
       DichVu[] result;
         ResultSet rs;
@@ -115,21 +115,13 @@ public class DichVuDAO extends DAO{
             return null;
         }
         return listDV.toArray(result);
-
     }
-    public boolean update(DichVu dv){
-        return false;
+    public static void main (String[] args){
+        DichVuDAO dvdao = new DichVuDAO();
+        DichVu[] list = dvdao.getAll();
+        for(int i=0;i<list.length;i++){
+            System.out.print(list[i].toString());
+            System.out.println("");
+        }
     }
-    public boolean delete(DichVu dv){
-        return false;
-    }
-    public DichVu[] getOnDay(int ngay ,int nam,int thang){
-        return null;
-    }
-    public DichVu[] getOnMonthbyIDKH(int idkh ,int nam,int thang){
-        return null;
-
-    }   
-   
-   
 }
