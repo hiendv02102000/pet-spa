@@ -27,6 +27,8 @@ public class LichHen {
         this.listLHDV = listLHDV;
     }
 
+    public LichHen() {
+    }
     public int getId() {
         return id;
     }
@@ -38,6 +40,7 @@ public class LichHen {
     public LocalDateTime getThoiGianHen() {
         return thoiGianHen;
     }
+
 
     public void setThoiGianHen(LocalDateTime thoiGianHen) {
         this.thoiGianHen = thoiGianHen;
