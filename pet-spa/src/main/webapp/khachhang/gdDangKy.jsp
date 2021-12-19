@@ -4,6 +4,8 @@
     Author     : admin
 --%>
 
+<%@page import="model.*"%>
+<%@page import="java.time.LocalDate"%>
 <%@page import="com.sun.org.apache.bcel.internal.generic.AALOAD"%>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,17 +36,63 @@
     <link rel="stylesheet" href="../assets/css/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<script>
-    var err = new URLSearchParams(document.location.search).get("err")
-    if(err >0){
-        if(err == 1 ){
-            alert("nhập lại mật không trùng khớp")
-        }
-        if(err == 2 ){
-            alert("tên đăng nhập trùng")
-        }
+<%
+     // request.get
+      String err = "";
+     if(request.getParameter("check")!=null){
+               
+                String tenDangNhap =request.getParameter("tendangnhap");
+               if(tenDangNhap!=null&&tenDangNhap.isEmpty()){
+                        err = "Tên đăng nhập không để trống";
+                       
+                }
+                String matKhau =request.getParameter("matkhau");
+                if(matKhau!=null&&matKhau.isEmpty()){
+                        err = "Mật khẩu không để trống";
+                        
+                }
+                String nhaplaiMatkhau =request.getParameter("nhaplai_matkhau");
+                
+              
+                if(nhaplaiMatkhau==null||!matKhau.equals(nhaplaiMatkhau)){
+                   err = "Nhập lại mật khẩu không khớp";
+                   
+                }
+                String ngaysinh = request.getParameter("ngaysinh");
+               //  ngaySinh=null;
+                if(ngaysinh!=null&&ngaysinh.isEmpty()){
+                        err = "Ngày sinh không để trống";
+                        
+                }
+                
+               String email =request.getParameter("email");
+                if(email !=null&&email.isEmpty()){
+                        err = "Tên đăng nhập không để trống";
+                        
+                }
+               String soCCCD =request.getParameter("CCCD");
+              
+               String sdt =request.getParameter("sdt");
+               String ho =request.getParameter("ho");
+               String ten =request.getParameter("ten");
+               String tenDem =request.getParameter("tendem");
+               HoTen hoTen = new HoTen(ho, tenDem, ten);
+               String soNha =request.getParameter("sonha");
+               String cumDanCu =request.getParameter("cumdancu");
+               String xaPhuong =request.getParameter("xaphuong");
+               String quanHuyen =request.getParameter("quanhuyen");
+               String tinhThanh =request.getParameter("tinhthanh");
+               
+               if(err.isEmpty()){
+                    LocalDate ngaySinh = LocalDate.parse( ngaysinh);
+                    DiaChi diaChi = new DiaChi(soNha, cumDanCu, xaPhuong, quanHuyen, tinhThanh);
+                    KhachHang kh = new KhachHang(tenDangNhap, matKhau, ngaySinh, email, sdt, soCCCD, hoTen, diaChi);
+                    session.setAttribute("khachhang", kh);
+                    response.sendRedirect("./doLuuDangKy.jsp");
+               }
     }
-</script>
+%>
+
     <body>
         <header>
             <div class="container1">
@@ -61,9 +109,10 @@
                     <div class="card card-5">
                         <div class="card-heading" style = "margin-top: 35px">
                             <h2 class="title">Đăng ký</h2>
+                            <p class="title" style="font-size: 14px;color: red"><%=err%></p>
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="doLuuDangKy.jsp">
+                            <form method="POST" action="./gdDangKy.jsp?check=true">
                                 <div class="form-row">
                                     <div class="name">Tên đăng nhập</div>
                                     <div class="value">
