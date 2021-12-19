@@ -1,8 +1,3 @@
-<%-- 
-    Document   : gdNhanVien
-    Created on : Nov 17, 2021, 9:04:01 PM
-    Author     : admin
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html lang="vi">
@@ -21,7 +16,6 @@
             <div class="logo">
                 <a href="#content"><img src="../assets/img/logo.png" alt="logo" class="place-img"> </a>
             </div>
-            <!-- begin nav -->
             <ul id="nav">
                 <li><a href="#content">Trang chủ </a></li>
                 <li><a href="#dv">Dịch vụ</a></li>             
@@ -29,8 +23,7 @@
                 <li><a href="#gt">Giới thiệu</a></li>
                 <li><a href="../nguoidung/gdSuaThongTin.jsp">Sửa thông tin</a></li>
                 <li>
-                    <a href="gdTaoHoaDon.jsp">Tạo hóa đơn</a>
-                    </a>
+                    <a href="gdThanhToan.jsp">Thanh toán</a>
                 </li>
                 <li>
                     <a href="gdKTLichHen.jsp">KT Lịch hẹn</a>

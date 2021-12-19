@@ -35,7 +35,7 @@
                 <th class="table__heading">Thành tiền</th>
               <a>
                   <tr class="table__row">
-                <td class="table__content" ><a href="gdChiTietHoaDon.jsp">INT1</a></td>
+                <td class="table__content" ><a href="gdTKChiTietHoaDon.jsp">INT1</a></td>
                 <td class="table__content" >Cắt tỉa lông, tắm</td>
                 <td class="table__content" >Sáng</td>
                 <td class="table__content" >21/10/2021</td>
@@ -43,7 +43,7 @@
               </tr>
               </a>
               <tr class="table__row">
-                <td class="table__content" ><a href="gdChiTietHoaDon.jsp">INT2</a></td>
+                <td class="table__content" ><a href="gdTKChiTietHoaDon.jsp">INT2</a></td>
                 <td class="table__content" >Tắm</td>
                 <td class="table__content" >Sáng</td>
                 <td class="table__content" >21/10/2021</td>
