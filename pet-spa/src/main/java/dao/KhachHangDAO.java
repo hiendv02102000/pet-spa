@@ -67,6 +67,13 @@ public class KhachHangDAO extends DAO{
             String sql3 = "INSERT INTO tblKhachHang (tichluy,tblNguoiDungid,tblLoaiKhachHangid) "
                     + "value(0,"+ndID+",4)";
             statement.executeUpdate(sql3);
+            String sql4 = "Select id from tblkhachhang "
+                   + "where tblNguoiDungid= "+ndID; 
+            statement = this.conn.createStatement();
+            rs=statement.executeQuery(sql4);
+            if(rs.next()){
+                kh.setId(rs.getInt(1));
+            }
         } catch (Exception ex) {
            
             Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
