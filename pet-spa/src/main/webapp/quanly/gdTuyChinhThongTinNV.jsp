@@ -66,7 +66,7 @@
                                     <div class="name">Mật khẩu</div>
                                     <div class="value">
                                         <div class="input-group">
-                                            <input class="input--style-5" type="text" id = "matkhau" name="matkhau">
+                                            <input class="input--style-5" type="pasword" id = "matkhau" name="matkhau">
                                         </div>
                                     </div>
                                 </div>
