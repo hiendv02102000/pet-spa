@@ -34,22 +34,28 @@
     <link rel="stylesheet" href="../assets/css/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+<script>
+    var err = new URLSearchParams(document.location.search).get("err")
+    if(err >0){
+        if(err == 1 ){
+            alert("nhập lại mật không trùng khớp")
+        }
+        if(err == 2 ){
+            alert("tên đăng nhập trùng")
+        }
+    }
+</script>
     <body>
         <header>
             <div class="container1">
                 <div class="nav1">
                     <div class="logo">
                         
-<<<<<<< HEAD
-                        <img src="../assets/img/logo.png" alt="logo" class="place-img"> 
-=======
                         <a href="../"><img src="../assets/img/logo.png" alt="logo" class="place-img"> </a>
->>>>>>> 570ff5e1ceeb6f2c9b60ce649062a5519718e819
                     </div>
             </div>
         </header>
         <main>
-<<<<<<< HEAD
             <div class="page-wrapper bg-gra-03 p-t-45 p-b-50" >
                 <div class="wrapper wrapper--w790">
                     <div class="card card-5">
@@ -57,7 +63,7 @@
                             <h2 class="title">Đăng ký</h2>
                         </div>
                         <div class="card-body">
-                            <form method="POST">
+                            <form method="POST" action="doLuuDangKy.jsp">
                                 <div class="form-row">
                                     <div class="name">Tên đăng nhập</div>
                                     <div class="value">
@@ -191,36 +197,6 @@
                                 </div>
                             </form>
                         </div>
-=======
-            <div class="container2">
-            <div class="login-form">
-                <form action="doLuuDangKy.jsp" method="post">
-                    <h1>Đăng ký</h1>
-                    <div class="input-box">
-                        <i ></i>
-                        <input type="text" placeholder="Nhập username">
-                    </div>
-                    <div class="input-box">
-                        <i ></i>
-                        <input type="password" placeholder="Nhập mật khẩu">
-                    </div>
-                    <div class="input-box">
-                        <i ></i>
-                        <input type="password" placeholder="Nhập lại mật khẩu">
-                    </div>
-                    <div class="input-box">
-                        <i ></i>
-                        <input type="text" placeholder="Nhập email">
-                    </div>
-                    <div class="input-box">
-                        <i ></i>
-                        <input type="text" placeholder="Nhập SĐT">
-                    </div>
-                    <div class="btn-box">
-                        <button type="submit">
-                            Đăng ký
-                        </button>
->>>>>>> 570ff5e1ceeb6f2c9b60ce649062a5519718e819
                     </div>
                 </div>
             </div>

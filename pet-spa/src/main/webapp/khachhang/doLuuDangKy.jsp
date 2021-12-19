@@ -29,7 +29,7 @@
 </head>
     <body>
                 <%
-             String err = "";
+             int err = 0;
              
             try {
                 KhachHangDAO dao = new KhachHangDAO();
@@ -43,7 +43,7 @@
               
                 if(!matKhau.equals(nhaplaiMatkhau)){
                    // response.setHeader("Location", "./gdDangKy.jsp");
-                    err = "pass_word_fail";
+                    err = 1;
                  
                 }
                LocalDate ngaySinh = LocalDate.parse(request.getParameter("ngaysinh"));
@@ -66,19 +66,21 @@
                  KhachHang kh = new KhachHang(tenDangNhap, matKhau, ngaySinh, email, sdt, soCCCD, hoTen, diaChi);
                 //response.sendRedirect("./gdDangKy.jsp");
                
-                if(err.isEmpty()){
-                       if( !dao.insert(kh))err = "tên đăng nhập trùng";
+                if(err==0){
+                       if( !dao.insert(kh))err = 2;
                        else {
                           session.setAttribute("khachhang", kh);
                          // KhachHang kh1 =(KhachHang)session.getAttribute("khachhang");
                           
                           response.sendRedirect("./gdKhachHang.jsp"); 
+                          return;
                        }
                 }
                 
             }catch(Exception e){
                
-                response.sendRedirect("./gdDangKy.jsp?err="+err); 
+                response.sendRedirect("./gdDangKy.jsp?err="+err);
+                return;
             }
             response.sendRedirect("./gdDangKy.jsp?err="+err); 
         %>

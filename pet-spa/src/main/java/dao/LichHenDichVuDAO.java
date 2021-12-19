@@ -51,8 +51,17 @@ public class LichHenDichVuDAO extends  DAO{
         }
         return listLHDV.toArray(result);
     }
-    public boolean delete(LichHen lh){
-        return false;
+    public boolean delete(int idlh){
+           String sql = "Delete  FROM pet_spa.tbllichhendichvu where tblLichHenid="+idlh;
+       
+        try{ 
+            Statement statement = this.conn.createStatement();
+            int rowCount= statement.executeUpdate(sql);
+           
+        }catch(Exception e){
+            return false;
+        }
+        return true;
     }
      public boolean insert(LichHenDichVu lh){
         return true;
