@@ -40,16 +40,11 @@
                 <div class="nav1">
                     <div class="logo">
                         
-<<<<<<< HEAD
-                        <img src="../assets/img/logo.png" alt="logo" class="place-img"> 
-=======
                         <a href="../"><img src="../assets/img/logo.png" alt="logo" class="place-img"> </a>
->>>>>>> 570ff5e1ceeb6f2c9b60ce649062a5519718e819
                     </div>
             </div>
         </header>
         <main>
-<<<<<<< HEAD
             <div class="page-wrapper bg-gra-03 p-t-45 p-b-50" >
                 <div class="wrapper wrapper--w790">
                     <div class="card card-5">
@@ -70,7 +65,7 @@
                                     <div class="name">Mật khẩu</div>
                                     <div class="value">
                                         <div class="input-group">
-                                            <input class="input--style-5" type="text" id = "matkhau" name="matkhau">
+                                            <input class="input--style-5" type="password" id = "matkhau" name="matkhau">
                                         </div>
                                     </div>
                                 </div>
@@ -78,7 +73,7 @@
                                     <div class="name">Nhập lại mật khẩu</div>
                                     <div class="value">
                                         <div class="input-group">
-                                            <input class="input--style-5" type="text" id = "nhaplai_matkhau" name="nhaplai_matkhau">
+                                            <input class="input--style-5" type="password" id = "nhaplai_matkhau" name="nhaplai_matkhau">
                                         </div>
                                     </div>
                                 </div>
