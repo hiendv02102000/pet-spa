@@ -25,6 +25,9 @@ public class KhachHang extends NguoiDung{
         super(tenDangNhap, matKhau, ngaySinh, email, sdt, soCCCD, "KH", hoTen, diaChi);
     }
 
+    public KhachHang(NguoiDung nd) {
+      super(nd);
+    }
 
     
 }
