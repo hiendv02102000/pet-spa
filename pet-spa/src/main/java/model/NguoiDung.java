@@ -93,4 +93,16 @@ public class NguoiDung {
         return diaChi;
     }
     
+    public NguoiDung(NguoiDung nd){
+        this.tenDangNhap = nd.tenDangNhap;
+        this.matKhau = nd.matKhau;
+        this.ngaySinh = nd.ngaySinh;
+        this.email = nd.email;
+        this.sdt = nd.sdt;
+        this.soCCCD = nd.soCCCD;
+        this.loaiTaiKhoan = nd.loaiTaiKhoan;
+        this.hoTen = nd.hoTen;
+        this.diaChi = nd.diaChi;
+    }
+    
 }

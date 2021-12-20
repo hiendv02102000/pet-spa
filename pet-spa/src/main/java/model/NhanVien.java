@@ -18,6 +18,9 @@ public class NhanVien extends NguoiDung{
     public NhanVien(String tenDangNhap, String matKhau, LocalDate ngaySinh, String email, String sdt, String soCCCD, String loaiTaiKhoan, HoTen hoTen, DiaChi diaChi) {
         super(tenDangNhap, matKhau, ngaySinh, email, sdt, soCCCD, loaiTaiKhoan, hoTen, diaChi);
     }
+    public NhanVien(NguoiDung nd) {
+      super(nd);
+    }
 
     public NhanVien() {
     }

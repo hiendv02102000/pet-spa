@@ -27,15 +27,16 @@
         <main>
             <div class="container2">
             <div class="login-form">
-                <form action="" method="post">
+                <form action="doCheckLogin.jsp" method="post">
                     <h1>Đăng nhập vào website</h1>
+                    <p style="color: red; margin-bottom: 20px" class = "text">${mess}<p>
                     <div class="input-box">
                         <i ></i>
-                        <input type="text" placeholder="Nhập username">
+                        <input name ="tendangnhap" type="text" placeholder="Nhập tên đăng nhập">
                     </div>
                     <div class="input-box">
                         <i ></i>
-                        <input type="password" placeholder="Nhập mật khẩu">
+                        <input name ="matkhau" type="password" placeholder="Nhập mật khẩu">
                     </div>
                     <div class="btn-box">
                         <button type="submit">
