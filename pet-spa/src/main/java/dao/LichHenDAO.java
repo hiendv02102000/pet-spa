@@ -66,7 +66,30 @@ public class LichHenDAO extends DAO{
         return true;
     }
      public LichHen getByIDWithPreLoadKhachHang(int id ){
-         return null;
+          String sql1 = "Select * from tblLichHen" 
+                  + "Where id = "+id+" AND "+ConditionsOfExist;
+          String sql2 = "Select lh.* ("+sql1+") as lh"
+                  + "inner join tblKhachHang kh on kh.id = lh.tblKhachHangid ";
+       ResultSet rs;
+       Vector<LichHen> listLH = new Vector<LichHen>();
+        LichHen[] result;
+        try{ 
+            Statement statement = this.conn.createStatement();
+            rs=statement.executeQuery(sql2);
+            int count =0;
+           if(rs.next()){
+                LichHen lh = new LichHen(rs.getInt(1), 
+                        FormateDateTime.convertDBToLocalDateTime(rs.getDate(2), rs.getTime(2)), 
+                        new BigInteger(rs.getString(3)), 
+                        null, 
+                        null);
+            return lh;
+           }
+           return null;
+        }catch(Exception e){
+            return null;
+        }
+       
      }
      public LichHen[] getAll(){
         return null;
@@ -74,7 +97,7 @@ public class LichHenDAO extends DAO{
     public LichHen[] getByKhachHangCondition(String condition){
         return null;
     }
-    public LichHen[] getByLichHenID(int khID){
-        return null;
-    }
+//    public LichHen[] getByID(int ID){
+//        return null;
+//    }
 }

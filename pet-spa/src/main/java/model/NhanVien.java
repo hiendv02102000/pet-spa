@@ -19,6 +19,25 @@ public class NhanVien extends NguoiDung{
         super(tenDangNhap, matKhau, ngaySinh, email, sdt, soCCCD, loaiTaiKhoan, hoTen, diaChi);
     }
 
+    public NhanVien() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getNgayXoa() {
+        return ngayXoa;
+    }
+
+    public void setNgayXoa(LocalDateTime ngayXoa) {
+        this.ngayXoa = ngayXoa;
+    }
+
     
     
 }

@@ -38,7 +38,17 @@ public class NguoiDung {
         this.hoTen = hoTen;
         this.diaChi = diaChi;
     }
-
+    public NguoiDung(NguoiDung nd){
+        this.tenDangNhap = nd.tenDangNhap;
+        this.matKhau = nd.matKhau;
+        this.ngaySinh = nd.ngaySinh;
+        this.email = nd.email;
+        this.sdt = nd.sdt;
+        this.soCCCD = nd.soCCCD;
+        this.loaiTaiKhoan = nd.loaiTaiKhoan;
+        this.hoTen = nd.hoTen;
+        this.diaChi = nd.diaChi;
+    }
     public int getId() {
         return id;
     }

@@ -17,6 +17,8 @@ public class QuanLy extends NguoiDung{
         super(tenDangNhap, matKhau, ngaySinh, email, sdt, soCCCD, loaiTaiKhoan, hoTen, diaChi);
     }
 
-   
+    public QuanLy(NguoiDung nd) {
+      super(nd);
+    }
     
 }

@@ -33,6 +33,30 @@ public class KhachHang extends NguoiDung{
         return id;
     }
 
+    public BigInteger getTichLuy() {
+        return tichLuy;
+    }
+
+    public void setTichLuy(BigInteger tichLuy) {
+        this.tichLuy = tichLuy;
+    }
+
+    public LichHen[] getListlichHen() {
+        return listlichHen;
+    }
+
+    public void setListlichHen(LichHen[] listlichHen) {
+        this.listlichHen = listlichHen;
+    }
+
+    public LoaiKhachHang getLoaiKhachHang() {
+        return loaiKhachHang;
+    }
+
+    public void setLoaiKhachHang(LoaiKhachHang loaiKhachHang) {
+        this.loaiKhachHang = loaiKhachHang;
+    }
+
 
     
 }
