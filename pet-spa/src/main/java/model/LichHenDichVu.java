@@ -18,5 +18,29 @@ public class LichHenDichVu {
         this.dichVu = dichVu;
         this.soLuong = soLuong;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public DichVu getDichVu() {
+        return dichVu;
+    }
+
+    public void setDichVu(DichVu dichVu) {
+        this.dichVu = dichVu;
+    }
+
+    public int getSoLuong() {
+        return soLuong;
+    }
+
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
+    }
     
 }

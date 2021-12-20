@@ -27,6 +27,57 @@ public class LichHen {
         this.listLHDV = listLHDV;
     }
 
+    public LichHen() {
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getThoiGianHen() {
+        return thoiGianHen;
+    }
+
+
+    public void setThoiGianHen(LocalDateTime thoiGianHen) {
+        this.thoiGianHen = thoiGianHen;
+    }
+
+    public BigInteger getGiaDuKien() {
+        return giaDuKien;
+    }
+
+    public void setGiaDuKien(BigInteger giaDuKien) {
+        this.giaDuKien = giaDuKien;
+    }
+
+    public LocalDateTime getNgayXoa() {
+        return ngayXoa;
+    }
+
+    public void setNgayXoa(LocalDateTime ngayXoa) {
+        this.ngayXoa = ngayXoa;
+    }
+
+    public KhachHang getKhachHang() {
+        return khachHang;
+    }
+
+    public void setKhachHang(KhachHang khachHang) {
+        this.khachHang = khachHang;
+    }
+
+    public LichHenDichVu[] getListLHDV() {
+        return listLHDV;
+    }
+
+    public void setListLHDV(LichHenDichVu[] listLHDV) {
+        this.listLHDV = listLHDV;
+    }
+
     
     
     

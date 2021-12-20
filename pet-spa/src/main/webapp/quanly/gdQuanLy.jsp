@@ -26,10 +26,12 @@
                 <li><a href="#content">Trang chủ </a></li>
                 <li><a href="#dv">Dịch vụ</a></li>             
                 <li><a href="#gt">Giới thiệu</a></li>
+                <li><a href="../nguoidung/gdSuaThongTin.jsp">Sửa thông tin</a></li>
                 <li><a href="gdTKDichVu.jsp">TK dịch vụ</a></li>
                 <li><a href="gdTKDoanhThu.jsp">TK doanh thu</a></li>   
                 <li><a href="gdQuanLyNV.jsp">QL Nhân viên</a></li>
                 <li><a href="gdQLDichVu.jsp">QL Dịch vụ</a></li>
+                <li ><a href="#">Đăng xuất</a></li>
             </ul> 
            
            

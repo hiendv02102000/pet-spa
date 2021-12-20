@@ -7,17 +7,13 @@
 <%@page import="com.sun.org.apache.bcel.internal.generic.AALOAD"%>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<html lang="vi">
+<html lang="vi"
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Colorlib Templates">
     <meta name="author" content="Colorlib">
     <meta name="keywords" content="Colorlib Templates">
-
-    <!-- Title Page-->
-
-    <!-- Icons font CSS-->
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <!-- Font special for pages-->
@@ -29,13 +25,12 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tùy chỉnh thông tin nhân viên</title>
+    <title>Thêm nhân viên</title>
     <link href="../style/register.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="../assets/css/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 </head>
-    <body>
+    <body >
         <header>
             <div class="container1">
                 <div class="nav1">
@@ -50,7 +45,7 @@
                 <div class="wrapper wrapper--w790">
                     <div class="card card-5">
                         <div class="card-heading" style = "margin-top: 35px">
-                            <h2 class="title">Tùy chỉnh thông tin nhân viên</h2>
+                            <h2 class="title">Thêm nhân viên</h2>
                         </div>
                         <div class="card-body">
                             <form method="POST">
@@ -66,7 +61,7 @@
                                     <div class="name">Mật khẩu</div>
                                     <div class="value">
                                         <div class="input-group">
-                                            <input class="input--style-5" type="pasword" id = "matkhau" name="matkhau">
+                                            <input class="input--style-5" type="password" id = "matkhau" name="matkhau">
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +69,7 @@
                                     <div class="name">Nhập lại mật khẩu</div>
                                     <div class="value">
                                         <div class="input-group">
-                                            <input class="input--style-5" type="text" id = "nhaplai_matkhau" name="nhaplai_matkhau">
+                                            <input class="input--style-5" type="password" id = "nhaplai_matkhau" name="nhaplai_matkhau">
                                         </div>
                                     </div>
                                 </div>
@@ -183,8 +178,7 @@
                                 </div>
 
                                 <div>
-                                    <button class="btn btn--radius-2 btn--red" type="submit" style = "background-color: rgb(51, 236, 51); margin-right: 10px">Cập nhật</button>
-                                    <button class="btn btn--radius-2 btn--red" type="submit">Xóa</button>
+                                    <button class="btn btn--radius-2 btn--red" type="submit">Xác nhận</button>
                                 </div>
                             </form>
                         </div>
