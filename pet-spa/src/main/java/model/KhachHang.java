@@ -25,11 +25,9 @@ public class KhachHang extends NguoiDung{
         super(tenDangNhap, matKhau, ngaySinh, email, sdt, soCCCD, "KH", hoTen, diaChi);
     }
 
-<<<<<<< HEAD
     public KhachHang(NguoiDung nd) {
       super(nd);
     }
-=======
     public void setId(int id) {
         this.id = id;
     }
@@ -38,7 +36,6 @@ public class KhachHang extends NguoiDung{
         return id;
     }
 
->>>>>>> 776c66400205aff0cdc57867e23989c8c45db1a7
 
     
 }
