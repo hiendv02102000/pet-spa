@@ -29,59 +29,30 @@
 </head>
     <body>
                 <%
-             String err = "";
+             int err = 0;
              
             try {
                 KhachHangDAO dao = new KhachHangDAO();
-               // request.get
-                String tenDangNhap =request.getParameter("tendangnhap");
+                KhachHang kh = (KhachHang)session.getAttribute("khachhang");
                
-                String matKhau =request.getParameter("matkhau");
-                
-                String nhaplaiMatkhau =request.getParameter("nhaplai_matkhau");
-                
-              
-                if(!matKhau.equals(nhaplaiMatkhau)){
-                   // response.setHeader("Location", "./gdDangKy.jsp");
-                    err = "pass_word_fail";
-                 
-                }
-               LocalDate ngaySinh = LocalDate.parse(request.getParameter("ngaysinh"));
-                
-               String email =request.getParameter("email");
-                
-               String soCCCD =request.getParameter("CCCD");
-              
-               String sdt =request.getParameter("sdt");
-               String ho =request.getParameter("ho");
-               String ten =request.getParameter("ten");
-               String tenDem =request.getParameter("tendem");
-               HoTen hoTen = new HoTen(ho, tenDem, ten);
-                String soNha =request.getParameter("sonha");
-                 String cumDanCu =request.getParameter("cumdancu");
-                  String xaPhuong =request.getParameter("xaphuong");
-                   String quanHuyen =request.getParameter("quanhuyen");
-                 String tinhThanh =request.getParameter("tinhthanh");
-                 DiaChi diaChi = new DiaChi(soNha, cumDanCu, xaPhuong, quanHuyen, tinhThanh);
-                 KhachHang kh = new KhachHang(tenDangNhap, matKhau, ngaySinh, email, sdt, soCCCD, hoTen, diaChi);
-                //response.sendRedirect("./gdDangKy.jsp");
-               
-                if(err.isEmpty()){
-                       if( !dao.insert(kh))err = "tên đăng nhập trùng";
+             
+                       if( !dao.insert(kh))err = 2;
                        else {
-                          session.setAttribute("khachhang", kh);
-                         // KhachHang kh1 =(KhachHang)session.getAttribute("khachhang");
                           
+                         // KhachHang kh1 =(KhachHang)session.getAttribute("khachhang");
+                          session.setAttribute("khachhang", kh);
                           response.sendRedirect("./gdKhachHang.jsp"); 
+                          return;
                        }
-                }
+                
                 
             }catch(Exception e){
                
-                response.sendRedirect("./gdDangKy.jsp?err="+err); 
+                response.sendRedirect("./gdDangKy.jsp?err="+err);
+                return;
             }
             response.sendRedirect("./gdDangKy.jsp?err="+err); 
         %>
-         <h1><%= err %> </h1>
+       
     </body>
 </html>

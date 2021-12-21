@@ -50,8 +50,17 @@ public class LichHenDAO extends DAO{
         return listLH.toArray(result);
     }
     
-    public void delete(int ID){
-        
+    public boolean delete(int ID){
+          String sql = "UPDATE `tbllichhen` SET `ngayxoa` = DATE(NOW()) WHERE `id` = "+ID;
+       
+        try{ 
+            Statement statement = this.conn.createStatement();
+            int rowCount= statement.executeUpdate(sql);
+           
+        }catch(Exception e){
+            return false;
+        }
+        return true;
     }
      public boolean insert(LichHen lh){
         return true;
@@ -62,10 +71,10 @@ public class LichHenDAO extends DAO{
      public LichHen[] getAll(){
         return null;
     }
-      public LichHen[] getByKhachHangCondition(String condition){
+    public LichHen[] getByKhachHangCondition(String condition){
         return null;
     }
-       public LichHen[] getByLichHenID(int khID){
+    public LichHen[] getByLichHenID(int khID){
         return null;
     }
 }

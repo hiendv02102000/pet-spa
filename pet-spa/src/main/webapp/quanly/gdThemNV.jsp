@@ -61,7 +61,7 @@
                                     <div class="name">Mật khẩu</div>
                                     <div class="value">
                                         <div class="input-group">
-                                            <input class="input--style-5" type="text" id = "matkhau" name="matkhau">
+                                            <input class="input--style-5" type="password" id = "matkhau" name="matkhau">
                                         </div>
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@
                                     <div class="name">Nhập lại mật khẩu</div>
                                     <div class="value">
                                         <div class="input-group">
-                                            <input class="input--style-5" type="text" id = "nhaplai_matkhau" name="nhaplai_matkhau">
+                                            <input class="input--style-5" type="password" id = "nhaplai_matkhau" name="nhaplai_matkhau">
                                         </div>
                                     </div>
                                 </div>

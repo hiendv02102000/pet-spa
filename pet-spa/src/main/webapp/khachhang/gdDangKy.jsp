@@ -4,6 +4,8 @@
     Author     : admin
 --%>
 
+<%@page import="model.*"%>
+<%@page import="java.time.LocalDate"%>
 <%@page import="com.sun.org.apache.bcel.internal.generic.AALOAD"%>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,30 +36,83 @@
     <link rel="stylesheet" href="../assets/css/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+<%
+     // request.get
+      String err = "";
+     if(request.getParameter("check")!=null){
+               
+                String tenDangNhap =request.getParameter("tendangnhap");
+               if(tenDangNhap!=null&&tenDangNhap.isEmpty()){
+                        err = "Tên đăng nhập không để trống";
+                       
+                }
+                String matKhau =request.getParameter("matkhau");
+                if(matKhau!=null&&matKhau.isEmpty()){
+                        err = "Mật khẩu không để trống";
+                        
+                }
+                String nhaplaiMatkhau =request.getParameter("nhaplai_matkhau");
+                
+              
+                if(nhaplaiMatkhau==null||!matKhau.equals(nhaplaiMatkhau)){
+                   err = "Nhập lại mật khẩu không khớp";
+                   
+                }
+                String ngaysinh = request.getParameter("ngaysinh");
+               //  ngaySinh=null;
+                if(ngaysinh!=null&&ngaysinh.isEmpty()){
+                        err = "Ngày sinh không để trống";
+                        
+                }
+                
+               String email =request.getParameter("email");
+                if(email !=null&&email.isEmpty()){
+                        err = "Tên đăng nhập không để trống";
+                        
+                }
+               String soCCCD =request.getParameter("CCCD");
+              
+               String sdt =request.getParameter("sdt");
+               String ho =request.getParameter("ho");
+               String ten =request.getParameter("ten");
+               String tenDem =request.getParameter("tendem");
+               HoTen hoTen = new HoTen(ho, tenDem, ten);
+               String soNha =request.getParameter("sonha");
+               String cumDanCu =request.getParameter("cumdancu");
+               String xaPhuong =request.getParameter("xaphuong");
+               String quanHuyen =request.getParameter("quanhuyen");
+               String tinhThanh =request.getParameter("tinhthanh");
+               
+               if(err.isEmpty()){
+                    LocalDate ngaySinh = LocalDate.parse( ngaysinh);
+                    DiaChi diaChi = new DiaChi(soNha, cumDanCu, xaPhuong, quanHuyen, tinhThanh);
+                    KhachHang kh = new KhachHang(tenDangNhap, matKhau, ngaySinh, email, sdt, soCCCD, hoTen, diaChi);
+                    session.setAttribute("khachhang", kh);
+                    response.sendRedirect("./doLuuDangKy.jsp");
+               }
+    }
+%>
+
     <body>
         <header>
             <div class="container1">
                 <div class="nav1">
                     <div class="logo">
                         
-<<<<<<< HEAD
-                        <img src="../assets/img/logo.png" alt="logo" class="place-img"> 
-=======
                         <a href="../"><img src="../assets/img/logo.png" alt="logo" class="place-img"> </a>
->>>>>>> 570ff5e1ceeb6f2c9b60ce649062a5519718e819
                     </div>
             </div>
         </header>
         <main>
-<<<<<<< HEAD
             <div class="page-wrapper bg-gra-03 p-t-45 p-b-50" >
                 <div class="wrapper wrapper--w790">
                     <div class="card card-5">
                         <div class="card-heading" style = "margin-top: 35px">
                             <h2 class="title">Đăng ký</h2>
+                            <p class="title" style="font-size: 14px;color: red"><%=err%></p>
                         </div>
                         <div class="card-body">
-                            <form method="POST">
+                            <form method="POST" action="./gdDangKy.jsp?check=true">
                                 <div class="form-row">
                                     <div class="name">Tên đăng nhập</div>
                                     <div class="value">
@@ -70,7 +125,7 @@
                                     <div class="name">Mật khẩu</div>
                                     <div class="value">
                                         <div class="input-group">
-                                            <input class="input--style-5" type="text" id = "matkhau" name="matkhau">
+                                            <input class="input--style-5" type="password" id = "matkhau" name="matkhau">
                                         </div>
                                     </div>
                                 </div>
@@ -78,7 +133,7 @@
                                     <div class="name">Nhập lại mật khẩu</div>
                                     <div class="value">
                                         <div class="input-group">
-                                            <input class="input--style-5" type="text" id = "nhaplai_matkhau" name="nhaplai_matkhau">
+                                            <input class="input--style-5" type="password" id = "nhaplai_matkhau" name="nhaplai_matkhau">
                                         </div>
                                     </div>
                                 </div>
@@ -191,36 +246,6 @@
                                 </div>
                             </form>
                         </div>
-=======
-            <div class="container2">
-            <div class="login-form">
-                <form action="doLuuDangKy.jsp" method="post">
-                    <h1>Đăng ký</h1>
-                    <div class="input-box">
-                        <i ></i>
-                        <input type="text" placeholder="Nhập username">
-                    </div>
-                    <div class="input-box">
-                        <i ></i>
-                        <input type="password" placeholder="Nhập mật khẩu">
-                    </div>
-                    <div class="input-box">
-                        <i ></i>
-                        <input type="password" placeholder="Nhập lại mật khẩu">
-                    </div>
-                    <div class="input-box">
-                        <i ></i>
-                        <input type="text" placeholder="Nhập email">
-                    </div>
-                    <div class="input-box">
-                        <i ></i>
-                        <input type="text" placeholder="Nhập SĐT">
-                    </div>
-                    <div class="btn-box">
-                        <button type="submit">
-                            Đăng ký
-                        </button>
->>>>>>> 570ff5e1ceeb6f2c9b60ce649062a5519718e819
                     </div>
                 </div>
             </div>
