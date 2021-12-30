@@ -22,6 +22,13 @@ public class HoaDonDichVu {
         this.giaDV=dichVu.getGiaCa();
     }
 
+    public HoaDonDichVu(int id, DichVu dichVu, int soLuong, BigInteger giaDV) {
+        this.id = id;
+        this.dichVu = dichVu;
+        this.soLuong = soLuong;
+        this.giaDV = giaDV;
+    }
+
     public int getId() {
         return id;
     }
@@ -36,7 +43,7 @@ public class HoaDonDichVu {
 
     public void setDichVu(DichVu dichVu) {
         this.dichVu = dichVu;
-        this.giaDV=dichVu.getGiaCa();
+        //this.giaDV=dichVu.getGiaCa();
     }
 
     public BigInteger getGiaDV() {

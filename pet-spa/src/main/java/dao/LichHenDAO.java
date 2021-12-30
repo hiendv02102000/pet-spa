@@ -5,12 +5,15 @@
 package dao;
 
 import java.math.BigInteger;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.util.Vector;
 import model.DichVu;
+import model.KhachHang;
 import model.LichHen;
+import model.LoaiKhachHang;
 import utils.FormateDateTime;
 
 /**
@@ -63,14 +66,35 @@ public class LichHenDAO extends DAO{
         return true;
     }
      public boolean insert(LichHen lh){
-        return true;
+         try {
+            String sql = "INSERT INTO `tbllichhen` (`thoigianhen`, `giadukien`, `tblKhachHangid`)  " +
+                    "VALUES (?, ?, ?);";
+               PreparedStatement prepareStatement=this.conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+             prepareStatement.setString(1,LocalDateTime.now().toString());
+            prepareStatement.setString(2, lh.getGiaDuKien().toString());
+            prepareStatement.setInt(3, lh.getKhachHang().getId());
+             int rowCount= prepareStatement.executeUpdate();//thực thi làm thay đổi dữ liệu
+             ResultSet rs=prepareStatement.getGeneratedKeys();
+             int id=0;
+            if(rs.next()){
+                 id=rs.getInt(1);
+            }
+           lh.setId(id);
+            // prepareStatement.executeUpdate();
+            return rowCount>0;
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
     }
      public LichHen getByIDWithPreLoadKhachHang(int id ){
-          String sql1 = "Select * from tblLichHen" 
-                  + "Where id = "+id+" AND "+ConditionsOfExist;
-          String sql2 = "Select lh.* ("+sql1+") as lh"
-                  + "inner join tblKhachHang kh on kh.id = lh.tblKhachHangid ";
+          String sql1 = "Select * from tblLichHen " 
+                  + " Where id = "+id+" AND "+ConditionsOfExist;
+          String sql2 = "Select lh.id,lh.thoigianhen,lh.giadukien,kh.id,l.* from ( "+sql1+" ) as lh "
+                  + " inner join tblKhachHang kh on kh.id = lh.tblKhachHangid "
+                  +" inner join tblloaiKhachHang l on l.id = kh.tblLoaiKhachHangid ";
        ResultSet rs;
+       System.out.println(sql2);
        Vector<LichHen> listLH = new Vector<LichHen>();
         LichHen[] result;
         try{ 
@@ -78,15 +102,20 @@ public class LichHenDAO extends DAO{
             rs=statement.executeQuery(sql2);
             int count =0;
            if(rs.next()){
+               KhachHang kh = new KhachHang();
+               kh.setId(rs.getInt(4));
+               LoaiKhachHang loai = new LoaiKhachHang(rs.getInt(5),rs.getString(6),rs.getFloat(7),new BigInteger(rs.getString(8)));
+               kh.setLoaiKhachHang(loai);
                 LichHen lh = new LichHen(rs.getInt(1), 
                         FormateDateTime.convertDBToLocalDateTime(rs.getDate(2), rs.getTime(2)), 
                         new BigInteger(rs.getString(3)), 
-                        null, 
+                        kh, 
                         null);
             return lh;
            }
            return null;
         }catch(Exception e){
+            System.out.println(e.getMessage());
             return null;
         }
        
@@ -100,4 +129,5 @@ public class LichHenDAO extends DAO{
 //    public LichHen[] getByID(int ID){
 //        return null;
 //    }
+  
 }

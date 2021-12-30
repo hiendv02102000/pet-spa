@@ -110,7 +110,7 @@
                 }
                 </style>
                  <div>
-                     <a class="button center" type="submit" href=<%= "doHuyHen.jsp?lh_id="+lhid%> >Xoá </a>
+                     <a class="button center" type="submit" href=<%= "./doHuyHen.jsp?lh_id="+lhid%> >Xoá </a>
                  </div>
             </body>
             

@@ -5,6 +5,7 @@
 package dao;
 
 import java.math.BigInteger;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
@@ -66,7 +67,21 @@ public class LichHenDichVuDAO extends  DAO{
         }
         return true;
     }
-     public boolean insert(LichHenDichVu lh){
-        return true;
+     public boolean insert(int lhid,LichHenDichVu lhdv){
+         try {
+            String sql = "INSERT INTO `tbllichhendichvu` ( `soluong`, `tblLichHenid`, `tblDichVuid`) " +
+                    "VALUES (?, ?, ?);";
+               PreparedStatement prepareStatement=this.conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+                prepareStatement.setInt(1,lhdv.getSoLuong());
+                prepareStatement.setInt(2,lhid);
+                prepareStatement.setInt(3,lhdv.getDichVu().getId());
+             int rowCount= prepareStatement.executeUpdate();//thực thi làm thay đổi dữ liệu
+            
+            // prepareStatement.executeUpdate();
+            return rowCount>0;
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
     }
 }

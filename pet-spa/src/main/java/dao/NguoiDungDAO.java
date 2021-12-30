@@ -123,6 +123,7 @@ public class NguoiDungDAO extends DAO{
                     rs.getString("xaphuong"),
                     rs.getString("quanhuyen"),
                     rs.getString("tinhthanh")));
+               nd.setId( rs.getInt("id"));
                return nd;
            }
            result = new NguoiDung[count];
@@ -132,11 +133,6 @@ public class NguoiDungDAO extends DAO{
         return null;
     }
     
-    public static void main (String[] args){
-        NguoiDungDAO nddao = new NguoiDungDAO();
-        NguoiDung nd = nddao.getByID(1);
-        System.out.print(nd.toString());
- 
-    }
+   
 
 }

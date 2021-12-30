@@ -9,10 +9,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDateTime;
+import java.util.Vector;
 import model.HoaDon;
 import model.KhachHang;
 import model.NhanVien;
 import model.TKDoanhThu;
+import utils.FormateDateTime;
 
 /**
  *
@@ -24,7 +26,28 @@ public class HoaDonDAO extends DAO{
         super();
     }
     public HoaDon getByID(int id){
-        return null;
+         String sql = "SELECT * FROM tblhoadon Where id = "+id;
+       ResultSet rs;
+     
+        try{ 
+            Statement statement = this.conn.createStatement();
+            rs=statement.executeQuery(sql);
+            int count =0;
+           if(rs.next()){
+               HoaDon hd =new HoaDon(rs.getInt(1),
+                       new BigInteger(rs.getString(2)),
+                       FormateDateTime.convertDBToLocalDateTime(rs.getDate(3), rs.getTime(3)),
+                       rs.getString(4),null, null, null);
+             //return FormatVI.decodeVI(rs.getString(2));
+                return hd;
+           }
+
+         
+            return null;
+        }catch(Exception e){
+            return null;
+        }
+        
     }
     public HoaDon[] getOnMonthByIDKH(int ID,int thang,int nam){
         return null;

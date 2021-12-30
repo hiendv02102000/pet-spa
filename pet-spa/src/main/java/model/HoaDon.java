@@ -30,6 +30,13 @@ public class HoaDon {
         this.listHDDV = listHDDV;
     }
 
+    public HoaDon(int id, BigInteger thanhTien, LocalDateTime ngayTao, String moTa) {
+        this.id = id;
+        this.thanhTien = thanhTien;
+        this.ngayTao = ngayTao;
+        this.moTa = moTa;
+    }
+
     public HoaDon() {
     }
 
@@ -87,6 +94,11 @@ public class HoaDon {
 
     public void setListHDDV(HoaDonDichVu[] listHDDV) {
         this.listHDDV = listHDDV;
+    }
+
+    @Override
+    public String toString() {
+        return "HoaDon{" + "id=" + id + ", thanhTien=" + thanhTien + ", ngayTao=" + ngayTao + ", moTa=" + moTa + ", khachHang=" + khachHang + ", nhanVien=" + nhanVien + ", listHDDV=" + listHDDV + '}';
     }
     
 }

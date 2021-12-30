@@ -1,3 +1,5 @@
+<%@page import="dao.KhachHangDAO"%>
+<%@page import="model.KhachHang"%>
 <%@page import="com.sun.org.apache.bcel.internal.generic.AALOAD"%>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,6 +13,12 @@
     <link href="../style/main.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+<%
+     KhachHang kh = (KhachHang)session.getAttribute("khachhang");
+     if(kh.getId()==0){
+     KhachHangDAO dao = new KhachHangDAO();
+    }
+%>
 <body>
     <div id="main">
         <div id="header">
