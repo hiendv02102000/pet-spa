@@ -29,6 +29,9 @@ public class KhachHangDAO extends DAO{
     public KhachHang getByID(int id){
         return null;
     }
+    public KhachHang getByUserName(int id){
+        return null;
+    }
     public boolean insert (KhachHang kh){
         String sql1 = "INSERT INTO tblNguoiDung (tendangnhap, matkhau, soCCCD, ngaysinh, ngaytao,email,sdt,"
                 + "loaitaikhoan,ho,tendem,ten,sonha,cumdancu,xaphuong,quanhuyen,tinhthanh)" +

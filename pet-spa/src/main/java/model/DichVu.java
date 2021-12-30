@@ -37,15 +37,12 @@ public class DichVu {
         this.ngayXoa = ngayXoa;
     }
 
-    
-
     @Override
-    public String toString() { 
-        
-        //this.ngayTao.setHours(1);
-      
-        return id+" "+ten+" "+formatDateTimeVi(this.ngayTao)+" "+ngayXoa;//To change body of generated methods, choose Tools | Templates.
+    public String toString() {
+        return "" + "" + id + " " + ten + " " + moTa + ' ';
     }
+
+    
 
     public int getId() {
         return id;

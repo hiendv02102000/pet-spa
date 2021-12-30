@@ -22,6 +22,25 @@ public class NhanVien extends NguoiDung{
       super(nd);
     }
 
+    public NhanVien() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getNgayXoa() {
+        return ngayXoa;
+    }
+
+    public void setNgayXoa(LocalDateTime ngayXoa) {
+        this.ngayXoa = ngayXoa;
+    }
+
     
     
 }
