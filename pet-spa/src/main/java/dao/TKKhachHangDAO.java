@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
 import model.HoTen;
+import model.KhachHang;
 import model.TKKhachHang;
 
 /**
@@ -42,7 +43,7 @@ public class TKKhachHangDAO extends DAO{
             rs=statement.executeQuery(sql);
             int count=0;
             while(rs.next()){
-                TKKhachHang kh=new TKKhachHang(rs.getInt(1),new HoTen(rs.getString(2), rs.getString(3), rs.getString(4)),
+                TKKhachHang kh=new TKKhachHang(new KhachHang(rs.getInt(1)),new HoTen(rs.getString(2), rs.getString(3), rs.getString(4)),
                     rs.getInt(5),rs.getString(6),Float.valueOf(rs.getFloat(7)),BigInteger.valueOf(rs.getInt(8)));
                 listTK.add(kh);
             }
@@ -54,15 +55,6 @@ public class TKKhachHangDAO extends DAO{
         }
         return listTK.toArray(result);
         
-    }
-    public static void main(String[] args) {
-        TKKhachHangDAO khDAO=new TKKhachHangDAO();
-        TKKhachHang[] kh=khDAO.getKHOnMonth(10, 2021);
-        System.out.println("Thong ke khach hang thang 10");
-        for (TKKhachHang tKKhachHang : kh) {
-            System.out.println(tKKhachHang.toString());
-            
-        }
     }
 
 }

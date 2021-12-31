@@ -49,14 +49,5 @@ public class TKDoanhThuDAO extends DAO{
         }
         return listTK.toArray(result);
     }
-    public static void main(String[] args) {
-        TKDoanhThuDAO dtDAO=new TKDoanhThuDAO();
-        TKDoanhThu[] dt=dtDAO.getOnMonth(10,2021);
-        System.out.println("Thong ke doanh thu thang 10");
-        for (TKDoanhThu tKDoanhThu : dt) {
-            System.out.println(tKDoanhThu);
-            System.out.println(" ");
-        }
-    }
 
 }

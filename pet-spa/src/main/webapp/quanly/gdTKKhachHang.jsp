@@ -9,6 +9,8 @@
 <%@page import="model.KhachHang"%>
 <%@page import="model.TKKhachHang"%>
 <%@page import="dao.TKKhachHangDAO"%>
+<%@page import="model.HoaDon"%>
+<%@page import="dao.HoaDonDAO"%>
 <%@page import="com.sun.org.apache.bcel.internal.generic.AALOAD"%>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -27,13 +29,22 @@
             // if(kh==null){
             //   return;
             // }
-             TKKhachHang[] listTKKH =  dao.getKHOnMonth(10,2021);
+             TKKhachHang[] listTKKH =  dao.getKHOnMonth(10, 2021);
+             
+             for(int i=0;i<listTKKH.length;i++){
+                 %>
+                 <p>
+                     <%=listTKKH[i].getKhachHang().getId() %>
+                 </p>
+                 <%
+             }
+             
          %>  
         <body>
                 <header>
                 <div class="nav1">
                     <div class="logo">
-                        <a href="gdKhachHang.jsp"><img src="../assets/img/logo.png" alt="logo" class="place-img"> </a>
+                        <!--<a href="gdKhachHang.jsp"><img src="../assets/img/logo.png" alt="logo" class="place-img"> </a>-->
                     </div>
             </div>
         </header>
@@ -46,30 +57,19 @@
                 <th class="table__heading">Số lần mua</th>
                 <th class="table__heading">Tổng tiền đã thanh toán</th>
                 <%
-                    int STT=0;
                     for(int i=0;i<listTKKH.length;i++){
-                        STT+=1;
-//                         listDoanhThu[i].getNgay().getDayOfMonth();
-                        %>
+                                   %>
                         <tr class="table__row">
-                        <td class="table__content" ><a href=<%="gdDoanhThuChiTiet.jsp?kh_id="+listTKKH[i].getId() %>><%=listTKKH[i].getId()%></a></td>
+                        <td class="table__content" ><a href=<%="gdTKChiTietKhachHang.jsp?kh_id="+listTKKH[i].getId() %>><%=listTKKH[i].getId()%></a></td>
                         <td class="table__content" ><%=listTKKH[i].getHoTen() %></td>
-                        <td class="table__content" ><%=listTKKH[i] %></td>
                         <td class="table__content" ><%=listTKKH[i].getLoai() %></td>
-                        <td class="table__content" ><%=listTKKH[i].get %></td>
-                        <td class="table__content" ><%=listTKKH[i].getTongDoanhThu()+""+"₫"%></td>
+                        <td class="table__content" ><%=listTKKH[i].getSolan() %></td>
+                        <td class="table__content" ><%=listTKKH[i].getTongThanhToan()+""+"₫"%></td>
                         </tr>
                    <%
                     }     
              %>  
-<!--              
-              <tr class="table__row">
-                <td class="table__content" ><a href="gdLichHenChiTiet.jsp">H30</a></td>
-                <td class="table__content" >9:00</td>
-                <td class="table__content" >18/11/2021</td>
-                <td class="table__content" >300.000đ</td>
 
-              </tr>-->
 
                 
             </table>

@@ -12,7 +12,7 @@
 <%@page import="com.sun.org.apache.bcel.internal.generic.AALOAD"%>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-    <html lang="en">
+    <html lang="vi">
         <head>
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -37,7 +37,7 @@
                     </div>
             </div>
         </header>
-            <h1 style="font-family: emoji; font-size: 250%;">Doanh thu tháng này</h1>
+            <h1 style="font-family: emoji; font-size: 250%;">Thống kê doanh thu</h1>
             <table class="table">
               <tr>
                 <th class="table__heading">STT</th>

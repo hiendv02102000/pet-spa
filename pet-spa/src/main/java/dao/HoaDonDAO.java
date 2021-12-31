@@ -124,21 +124,6 @@ public class HoaDonDAO extends DAO{
         }
         return listHD.toArray(result);
     }
-    public static void main(String[] args) {
-        HoaDonDAO hdd=new HoaDonDAO();
-        HoaDon[] hd=hdd.getOnDay(10,10,2021);
-        System.out.println("Chi tiet hoa don thong ke doanh thu");
-        for (HoaDon hoaDon : hd) {
-            System.out.println(hoaDon.toStringCTHoaDon());
-        }
-        
-        HoaDon[] hd1=hdd.getByIDKH(1,10,2021);
-        System.out.println("Chi tiet hoa don cua khach hang");
-        for (HoaDon hoaDon : hd1) {
-            
-            System.out.println(hoaDon.toStringCTKhachHang());
-        }
-    }
     public boolean insert(HoaDon hd){
          try {
             String sql = "INSERT INTO `tblhoadon` (`thanhtien`, `ngaytao`, `mota`, `tblKhachHangid`, `tblNhanVienid`)  " +

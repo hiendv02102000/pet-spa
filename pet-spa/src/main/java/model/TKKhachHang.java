@@ -18,12 +18,12 @@ public class TKKhachHang extends KhachHang{
     private String loai;
     private float khuyenmai;
     private BigInteger tongThanhToan;
-    private int idKH;
     public TKKhachHang() {
     }
 
-    public TKKhachHang(int idKH, HoTen tenKH, int solan, String loai, float khuyenmai, BigInteger tongThanhToan) {
-        this.idKH=idKH;
+
+    public TKKhachHang(KhachHang kh, HoTen tenKH, int solan, String loai, float khuyenmai, BigInteger tongThanhToan) {
+        this.khachHang=kh;
         this.khachHang=new KhachHang();
         this.khachHang.setHoTen(tenKH);
         this.solan = solan;
@@ -31,13 +31,26 @@ public class TKKhachHang extends KhachHang{
         this.khuyenmai = khuyenmai;
         this.tongThanhToan = tongThanhToan;
     }
+    public int getId() {
+        return id;
+    }
 
-    
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    
+
+    public KhachHang getKhachHang() {
+        return khachHang;
+    }
+
+    public void setKhachHang(KhachHang khachHang) {
+        this.khachHang = khachHang;
+    }
+
 
     public String toString() {
-        return idKH+" "+this.khachHang.getHoTen()+" "+solan + " " + loai + " " + khuyenmai + " " + tongThanhToan ;
+        return this.khachHang.getId()+" "+this.khachHang.getHoTen()+" "+solan + " " + loai + " " + khuyenmai + " " + tongThanhToan ;
     }
 
     public int getSolan() {

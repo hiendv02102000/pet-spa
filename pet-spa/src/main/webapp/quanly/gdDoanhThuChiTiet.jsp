@@ -38,14 +38,7 @@
             int ngay=Integer.parseInt(tk);
 //            HoaDon hd = new HoaDon();
             HoaDon[] listHoaDon =  dao.getOnDay(ngay,10,2021);
-            for(int i=0;i<listHoaDon.length;i++){
 
-                        %>
-                        <div>
-                            <%=listHoaDon[i].toString()%>
-                        </div>
-                   <%
-                    }  
 //            hd.setListHD(dao.getOnDay(ngay,10,2020));
 //            session.setAttribute("tkct", hd);
              //LichHenDichVu[] listLichHen =  ;
