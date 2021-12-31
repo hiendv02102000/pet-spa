@@ -24,7 +24,9 @@ public class NhanVien extends NguoiDung{
 
     public NhanVien() {
     }
-
+   public String toString() {
+        return this.hoTen.getHo()+" "+this.hoTen.getTenDem()+" "+this.getHoTen().getTen();
+    }
     
     
 }

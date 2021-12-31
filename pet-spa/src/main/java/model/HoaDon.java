@@ -20,7 +20,7 @@ public class HoaDon {
     protected KhachHang khachHang;
     private NhanVien nhanVien;
     private HoaDonDichVu[] listHDDV;
-
+    
     public HoaDon() {
     }
 
@@ -31,6 +31,34 @@ public class HoaDon {
         this.moTa = moTa;
         this.khachHang = khachHang;
         this.nhanVien = nhanVien;
+        this.listHDDV = listHDDV;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setThanhTien(BigInteger thanhTien) {
+        this.thanhTien = thanhTien;
+    }
+
+    public void setNgayTao(LocalDateTime ngayTao) {
+        this.ngayTao = ngayTao;
+    }
+
+    public void setMoTa(String moTa) {
+        this.moTa = moTa;
+    }
+
+    public void setKhachHang(KhachHang khachHang) {
+        this.khachHang = khachHang;
+    }
+
+    public void setNhanVien(NhanVien nhanVien) {
+        this.nhanVien = nhanVien;
+    }
+
+    public void setListHDDV(HoaDonDichVu[] listHDDV) {
         this.listHDDV = listHDDV;
     }
     
@@ -90,6 +118,9 @@ public class HoaDon {
 
     public HoaDonDichVu[] getListHDDV() {
         return listHDDV;
+    }
+    public void setListHD(HoaDonDichVu[] listHDDV) {
+        this.listHDDV = listHDDV;
     }
     
 }

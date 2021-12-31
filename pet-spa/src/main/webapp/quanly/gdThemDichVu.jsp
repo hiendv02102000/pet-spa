@@ -23,7 +23,7 @@
                 <div class="nav1">
                     <div class="logo">
                         
-                        <a href="gdQuanLy.jsp"><img src="../assets/img/logo.png" alt="logo" class="place-img"> </a>
+                        <a href="gdQuanLy.jsp"></a>
                     </div>
             </div>
         </header>

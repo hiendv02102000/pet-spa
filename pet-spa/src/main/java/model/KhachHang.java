@@ -36,6 +36,11 @@ public class KhachHang extends NguoiDung{
         return id;
     }
 
+    @Override
+    public String toString() {
+        return this.hoTen.getHo()+" "+this.hoTen.getTenDem()+" "+this.getHoTen().getTen();
+    }
+
 
     
 }
