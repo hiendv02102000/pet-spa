@@ -58,7 +58,7 @@
                     </div>
             </div>
         </header>
-            <h1 style="font-family: emoji; font-size: 250%;">Thống kê chi tiết tháng <%=ngay%></h1>
+            <h1 style="font-family: emoji; font-size: 250%;">Thống kê chi tiết ngày <%=ngay%></h1>
             <table class="table">
               <tr>
                 <th class="table__heading">STT</th>
