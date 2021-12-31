@@ -39,6 +39,11 @@ public class NguoiDung {
         this.diaChi = diaChi;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+   
     public int getId() {
         return id;
     }
@@ -63,9 +68,7 @@ public class NguoiDung {
         return email;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
 
     public void setHoTen(HoTen hoTen) {
         this.hoTen = hoTen;

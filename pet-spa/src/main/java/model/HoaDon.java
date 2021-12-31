@@ -24,6 +24,7 @@ public class HoaDon {
     public HoaDon() {
     }
 
+
     public HoaDon(int id, BigInteger thanhTien, LocalDateTime ngayTao, String moTa, KhachHang khachHang, NhanVien nhanVien, HoaDonDichVu[] listHDDV) {
         this.id = id;
         this.thanhTien = thanhTien;
@@ -95,22 +96,37 @@ public class HoaDon {
     public int getId() {
         return id;
     }
+    public HoaDon(int id, BigInteger thanhTien, LocalDateTime ngayTao, String moTa) {
+        this.id = id;
+        this.thanhTien = thanhTien;
+        this.ngayTao = ngayTao;
+        this.moTa = moTa;
+    }
+
+    
 
     public BigInteger getThanhTien() {
         return thanhTien;
     }
 
+
+
+
     public LocalDateTime getNgayTao() {
         return ngayTao;
     }
+
 
     public String getMoTa() {
         return moTa;
     }
 
+
+
     public KhachHang getKhachHang() {
         return khachHang;
     }
+
 
     public NhanVien getNhanVien() {
         return nhanVien;
@@ -121,6 +137,12 @@ public class HoaDon {
     }
     public void setListHD(HoaDonDichVu[] listHDDV) {
         this.listHDDV = listHDDV;
+    }
+
+
+    @Override
+    public String toString() {
+        return "HoaDon{" + "id=" + id + ", thanhTien=" + thanhTien + ", ngayTao=" + ngayTao + ", moTa=" + moTa + ", khachHang=" + khachHang + ", nhanVien=" + nhanVien + ", listHDDV=" + listHDDV + '}';
     }
     
 }

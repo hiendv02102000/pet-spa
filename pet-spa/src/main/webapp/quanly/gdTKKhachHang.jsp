@@ -40,21 +40,23 @@
             <h1 style="font-family: emoji; font-size: 250%;">Doanh thu tháng này</h1>
             <table class="table">
               <tr>
-                <th class="table__heading">STT</th>
-                <th class="table__heading">Ngày</th>
-<!--                <th class="table__heading">Ngày hẹn</th>-->
-                <th class="table__heading">Tổng tiền</th>
+                <th class="table__heading">Mã khách hàng</th>
+                <th class="table__heading">Tên khách hàng</th>
+                <th class="table__heading">Loại khách hàng</th>
+                <th class="table__heading">Số lần mua</th>
+                <th class="table__heading">Tổng tiền đã thanh toán</th>
                 <%
                     int STT=0;
                     for(int i=0;i<listTKKH.length;i++){
                         STT+=1;
 //                         listDoanhThu[i].getNgay().getDayOfMonth();
-                        LocalDateTime dateTime =listTKKH[i].getNgay();
                         %>
                         <tr class="table__row">
-                        <td class="table__content" ><a href=<%="gdDoanhThuChiTiet.jsp?tk_day="+dateTime.getDayOfMonth()%>><%=STT%></a></td>
-                        <td class="table__content" ><%=dateTime.getDayOfMonth()+"-"+dateTime.getMonthValue()+"-"+dateTime.getYear()%></td>
-                       
+                        <td class="table__content" ><a href=<%="gdDoanhThuChiTiet.jsp?kh_id="+listTKKH[i].getId() %>><%=listTKKH[i].getId()%></a></td>
+                        <td class="table__content" ><%=listTKKH[i].getHoTen() %></td>
+                        <td class="table__content" ><%=listTKKH[i] %></td>
+                        <td class="table__content" ><%=listTKKH[i].getLoai() %></td>
+                        <td class="table__content" ><%=listTKKH[i].get %></td>
                         <td class="table__content" ><%=listTKKH[i].getTongDoanhThu()+""+"₫"%></td>
                         </tr>
                    <%

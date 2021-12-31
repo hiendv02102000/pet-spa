@@ -27,6 +27,23 @@ public class NhanVien extends NguoiDung{
    public String toString() {
         return this.hoTen.getHo()+" "+this.hoTen.getTenDem()+" "+this.getHoTen().getTen();
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getNgayXoa() {
+        return ngayXoa;
+    }
+
+    public void setNgayXoa(LocalDateTime ngayXoa) {
+        this.ngayXoa = ngayXoa;
+    }
+
     
     
 }

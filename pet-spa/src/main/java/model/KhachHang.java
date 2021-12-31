@@ -25,6 +25,14 @@ public class KhachHang extends NguoiDung{
         super(tenDangNhap, matKhau, ngaySinh, email, sdt, soCCCD, "KH", hoTen, diaChi);
     }
 
+    public LoaiKhachHang getLoaiKhachHang() {
+        return loaiKhachHang;
+    }
+
+    public void setLoaiKhachHang(LoaiKhachHang loaiKhachHang) {
+        this.loaiKhachHang = loaiKhachHang;
+    }
+
     public KhachHang(NguoiDung nd) {
       super(nd);
     }

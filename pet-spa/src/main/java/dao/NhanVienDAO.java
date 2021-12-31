@@ -216,13 +216,6 @@ public class NhanVienDAO extends DAO{
         }
         return listNV.toArray(result);
     }
-    public static void main (String[] args){
-        NhanVienDAO nvdao = new NhanVienDAO();
-        NhanVien[] list = nvdao.getAll();
-        for(int i=0;i<list.length;i++){
-            System.out.print(list[i].toString());
-        }
- 
-}
+    
 }
 
