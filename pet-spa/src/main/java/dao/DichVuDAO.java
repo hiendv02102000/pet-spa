@@ -64,6 +64,42 @@ public class DichVuDAO extends DAO{
             return false;
         }
     }
+    public boolean update(DichVu dv, int id){
+        String sql1 = "UPDATE tblDichVu"
+                + "SET ten = ? , giaca = ?, gioihan = ?, mota = ?,"
+                + "ngaytao = ?"
+                + "WHERE id = ?";
+        try {
+            PreparedStatement prepareStatement=this.conn.prepareStatement(sql1);
+            prepareStatement.setString(1, dv.getTen());
+            prepareStatement.setString(2, dv.getGiaCa().toString());
+            prepareStatement.setInt(3, dv.getGioiHan());
+            prepareStatement.setString(4, dv.getMoTa());
+            prepareStatement.setString(5, LocalDateTime.now().toString());
+            prepareStatement.setInt(6, id);
+            int rowCount= prepareStatement.executeUpdate();
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    public void delete(DichVu dv, int id){
+        String sql1 = "UPDATE tblDichVu SET ngayxoa = ? WHERE id = ? ";
+        try {
+            PreparedStatement prepareStatement=this.conn.prepareStatement(sql1);            
+            prepareStatement.setString(1, LocalDateTime.now().toString());
+            prepareStatement.setInt(2, id);
+            int rowCount= prepareStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    /*
+    public DichVu[] getByTenDV(String tenDV){
+     // tenDV = FormatVI.encodeVI(tenDV);
+      String sql = "Select * from tblDichVu WHERE ten LIKE '%"+tenDV+"%'"+" AND "+ConditionsOfExist;
+    }*/
     public DichVu[] getByCondition(String condition){
      // tenDV = FormatVI.encodeVI(tenDV);
       String sql = "Select * from tblDichVu WHERE "+ConditionsOfExist;
@@ -116,17 +152,21 @@ public class DichVuDAO extends DAO{
             return null;
         }
         return listDV.toArray(result);
+    }
+    public static void main (String[] args){
+        DichVuDAO dvdao = new DichVuDAO();
+        
+//        int  a=BigInteger(200);
+        DichVu dv=new DichVu(16, "Tiêm vaccin", BigInteger.valueOf(300000), 2, "Tiêm phòng ngừa bệnh dại",null,null);
+//        dvdao.update(dv,16);
+//        dvdao.update(dv, 0)
+        DichVu[] list = dvdao.getAll();
+        for(int i=0;i<list.length;i++){
+            System.out.print(list[i].toString());
+            System.out.println("");
+        }
+    }
 
-    }
-    public boolean update(DichVu dv){
-        return false;
-    }
-    public boolean delete(DichVu dv){
-        return false;
-    }
-    public DichVu[] getOnDay(int ngay ,int nam,int thang){
-        return null;
-    }
     public DichVu[] getOnMonthbyIDKH(int idkh ,int nam,int thang){
         return null;
 

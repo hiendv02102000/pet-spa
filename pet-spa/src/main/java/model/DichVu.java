@@ -39,7 +39,16 @@ public class DichVu {
 
     @Override
     public String toString() {
-        return "" + "" + id + " " + ten + " " + moTa + ' ';
+        return "" + "" + id + " "+ giaCa + " " + ten + " " + ngayTao +" " + moTa + ' ';
+    }
+
+    public DichVu(String ten, BigInteger giaCa, int gioiHan, String moTa, LocalDateTime ngayTao, LocalDateTime ngayXoa) {
+        this.ten = ten;
+        this.giaCa = giaCa;
+        this.gioiHan = gioiHan;
+        this.moTa = moTa;
+        this.ngayTao = ngayTao;
+        this.ngayXoa = ngayXoa;
     }
 
     

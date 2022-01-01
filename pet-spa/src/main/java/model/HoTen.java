@@ -19,6 +19,12 @@ public class HoTen {
         this.ten = ten;
     }
 
+    @Override
+    public String toString() {
+        return ho + " " + tenDem + " " + ten ;
+    }
+    
+
     public String getHo() {
         return ho;
     }
