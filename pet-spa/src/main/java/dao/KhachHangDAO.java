@@ -29,8 +29,23 @@ public class KhachHangDAO extends DAO{
     public KhachHang getByID(int id){
         return null;
     }
-    public KhachHang getByUserName(int id){
-        return null;
+    public void setIDKH(KhachHang kh){
+        String sql1 = "SELECT kh.* FROM pet_spa.tblkhachhang kh\n"
+                    + "inner join tblnguoidung nd  on kh.tblNguoiDungid=nd.id\n"
+                    + "where nd.tendangnhap = '"+kh.getTenDangNhap()+"';";
+            Statement stm;
+        try {
+            stm = this.conn.createStatement();
+             ResultSet rs1 = stm.executeQuery(sql1);;
+            int idkh=0;
+            if(rs1.next()){
+                kh.setId(rs1.getInt(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+           
     }
     public boolean insert (KhachHang kh){
         String sql1 = "INSERT INTO tblNguoiDung (tendangnhap, matkhau, soCCCD, ngaysinh, ngaytao,email,sdt,"

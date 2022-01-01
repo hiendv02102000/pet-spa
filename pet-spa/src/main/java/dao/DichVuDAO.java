@@ -90,6 +90,7 @@ public class DichVuDAO extends DAO{
         }catch(Exception e){
             return null;
         }
+        //System.out.println(condition);
         return listDV.toArray(result);
     }
     public DichVu[] getAll(){

@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@page import="java.util.*"%>
 <%@page import="com.sun.org.apache.bcel.internal.generic.AALOAD"%>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,6 +18,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="../style/datlichhoadon.css" rel="stylesheet" type="text/css"/>
 </head>
+<%@page import="model.*"%>
+<%@page import="dao.*"%>
+       <%
+        KhachHang kh = (KhachHang) session.getAttribute("khachhang");
+        if (kh == null) {
+            response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+        }
+        DichVuDAO dvdao = new DichVuDAO();
+        DichVu[] listDV = dvdao.getAll();
+        List<HoaDonDichVu> listHDDV;
+        listHDDV = (List<HoaDonDichVu>) session.getAttribute("list_hddv");
+        if (request.getParameter("tenDV") != null) {
+            listDV = dvdao.getByCondition(request.getParameter("tenDV"));
+        }
+        if (listHDDV == null) {
+            listHDDV = new ArrayList<HoaDonDichVu>();
+        }
+
+        session.setAttribute("list_hddv", listHDDV);
+        session.setAttribute("list_dv", listDV);
+    %>
+    
     <body>
         <header>
                 <div class="nav1">
@@ -86,19 +109,27 @@
                 </div>
             <table class="table" style="margin-left: 20px; margin-top: 80px;">
               <tr>
-                <th class="table__heading">STT</th>
-                <th class="table__heading">Tên dịch vụ</th>
-                <th class="table__heading">Tùy chọn</th>
-              </tr>
-              <tr class="table__row" style="text-align: center;">
-                <td class="table__content" >1</td>
-                <td class="table__content" >Tắm</td>
-                <td class="table__content" >
-                    <div class="btn-box green" style="text-align: center;">
-                    <button  type="submit" style="background-color: rgb(5, 199, 5);">
-                        Thêm
-                    </button>
-                </div></td>
+                        <th class="table__heading">STT</th>
+                        <th class="table__heading">Tên dịch vụ</th>
+                        <th class="table__heading">Giá</th>
+                        <th class="table__heading">Tùy chọn</th>
+                    </tr>
+            <%
+                    for(int i=0;i<listDV.length;i++){
+                        %>
+                        <tr class="table__row" style="text-align: center;">
+                        <td class="table__content" ><%=i+1%></td>
+                        <td class="table__content" ><%=listDV[i].getTen()%></td>
+                        <td class="table__content" ><%=listDV[i].getGiaCa()+"đ"%></td>
+                        <td class="table__content" ><div class="btn-box" style="text-align: center;">
+                                <button  style="background-color: rgb(5, 199, 5);margin-left: 15px;">
+                                    Thêm
+                                </button>
+                            </div></td>
+                         </tr>
+                   <%
+                    }     
+             %>  
             </table>
             </div>
         </main>
