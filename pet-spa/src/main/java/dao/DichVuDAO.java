@@ -66,23 +66,25 @@ public class DichVuDAO extends DAO{
     }
     public boolean update(DichVu dv, int id){
         String sql1 = "UPDATE tblDichVu"
-                + "SET ten = ? , giaca = ?, gioihan = ?, mota = ?,"
-                + "ngaytao = ?"
-                + "WHERE id = ?";
+                + " SET ten = ? , giaca = ?, gioihan = ?, mota = ?,"
+                + "ngaytao = ? "
+                + "WHERE id = ?;";
+
         try {
             PreparedStatement prepareStatement=this.conn.prepareStatement(sql1);
             prepareStatement.setString(1, dv.getTen());
-            prepareStatement.setString(2, dv.getGiaCa().toString());
+            prepareStatement.setInt(2,Integer.parseInt(dv.getGiaCa().toString()));
             prepareStatement.setInt(3, dv.getGioiHan());
             prepareStatement.setString(4, dv.getMoTa());
             prepareStatement.setString(5, LocalDateTime.now().toString());
             prepareStatement.setInt(6, id);
             int rowCount= prepareStatement.executeUpdate();
-            
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        return false;
+            
+        }return false;
+        
     }
     public void delete(DichVu dv, int id){
         String sql1 = "UPDATE tblDichVu SET ngayxoa = ? WHERE id = ? ";
@@ -157,9 +159,9 @@ public class DichVuDAO extends DAO{
         DichVuDAO dvdao = new DichVuDAO();
         
 //        int  a=BigInteger(200);
-        DichVu dv=new DichVu(16, "Tiêm vaccin", BigInteger.valueOf(300000), 2, "Tiêm phòng ngừa bệnh dại",null,null);
-//        dvdao.update(dv,16);
-//        dvdao.update(dv, 0)
+        DichVu dv=new DichVu("asdfghjkllkjhgfds", BigInteger.valueOf(9000), 2, "Tiêm phòng ngừa bệnh dại",null,null);
+//        dvdao.insert(dv);
+        dvdao.update(dv,10);
         DichVu[] list = dvdao.getAll();
         for(int i=0;i<list.length;i++){
             System.out.print(list[i].toString());
