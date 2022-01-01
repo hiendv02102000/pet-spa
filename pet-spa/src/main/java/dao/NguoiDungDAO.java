@@ -32,12 +32,12 @@ public class NguoiDungDAO extends DAO{
     public NguoiDungDAO() {
         super();
     }
-    public void update (NguoiDung nd, int id){
-        String sql1 = "UPDATE tblNguoiDung"
-                + "SET soCCCD = ? , ngaysinh = ?, email = ?, sdt = ?,"
-                + "ho = ?, tendem = ?, ten = ?, sonha = ?, cumdancu = ?,"
-                + "xaphuong = ?, quanhuyen = ?, tinhthanh = ?"
-                + "WHERE id = ?";
+    public boolean update (NguoiDung nd){
+        String sql1 = "UPDATE tblNguoiDung "
+                + "SET soCCCD = ? , ngaysinh = ?, email = ?, sdt = ?, "
+                + "ho = ?, tendem = ?, ten = ?, sonha = ?, cumdancu = ?, "
+                + "xaphuong = ?, quanhuyen = ?, tinhthanh = ? "
+                + "WHERE tendangnhap = ?";
         try {
             PreparedStatement prepareStatement=this.conn.prepareStatement(sql1);
             prepareStatement.setString(1, nd.getSoCCCD());
@@ -52,12 +52,15 @@ public class NguoiDungDAO extends DAO{
             prepareStatement.setString(10, nd.getDiaChi().getXaPhuong());
             prepareStatement.setString(11, nd.getDiaChi().getQuanHuyen());
             prepareStatement.setString(12, nd.getDiaChi().getTinhThanh());
-            prepareStatement.setInt(13, id);
-            int rowCount= prepareStatement.executeUpdate();
+            prepareStatement.setString(13, nd.getTenDangNhap());
+            prepareStatement.executeUpdate();
+            
+            return true;
             
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return false;
     }
     
     public NguoiDung getByID(int id){
@@ -131,12 +134,5 @@ public class NguoiDungDAO extends DAO{
         }
         return null;
     }
-    
-    public static void main (String[] args){
-        NguoiDungDAO nddao = new NguoiDungDAO();
-        NguoiDung nd = nddao.getByID(1);
-        System.out.print(nd.toString());
- 
-    }
-
+   
 }

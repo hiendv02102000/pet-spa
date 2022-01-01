@@ -35,9 +35,9 @@
               </tr>
               <tr class="table__row">
                 <td class="table__content" >1</td>
-                <td class="table__content" ></td>
-                <td class="table__content" ></td>
-                <td class="table__content" ></td>
+                <td class="table__content" >2</td>
+                <td class="table__content" >3</td>
+                <td class="table__content" >4</td>
 
               </tr>
               <tr class="table__row">

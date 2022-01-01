@@ -36,6 +36,4 @@ public class KhachHang extends NguoiDung{
         return id;
     }
 
-
-    
 }

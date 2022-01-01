@@ -48,29 +48,35 @@
                             <h2 class="title">Thêm nhân viên</h2>
                         </div>
                         <div class="card-body">
-                            <form method="POST">
+                            <form action="doThemNV.jsp" method="POST">
                                 <div class="form-row">
                                     <div class="name">Tên đăng nhập</div>
                                     <div class="value">
                                         <div class="input-group">
                                             <input class="input--style-5" type="text" id = "tendangnhap" name="tendangnhap">
                                         </div>
+                                        <p style="color: red; margin-top: 20px" class = "text">${errTenDangNhap}<p>
                                     </div>
+                                    
                                 </div>
+                                
                                 <div class="form-row">
                                     <div class="name">Mật khẩu</div>
                                     <div class="value">
                                         <div class="input-group">
                                             <input class="input--style-5" type="password" id = "matkhau" name="matkhau">
                                         </div>
+                                        <p style="color: red; margin-top: 20px" class = "text">${errMatKhau}<p>
                                     </div>
                                 </div>
+                                
                                 <div class="form-row">
                                     <div class="name">Nhập lại mật khẩu</div>
                                     <div class="value">
                                         <div class="input-group">
                                             <input class="input--style-5" type="password" id = "nhaplai_matkhau" name="nhaplai_matkhau">
                                         </div>
+                                        <p style="color: red; margin-top: 20px" class = "text">${errNhapLai}<p>
                                     </div>
                                 </div>
                                 <div class="form-row m-b-55">
@@ -104,6 +110,7 @@
                                         <div class="input-group">
                                             <input class="input--style-5" type="date" id = "ngaysinh" name="ngaysinh">
                                         </div>
+                                        <p style="color: red; margin-top: 20px" class = "text">${errNgaySinh}<p>
                                     </div>
                                 </div>
                                 <div class="form-row m-b-55">
@@ -166,6 +173,7 @@
                                         <div class="input-group">
                                             <input class="input--style-5" type="text" id = "email" name="email">
                                         </div>
+                                        <p style="color: red; margin-top: 20px" class = "text">${errEmail}<p>
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -174,6 +182,7 @@
                                         <div class="input-group">
                                             <input class="input--style-5" type="text" id = "sdt" name="sdt">
                                         </div>
+                                        <p style="color: red; margin-top: 20px" class = "text">${errSDT}<p>
                                     </div>
                                 </div>
 
