@@ -48,7 +48,7 @@ public class DichVuDAO extends DAO{
             return null;
         }
     }
-    public String insert(DichVu dv){
+    public boolean insert(DichVu dv){
         try {
             String sql = "INSERT INTO tblDichVu (ten, giaca, gioihan, mota, ngaytao)" +
                     "VALUES (?, ?, ?, ?, ?);";
@@ -59,9 +59,40 @@ public class DichVuDAO extends DAO{
             prepareStatement.setString(4, dv.getMoTa());
             prepareStatement.setString(5, LocalDateTime.now().toString());
             int rowCount= prepareStatement.executeUpdate();//thực thi làm thay đổi dữ liệu
-            return rowCount+"";
+            return true;
         } catch (Exception ex) {
-            return ex.getMessage();
+            return false;
+        }
+    }
+    public boolean update(DichVu dv, int id){
+        String sql1 = "UPDATE tblDichVu"
+                + "SET ten = ? , giaca = ?, gioihan = ?, mota = ?,"
+                + "ngaytao = ?"
+                + "WHERE id = ?";
+        try {
+            PreparedStatement prepareStatement=this.conn.prepareStatement(sql1);
+            prepareStatement.setString(1, dv.getTen());
+            prepareStatement.setString(2, dv.getGiaCa().toString());
+            prepareStatement.setInt(3, dv.getGioiHan());
+            prepareStatement.setString(4, dv.getMoTa());
+            prepareStatement.setString(5, LocalDateTime.now().toString());
+            prepareStatement.setInt(6, id);
+            int rowCount= prepareStatement.executeUpdate();
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    public void delete(DichVu dv, int id){
+        String sql1 = "UPDATE tblDichVu SET ngayxoa = ? WHERE id = ? ";
+        try {
+            PreparedStatement prepareStatement=this.conn.prepareStatement(sql1);            
+            prepareStatement.setString(1, LocalDateTime.now().toString());
+            prepareStatement.setInt(2, id);
+            int rowCount= prepareStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
     /*
@@ -124,6 +155,11 @@ public class DichVuDAO extends DAO{
     }
     public static void main (String[] args){
         DichVuDAO dvdao = new DichVuDAO();
+        
+//        int  a=BigInteger(200);
+        DichVu dv=new DichVu(16, "Tiêm vaccin", BigInteger.valueOf(300000), 2, "Tiêm phòng ngừa bệnh dại",null,null);
+//        dvdao.update(dv,16);
+//        dvdao.update(dv, 0)
         DichVu[] list = dvdao.getAll();
         for(int i=0;i<list.length;i++){
             System.out.print(list[i].toString());
