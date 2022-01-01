@@ -39,7 +39,7 @@ public class DichVu {
 
     @Override
     public String toString() {
-        return "" + "" + id + " " + ten + " " + moTa + ' ';
+        return  " " + ten + " " + ' ';
     }
 
     
