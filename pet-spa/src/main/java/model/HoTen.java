@@ -48,19 +48,6 @@ public class HoTen {
     }
     
 
-    @Override
-    public String toString() {
-        String rs = "";
-        if(ho!=null && !ho.isEmpty()){
-            rs += ho +" ";
-        }
-        if(tenDem!=null && !tenDem.isEmpty()){
-            rs += tenDem +" ";
-        }
-        if(ten!=null && !ten.isEmpty()){
-            rs += ten;
-        }
-        return rs;
-    }
+
     
 }

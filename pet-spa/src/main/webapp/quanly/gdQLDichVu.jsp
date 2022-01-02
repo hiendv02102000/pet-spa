@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@page import="utils.FormateDateTime"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="model.KhachHang"%>
@@ -80,15 +81,14 @@
                     int STT=0;
                     for(int i=0;i<listDV.length;i++){
                         STT+=1;
-//                         listDoanhThu[i].getNgay().getDayOfMonth();
-                        
+                        String tien = FormateDateTime.convertBigNumToCurrency(listDV[i].getGiaCa());
                         %>
                         <tr class="table__row">
                         <td class="table__content" ><a href=<%="gdTuyChinhDichVu.jsp?dv_id="+listDV[i].getId() %>><%=listDV[i].getId()%></a></td>
                         <td class="table__content" ><%=listDV[i].getTen() %></td>
                         <td class="table__content" ><%=listDV[i].getMoTa() %></td>
                         <td class="table__content" ><%=listDV[i].getGioiHan() %></td>
-                        <td class="table__content" ><%=listDV[i].getGiaCa()+""+"₫" %></td>
+                        <td class="table__content" ><%=tien+""+"₫" %></td>
                         </tr>
                    <%
                     }     
