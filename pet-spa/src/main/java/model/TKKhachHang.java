@@ -12,23 +12,35 @@ import java.time.LocalDateTime;
  *
  * @author admin
  */
-public class TKKhachHang extends KhachHang{
-    protected KhachHang khachHang;
+public class TKKhachHang extends KhachHang {
     private int solan;
     private BigInteger tongThanhToan;
+
     public TKKhachHang() {
     }
 
 
-    public TKKhachHang(KhachHang kh, HoTen tenKH, int solan, String loai, float khuyenmai, BigInteger tongThanhToan) {
-        this.khachHang=kh;
-        this.khachHang=new KhachHang();
-        this.khachHang.setHoTen(tenKH);
+
+    public TKKhachHang(int solan, BigInteger tongThanhToan, String tenDangNhap, String matKhau, LocalDate ngaySinh, 
+            String email, String sdt, String soCCCD, HoTen hoTen, DiaChi diaChi) {
+        super(tenDangNhap, matKhau, ngaySinh, email, sdt, soCCCD, hoTen, diaChi);
         this.solan = solan;
-        this.loai = loai;
-        this.khuyenmai = khuyenmai;
         this.tongThanhToan = tongThanhToan;
     }
+
+    public void setSolan(int solan) {
+        this.solan = solan;
+    }
+
+    public void setTongThanhToan(BigInteger tongThanhToan) {
+        this.tongThanhToan = tongThanhToan;
+    }
+
+    public TKKhachHang(int id, BigInteger tongThanhToan) {
+        this.solan = solan;
+        this.tongThanhToan = tongThanhToan;
+    }
+    
     public int getId() {
         return id;
     }
@@ -37,30 +49,12 @@ public class TKKhachHang extends KhachHang{
         this.id = id;
     }
 
-
-    public KhachHang getKhachHang() {
-        return khachHang;
-    }
-
-    public void setKhachHang(KhachHang khachHang) {
-        this.khachHang = khachHang;
-    }
-
-
     public String toString() {
-        return this.khachHang.getId()+" "+this.khachHang.getHoTen()+" "+solan + " " + loai + " " + khuyenmai + " " + tongThanhToan ;
+        return solan + " " + tongThanhToan;
     }
 
     public int getSolan() {
         return solan;
-    }
-
-    public String getLoai() {
-        return loai;
-    }
-
-    public float getKhuyenmai() {
-        return khuyenmai;
     }
 
     public BigInteger getTongThanhToan() {
@@ -106,5 +100,5 @@ public class TKKhachHang extends KhachHang{
     public DiaChi getDiaChi() {
         return diaChi;
     }
-    
+
 }

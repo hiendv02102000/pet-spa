@@ -140,9 +140,6 @@ public class NguoiDung {
         this.loaiTaiKhoan = loaiTaiKhoan;
     }
 
-    public void setHoTen(HoTen hoTen) {
-        this.hoTen = hoTen;
-    }
 
     public void setDiaChi(DiaChi diaChi) {
         this.diaChi = diaChi;

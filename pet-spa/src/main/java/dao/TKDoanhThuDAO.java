@@ -38,7 +38,7 @@ public class TKDoanhThuDAO extends DAO{
             rs=statement.executeQuery(sql);//thuc thi ko lam thao doi dl
             int count=0;
             while(rs.next()){//doc dong tiep theo cua ket qua
-                TKDoanhThu dt=new TKDoanhThu(BigInteger.valueOf(rs.getInt(1)),FormateDateTime.convertDBToLocalDateTime(rs.getDate(2), rs.getTime(2)));
+                TKDoanhThu dt=new TKDoanhThu(BigInteger.valueOf(rs.getInt(1)),(LocalDate)rs.getDate(2).toLocalDate());
                 listTK.add(dt);
             }
             result =new TKDoanhThu[count];
