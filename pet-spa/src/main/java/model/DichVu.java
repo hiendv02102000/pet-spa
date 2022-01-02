@@ -39,7 +39,6 @@ public class DichVu {
 
     @Override
     public String toString() {
-<<<<<<< HEAD
         return "" + "" + id + " "+ giaCa + " " + ten + " " + ngayTao +" " + moTa + ' ';
     }
 
@@ -50,9 +49,6 @@ public class DichVu {
         this.moTa = moTa;
         this.ngayTao = ngayTao;
         this.ngayXoa = ngayXoa;
-=======
-        return  " " + ten + " " + ' ';
->>>>>>> 9fa708d2a6c3bc99e6bba4a93a9b2bee1b388f8b
     }
 
     

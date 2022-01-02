@@ -127,23 +127,10 @@ public class LichHenDAO extends DAO {
             System.out.println(e.getMessage());
             return null;
         }
-<<<<<<< HEAD
        
      }
 
 
-=======
-
-    }
-
-    public LichHen[] getAll() {
-        return null;
-    }
-
-    public LichHen[] getByKhachHangCondition(String condition) {
-        return null;
-    }
->>>>>>> 9fa708d2a6c3bc99e6bba4a93a9b2bee1b388f8b
 //    public LichHen[] getByID(int ID){
 //        return null;
 //    }
