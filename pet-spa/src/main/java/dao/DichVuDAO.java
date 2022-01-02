@@ -64,9 +64,9 @@ public class DichVuDAO extends DAO{
             return false;
         }
     }
-    public DichVu[] getByName(String name){
+    public DichVu[] getByCondition(String condition){
      // tenDV = FormatVI.encodeVI(tenDV);
-      String sql = "Select * from tblDichVu WHERE ten LIKE '%"+name+"%'"+" AND "+ConditionsOfExist;
+      String sql = "Select * from tblDichVu WHERE "+ConditionsOfExist;
       Vector<DichVu> listDV = new Vector<DichVu>();
       DichVu[] result;
         ResultSet rs;
@@ -82,13 +82,15 @@ public class DichVuDAO extends DAO{
                 rs.getString(5),
                 FormateDateTime.convertDBToLocalDateTime(rs.getDate(6), rs.getTime(6)),
                 FormateDateTime.convertDBToLocalDateTime(rs.getDate(7), rs.getTime(7)));
-             listDV.add(dv);
+            if(dv.toString().contains(condition))
+                listDV.add(dv);
              //return FormatVI.decodeVI(rs.getString(2));
            }
            result = new DichVu[count];
         }catch(Exception e){
             return null;
         }
+        //System.out.println(condition);
         return listDV.toArray(result);
     }
     public DichVu[] getAll(){
@@ -130,6 +132,6 @@ public class DichVuDAO extends DAO{
         return null;
 
     }   
-   
+    
    
 }

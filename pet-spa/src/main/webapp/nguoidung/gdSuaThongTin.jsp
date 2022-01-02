@@ -60,8 +60,6 @@
                         </div>
                         <div class="card-body">
                             <form action="doSuaND.jsp" method="POST">
-                                
-                                
                                 <div class="form-row m-b-55">
                                     <div class="name">Họ và tên</div>
                                     <div class="value">

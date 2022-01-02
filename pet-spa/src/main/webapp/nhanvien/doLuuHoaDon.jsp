@@ -1,17 +1,35 @@
 <%-- 
-    Document   : doLuuHoaDon
-    Created on : Nov 17, 2021, 9:03:21 PM
-    Author     : admin
+    Document   : doChonDichVu.jsp
+    Created on : Dec 31, 2021, 2:48:27 PM
+    Author     : dovan
 --%>
 
+<%@page import="java.math.BigInteger"%>
+<%@page import="com.mysql.cj.result.LocalDateTimeValueFactory"%>
+<%@page import="java.time.*"%>
+<%@page import="java.util.*"%>
+<%@page import="model.*"%>
+<%@page import="dao.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<%
+    try {
+        HoaDonDAO hdDAO = new HoaDonDAO();
+
+        HoaDon hd = (HoaDon) session.getAttribute("hoadon");
+        hdDAO.insert(hd);
+        HoaDonDichVuDAO hddvDAO = new HoaDonDichVuDAO();
+        for (HoaDonDichVu hddv : hd.getListHDDV()) {
+            hddvDAO.insert(hd.getId(), hddv);
+        }
+        session.setAttribute("hoadon", null);
+        session.setAttribute("list_hddv", null);
+        session.setAttribute("lichhen", null);
+    } catch (Exception e) {
+        response.sendRedirect("./gdThanhToan.jsp");
+        return;
+    }
+
+    response.sendRedirect("./gdThanhToan.jsp");
+
+%>   
+

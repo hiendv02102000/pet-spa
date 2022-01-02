@@ -126,6 +126,7 @@ public class NguoiDungDAO extends DAO{
                     rs.getString("xaphuong"),
                     rs.getString("quanhuyen"),
                     rs.getString("tinhthanh")));
+               nd.setId( rs.getInt("id"));
                return nd;
            }
            result = new NguoiDung[count];

@@ -39,6 +39,11 @@ public class NguoiDung {
         this.diaChi = diaChi;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+   
     public int getId() {
         return id;
     }
@@ -95,9 +100,7 @@ public class NguoiDung {
         this.diaChi = nd.diaChi;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+ 
 
     public void setTenDangNhap(String tenDangNhap) {
         this.tenDangNhap = tenDangNhap;
