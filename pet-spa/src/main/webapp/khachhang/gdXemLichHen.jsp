@@ -25,6 +25,7 @@
         KhachHang kh = (KhachHang) session.getAttribute("khachhang");
         if (kh == null) {
             response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+            return;
         }
         LichHen[] listLichHen = dao.getByKhachHangID(kh.getId());
     %>  

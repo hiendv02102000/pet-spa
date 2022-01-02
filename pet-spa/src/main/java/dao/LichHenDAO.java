@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.util.Vector;
 import model.DichVu;
+import model.HoTen;
 import model.KhachHang;
 import model.LichHen;
 import model.LoaiKhachHang;
@@ -95,9 +96,10 @@ public class LichHenDAO extends DAO {
     public LichHen getByIDWithPreLoadKhachHang(int id) {
         String sql1 = "Select * from tblLichHen "
                 + " Where id = " + id + " AND " + ConditionsOfExist;
-        String sql2 = "Select lh.id,lh.thoigianhen,lh.giadukien,kh.id,l.* from ( " + sql1 + " ) as lh "
+        String sql2 = "Select lh.id,lh.thoigianhen,lh.giadukien,kh.id,l.*,nd.ho,nd.ten,nd.tendem from ( " + sql1 + " ) as lh "
                 + " inner join tblKhachHang kh on kh.id = lh.tblKhachHangid "
-                + " inner join tblloaiKhachHang l on l.id = kh.tblLoaiKhachHangid ";
+                + " inner join tblloaiKhachHang l on l.id = kh.tblLoaiKhachHangid "
+                + "inner join tblnguoidung nd  on kh.tblNguoiDungid=nd.id ";
         ResultSet rs;
         System.out.println(sql2);
         Vector<LichHen> listLH = new Vector<LichHen>();
@@ -111,6 +113,8 @@ public class LichHenDAO extends DAO {
                 kh.setId(rs.getInt(4));
                 LoaiKhachHang loai = new LoaiKhachHang(rs.getInt(5), rs.getString(6), rs.getFloat(7), new BigInteger(rs.getString(8)));
                 kh.setLoaiKhachHang(loai);
+                HoTen ht =new HoTen(rs.getString("ho"),rs.getString("tendem"),rs.getString("ten"));
+                kh.setHoTen(ht);
                 LichHen lh = new LichHen(rs.getInt(1),
                         FormateDateTime.convertDBToLocalDateTime(rs.getDate(2), rs.getTime(2)),
                         new BigInteger(rs.getString(3)),

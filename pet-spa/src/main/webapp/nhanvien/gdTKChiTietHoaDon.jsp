@@ -1,3 +1,4 @@
+<%@page import="model.NhanVien"%>
 <%@page import="model.DichVu"%>
 <%@page import="model.HoaDonDichVu"%>
 <%@page import="dao.HoaDonDichVuDAO"%>
@@ -24,6 +25,12 @@
             }</style>
     </head>
     <%
+        NhanVien nv = (NhanVien) session.getAttribute("nhanvien");
+
+        if (nv == null) {
+            response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+            return;
+        }
         HoaDonDAO dao = new HoaDonDAO();
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm  dd-MM-yyyy");
         //  KhachHang kh = (KhachHang)session.getAttribute("khachhang");
@@ -75,20 +82,20 @@
                                         </thead>
                                         <tbody>
                                             <%     HoaDonDichVu[] hddv = hd.getListHDDV();
-                                   
+
                                                 for (int i = 0; i < hddv.length; i++) {
                                                     DichVu dv = hddv[i].getDichVu();
-                                                   
-%>
+
+                                            %>
                                             <tr>
                                                 <td><%=dv.getTen()%></td>
                                                 <td><%=hddv[i].getSoLuong()%></td>
-                                                <td><%=hddv[i].getGiaDV()+ "đ"%></td>
+                                                <td><%=hddv[i].getGiaDV() + "đ"%></td>
                                                 <td><%=hddv[i].getGiaDV().intValue() * hddv[i].getSoLuong() + "đ"%></td>
                                             </tr>
                                             <%                                                }
                                             %>  
-                                           <tr>
+                                            <tr>
                                                 <td></td>
                                                 <td><%="Tổng"%></td>
                                                 <td></td>
