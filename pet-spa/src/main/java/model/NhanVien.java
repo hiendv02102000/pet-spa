@@ -31,6 +31,9 @@ public class NhanVien extends NguoiDung {
     public void setNgayXoa(LocalDateTime ngayXoa) {
         this.ngayXoa = ngayXoa;
     }
+   public String toString() {
+        return this.hoTen.getHo()+" "+this.hoTen.getTenDem()+" "+this.getHoTen().getTen();
+    }
 
     public int getId() {
         return this.id;
