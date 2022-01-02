@@ -38,5 +38,24 @@ public class DiaChi {
     public String getTinhThanh() {
         return tinhThanh;
     }
-    
+    @Override
+    public String toString() {
+        String rs = "";
+        if(soNha!=null && !soNha.isEmpty()){
+            rs += soNha +", ";
+        }
+        if(cumDanCu!=null && !cumDanCu.isEmpty()){
+            rs += cumDanCu +", ";
+        }
+        if(xaPhuong!=null && !xaPhuong.isEmpty()){
+            rs += xaPhuong+", ";
+        }
+        if(quanHuyen!=null && !quanHuyen.isEmpty()){
+            rs += quanHuyen+", ";
+        }
+        if(tinhThanh!=null && !tinhThanh.isEmpty()){
+            rs += tinhThanh+", ";
+        }
+        return rs;
+    }
 }
