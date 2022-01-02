@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
     <body>
+
                 <%
              int err = 0;
              
@@ -41,7 +42,7 @@
                           
 //                          DichVu dv1 =(DichVu)session.getAttribute("dichvu");
                           session.setAttribute("dichvu", dv);
-                          response.sendRedirect("./gdQuanLy.jsp"); 
+                          response.sendRedirect("./gdQLDichVu.jsp"); 
                           return;
                        }
                 

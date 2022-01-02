@@ -105,5 +105,48 @@ public class NguoiDung {
         this.hoTen = nd.hoTen;
         this.diaChi = nd.diaChi;
     }
+
+ 
+
+    public void setTenDangNhap(String tenDangNhap) {
+        this.tenDangNhap = tenDangNhap;
+    }
+
+    public void setMatKhau(String matKhau) {
+        this.matKhau = matKhau;
+    }
+
+    public void setNgaySinh(LocalDate ngaySinh) {
+        this.ngaySinh = ngaySinh;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
+    }
+
+    public void setSoCCCD(String soCCCD) {
+        this.soCCCD = soCCCD;
+    }
+
+    public void setNgayTao(LocalDateTime ngayTao) {
+        this.ngayTao = ngayTao;
+    }
+
+    public void setLoaiTaiKhoan(String loaiTaiKhoan) {
+        this.loaiTaiKhoan = loaiTaiKhoan;
+    }
+
+    public void setHoTen(HoTen hoTen) {
+        this.hoTen = hoTen;
+    }
+
+    public void setDiaChi(DiaChi diaChi) {
+        this.diaChi = diaChi;
+    }
+    
     
 }
