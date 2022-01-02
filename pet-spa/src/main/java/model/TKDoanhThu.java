@@ -18,12 +18,12 @@ import static utils.FormateDateTime.formatDateTimeVi;
  */
 public class TKDoanhThu {
     private BigInteger tongDoanhThu;
-    private LocalDateTime ngay;
+    private LocalDate ngay;
 
     public TKDoanhThu() {
     }
 
-    public TKDoanhThu(BigInteger tongDoanhThu, LocalDateTime ngay) {
+    public TKDoanhThu(BigInteger tongDoanhThu, LocalDate ngay) {
         this.tongDoanhThu = tongDoanhThu;
         this.ngay = ngay;
     }
@@ -38,7 +38,7 @@ public class TKDoanhThu {
         return tongDoanhThu;
     }
 
-    public LocalDateTime getNgay() {
+    public LocalDate getNgay() {
         return ngay;
     }
 

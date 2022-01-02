@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@page import="java.time.LocalDate"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="model.KhachHang"%>
@@ -49,7 +50,7 @@
                     for(int i=0;i<listDoanhThu.length;i++){
                         STT+=1;
 //                         listDoanhThu[i].getNgay().getDayOfMonth();
-                        LocalDateTime dateTime =listDoanhThu[i].getNgay();
+                        LocalDate dateTime =listDoanhThu[i].getNgay();
                         %>
                         <tr class="table__row">
                         <td class="table__content" ><a href=<%="gdDoanhThuChiTiet.jsp?tk_day="+dateTime.getDayOfMonth()%>><%=STT%></a></td>
