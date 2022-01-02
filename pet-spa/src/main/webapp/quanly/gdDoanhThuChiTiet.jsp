@@ -35,9 +35,14 @@
             //   return;
             // }
             String tk = request.getParameter("tk_day");
+            String m = request.getParameter("month");
+            String y = request.getParameter("year");
             int ngay=Integer.parseInt(tk);
+            int month=Integer.parseInt(m);
+            int year=Integer.parseInt(y);
+            
 //            HoaDon hd = new HoaDon();
-            HoaDon[] listHoaDon =  dao.getOnDay(ngay,10,2021);
+            HoaDon[] listHoaDon =  dao.getOnDay(ngay,month,year);
 
 //            hd.setListHD(dao.getOnDay(ngay,10,2020));
 //            session.setAttribute("tkct", hd);
@@ -73,8 +78,8 @@
                             <td class="table__content" ><%=STT%></td>
                             <td class="table__content" ><%=listHoaDon[i].getId()%></td>
                             <td class="table__content" ><%=listHoaDon[i].getThanhTien()%></td>
-                            <td class="table__content" ><%=listHoaDon[i].getNhanVien().toString() %></td>
-                            <td class="table__content" ><%=listHoaDon[i].getKhachHang().toString() %></td>
+                            <td class="table__content" ><%=listHoaDon[i].getNhanVien().getHoTen().toString() %></td>
+                            <td class="table__content" ><%=listHoaDon[i].getKhachHang().getHoTen().toString() %></td>
                             <td class="table__content" ><%=listHoaDon[i].getMoTa()%></td>
                         </tr>
                    <%

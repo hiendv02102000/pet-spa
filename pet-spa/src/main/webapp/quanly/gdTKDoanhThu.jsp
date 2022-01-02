@@ -22,13 +22,21 @@
             <title>Thống kê doanh thu</title>
         </head>
          <%
-             TKDoanhThuDAO dao = new TKDoanhThuDAO();
-             DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm  dd-MM-yyyy");
-            //  KhachHang kh = (KhachHang)session.getAttribute("khachhang");
-            // if(kh==null){
-            //   return;
-            // }
-             TKDoanhThu[] listDoanhThu =  dao.getOnMonth(10,2021);
+            
+            TKDoanhThuDAO dao = new TKDoanhThuDAO();
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm  dd-MM-yyyy");
+           //  KhachHang kh = (KhachHang)session.getAttribute("khachhang");
+           // if(kh==null){
+           //   return;
+           // }
+            TKDoanhThu[] listDoanhThu =  dao.getOnMonth(10,2021);
+            if(request.getParameter("thang")!=null && request.getParameter("nam")!=null){
+                String t = request.getParameter("thang");
+                String n = request.getParameter("nam");
+                int thang=Integer.parseInt(t);
+                int nam=Integer.parseInt(n);
+                listDoanhThu =  dao.getOnMonth(thang,nam);
+            }
          %>  
         <body>
                 <header>
@@ -39,6 +47,19 @@
             </div>
         </header>
             <h1 style="font-family: emoji; font-size: 250%;">Thống kê doanh thu</h1>
+            <form action="./gdTKDoanhThu.jsp" method="GET">
+                <div style="float:right;"> 
+                        <input name="thang" type="text" placeholder="Tháng" style="width:100px;text-align: center;margin-left:16px;
+                            margin-bottom: 16px">
+                        <input name="nam" type="text" placeholder="Năm" style="width:100px; text-align: center;margin-left:16px;
+                               margin-bottom: 16px">
+                        
+                        <button type="submit" style="margin-left: 16px;margin-right: 30px; text-align: center;">
+                            Thống kê
+                        </button>
+                </div>
+
+                    </form>
             <table class="table">
               <tr>
                 <th class="table__heading">STT</th>
@@ -53,7 +74,7 @@
                         LocalDate dateTime =listDoanhThu[i].getNgay();
                         %>
                         <tr class="table__row">
-                        <td class="table__content" ><a href=<%="gdDoanhThuChiTiet.jsp?tk_day="+dateTime.getDayOfMonth()%>><%=STT%></a></td>
+                        <td class="table__content" ><a href=<%="gdDoanhThuChiTiet.jsp?tk_day="+dateTime.getDayOfMonth()+"&month="+dateTime.getMonthValue()+"&year="+dateTime.getYear() %>><%=STT%></a></td>
                         <td class="table__content" ><%=dateTime.getDayOfMonth()+"-"+dateTime.getMonthValue()+"-"+dateTime.getYear()%></td>
                        
                         <td class="table__content" ><%=listDoanhThu[i].getTongDoanhThu()+""+"₫"%></td>
