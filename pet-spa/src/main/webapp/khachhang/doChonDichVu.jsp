@@ -12,26 +12,26 @@
     try {
         int dvid = Integer.parseInt(request.getParameter("dv_id"));
         int sldv = Integer.parseInt(request.getParameter("dv_sl"));
-        List<HoaDonDichVu> listHDDV;
-        listHDDV = (List<HoaDonDichVu>) session.getAttribute("list_hddv");
+        List<LichHenDichVu> listLHDV;
+        listLHDV = (List<LichHenDichVu>) session.getAttribute("list_lhdv");
         DichVu[] listDV = (DichVu[]) session.getAttribute("list_dv");
 //    DichVuDAO dvdao = new DichVuDAO();
 //    DichVu[] listDV = dvdao.getAll();
 //    listLHDV.add(new LichHenDichVu(0, listDV[0], 12));
         if (sldv <= 0) {
-            for (HoaDonDichVu lhdv : listHDDV) {
+            for (LichHenDichVu lhdv : listLHDV) {
                 if (lhdv.getDichVu().getId() == dvid) {
-                    listHDDV.remove(lhdv);
+                    listLHDV.remove(lhdv);
                     break;
                 }
             }
         } else {
             boolean isNew = true;
-            for (HoaDonDichVu lhdv : listHDDV) {
+            for (LichHenDichVu lhdv : listLHDV) {
                 if (lhdv.getDichVu().getId() == dvid) {
-                    if (sldv > lhdv.getDichVu().getGioiHan()) {
-                        sldv = lhdv.getDichVu().getGioiHan();
-                    }
+                    if(sldv>lhdv.getDichVu().getGioiHan()){
+                    sldv = lhdv.getDichVu().getGioiHan();
+    }
                     lhdv.setSoLuong(sldv);
 
                     isNew = false;
@@ -41,24 +41,18 @@
             if (isNew) {
                 for (DichVu dv : listDV) {
                     if (dv.getId() == dvid) {
-                        listHDDV.add(new HoaDonDichVu(0, dv, sldv));
+                        listLHDV.add(new LichHenDichVu(0, dv, sldv));
                         break;
                     }
                 }
 
             }
         }
-        session.setAttribute("list_hddv", listHDDV);
+        session.setAttribute("list_lhdv", listLHDV);
     } catch (Exception e) {
-
+ 
     }
-    String mahen = request.getParameter("ma_hen");
-    if (mahen == null||mahen.equals("null")) {
-        mahen = "";
-    }else {
-     mahen = "?ma_hen=" + mahen;
-    }
-    response.sendRedirect("./gdTaoHoaDon.jsp"+mahen);
-
+    response.sendRedirect("./gdDatLich.jsp"); 
+  
 %>   
 

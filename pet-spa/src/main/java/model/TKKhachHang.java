@@ -15,8 +15,6 @@ import java.time.LocalDateTime;
 public class TKKhachHang extends KhachHang{
     protected KhachHang khachHang;
     private int solan;
-    private String loai;
-    private float khuyenmai;
     private BigInteger tongThanhToan;
     public TKKhachHang() {
     }

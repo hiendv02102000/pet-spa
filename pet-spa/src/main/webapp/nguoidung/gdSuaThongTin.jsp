@@ -3,7 +3,8 @@
     Created on : Oct 9, 2021, 7:30:34 PM
     Author     : admin
 --%>
-
+<%@page import="java.time.LocalDate"%>
+<%@ page import="model.*, dao.*"  %>  
 <%@page import="com.sun.org.apache.bcel.internal.generic.AALOAD"%>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,6 +35,12 @@
     <link rel="stylesheet" href="../assets/css/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+    <% 
+        NguoiDungDAO dao= new NguoiDungDAO();
+        NguoiDung nd = (NguoiDung)session.getAttribute("acc");
+  
+    %>
+
     <body>
         <header>
             <div class="container1">
@@ -52,50 +59,26 @@
                             <h2 class="title">Sửa thông tin</h2>
                         </div>
                         <div class="card-body">
-                            <form method="POST">
-                                <div class="form-row">
-                                    <div class="name">Tên đăng nhập</div>
-                                    <div class="value">
-                                        <div class="input-group">
-                                            <input class="input--style-5" type="text" id = "tendangnhap" name="tendangnhap">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="name">Mật khẩu</div>
-                                    <div class="value">
-                                        <div class="input-group">
-                                            <input class="input--style-5" type="pasword" id = "matkhau" name="matkhau">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="name">Nhập lại mật khẩu</div>
-                                    <div class="value">
-                                        <div class="input-group">
-                                            <input class="input--style-5" type="password" id = "nhaplai_matkhau" name="nhaplai_matkhau">
-                                        </div>
-                                    </div>
-                                </div>
+                            <form action="doSuaND.jsp" method="POST">
                                 <div class="form-row m-b-55">
                                     <div class="name">Họ và tên</div>
                                     <div class="value">
                                         <div class="row row-space">
                                             <div class="col-3">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "ho" name="ho">
+                                                    <input class="input--style-5" type="text" id = "ho" name="ho" value=<%=nd.getHoTen().getHo()%>>
                                                     <label class="label--desc">Họ</label>
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "tendem" name="tendem">
+                                                    <input class="input--style-5" type="text" id = "tendem" name="tendem" value=<%=nd.getHoTen().getTenDem()%>>
                                                     <label class="label--desc">Tên đệm</label>
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "ten" name="ten">
+                                                    <input class="input--style-5" type="text" id = "ten" name="ten" value=<%=nd.getHoTen().getTen()%>>
                                                     <label class="label--desc">Tên</label>
                                                 </div>
                                             </div>
@@ -106,8 +89,9 @@
                                     <div class="name">Ngày sinh</div>
                                     <div class="value">
                                         <div class="input-group">
-                                            <input class="input--style-5" type="date" id = "ngaysinh" name="ngaysinh">
+                                            <input class="input--style-5" type="date" id = "ngaysinh" name="ngaysinh" value=<%=nd.getNgaySinh() %>>
                                         </div>
+                                        <p style="color: red; margin-top: 20px" class = "text">${errNgaySinh}<p>
                                     </div>
                                 </div>
                                 <div class="form-row m-b-55">
@@ -116,19 +100,19 @@
                                         <div class="row row-space">
                                             <div class="col-3">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "sonha" name="sonha">
+                                                    <input class="input--style-5" type="text" id = "sonha" name="sonha" value=<%=nd.getDiaChi().getSoNha()%>>
                                                     <label class="label--desc">Số nhà</label>
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "cumdancu" name="cumdancu">
+                                                    <input class="input--style-5" type="text" id = "cumdancu" name="cumdancu" value=<%=nd.getDiaChi().getCumDanCu()%>>
                                                     <label class="label--desc">Cụm dân cư</label>
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "xaphuong" name="xaphuong">
+                                                    <input class="input--style-5" type="text" id = "xaphuong" name="xaphuong" value=<%=nd.getDiaChi().getXaPhuong()%>>
                                                     <label class="label--desc">Xã phường</label>
                                                 </div>
                                             </div>                                 
@@ -142,13 +126,13 @@
                                         <div class="row row-space">
                                             <div class="col-2">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "quanhuyen" name="quanhuyen">
+                                                    <input class="input--style-5" type="text" id = "quanhuyen" name="quanhuyen" value=<%=nd.getDiaChi().getQuanHuyen()%>>
                                                     <label class="label--desc">Quận huyện</label>
                                                 </div>
                                             </div>
                                             <div class="col-2">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "tinhthanh" name="tinhthanh">
+                                                    <input class="input--style-5" type="text" id = "tinhthanh" name="tinhthanh" value=<%=nd.getDiaChi().getTinhThanh()%>>
                                                     <label class="label--desc">Tỉnh thành</label>
                                                 </div>
                                             </div>                               
@@ -160,7 +144,7 @@
                                     <div class="name">Căn cước công dân</div>
                                     <div class="value">
                                         <div class="input-group">
-                                            <input class="input--style-5" type="text" id = "CCCD" name="CCCD">
+                                            <input class="input--style-5" type="text" id = "CCCD" name="CCCD" value=<%=nd.getSoCCCD() %>> 
                                         </div>
                                     </div>
                                 </div>
@@ -168,16 +152,18 @@
                                     <div class="name">Email</div>
                                     <div class="value">
                                         <div class="input-group">
-                                            <input class="input--style-5" type="text" id = "email" name="email">
+                                            <input class="input--style-5" type="text" id = "email" name="email" value=<%=nd.getEmail()%>>
                                         </div>
+                                        <p style="color: red; margin-top: 20px" class = "text">${errEmail}<p>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="name">Số điện thoại</div>
                                     <div class="value">
                                         <div class="input-group">
-                                            <input class="input--style-5" type="text" id = "sdt" name="sdt">
+                                            <input class="input--style-5" type="text" id = "sdt" name="sdt" value=<%=nd.getSdt()%>>
                                         </div>
+                                        <p style="color: red; margin-top: 20px" class = "text">${errSDT}<p>
                                     </div>
                                 </div>
 

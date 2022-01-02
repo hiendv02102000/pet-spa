@@ -6,7 +6,6 @@ package model;
 
 import java.math.BigInteger;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 /**
  *
@@ -51,6 +50,14 @@ public class KhachHang extends NguoiDung{
     @Override
     public String toString() {
         return this.hoTen.getHo()+" "+this.hoTen.getTenDem()+" "+this.getHoTen().getTen();
+    }
+
+    public HoTen getHoTen() {
+        return hoTen;
+    }
+
+    public void setHoTen(HoTen hoTen) {
+        this.hoTen = hoTen;
     }
 
 
