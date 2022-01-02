@@ -53,7 +53,7 @@
       String err = "";
     if(request.getParameter("err")!=null) err = "Thêm thất bại";
     if(request.getParameter("check")!=null){
-               
+                String id=request.getParameter("id");
                 String tenDV =request.getParameter("tenDV");
 //               if(tenDV!=null&&tenDV.isEmpty()){
 //                        err = "Tên dịch vụ không để trống";
@@ -81,7 +81,8 @@
                if(err.isEmpty()){
                    int gh=Integer.parseInt(gioiHan);
                    int gc=Integer.parseInt(giaCa);
-                    DichVu dv = new DichVu(dv1.getId(),tenDV, BigInteger.valueOf(gc), gh, moTa, null, null);
+                   int id1=Integer.parseInt(id);
+                    DichVu dv = new DichVu(id1,tenDV, BigInteger.valueOf(gc), gh, moTa, null, null);
                     session.setAttribute("dichvu",dv);
                     response.sendRedirect("./doSuaDichVu.jsp");
                }
@@ -110,6 +111,14 @@
                         <div class="card-body">
                             <form method="POST" action="./gdTuyChinhDichVu.jsp?check=true" >
                                 <div class="form-row">
+                                    <div class="name">Mã dịch vụ</div>
+                                    <div class="value">
+                                        <div class="input-group">
+                                            <input class="input--style-5" type="id" id = "tenDV" name="id" value=<%=dv1.getId() %>>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
                                     <div class="name">Tên dịch vụ</div>
                                     <div class="value">
                                         <div class="input-group">
@@ -118,7 +127,7 @@
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="name">giá cả</div>
+                                    <div class="name">Giá cả</div>
                                     <div class="value">
                                         <div class="input-group">
                                             <input class="input--style-5" type="text" id = "giaCa" name="giaCa" value=<%=dv1.getGiaCa() %>>

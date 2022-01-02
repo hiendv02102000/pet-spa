@@ -21,22 +21,24 @@
             <title>QL dịch vụ</title>
         </head>
          <%
-             if(request.getParameter("delete")!=null){
+             DichVuDAO dao = new DichVuDAO();
+
+            DichVu[] listDV=dao.getAll();
+            
+            if(request.getParameter("timkiemdv")!=null){
+                
+                listDV=dao.getByCondition(request.getParameter("timkiemdv"));
+            }
+            if(request.getParameter("delete")!=null){
                  String delete = request.getParameter("delete");
                  int id=Integer.parseInt(delete);
-                DichVuDAO dao = new DichVuDAO();
                 DichVu dv1=dao.getByID(id);
                 dao.delete(dv1, id);
-             }
-             
-            DichVuDAO dao = new DichVuDAO();
-
-             DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm  dd-MM-yyyy");
-            //  KhachHang kh = (KhachHang)session.getAttribute("khachhang");
-            // if(kh==null){
-            //   return;
-            // }
-             DichVu[] listDV =  dao.getAll();
+            }
+//            if(request.getParameter("timkiemdv")==null || request.getParameter("delete")==null){
+//                listDV =  dao.getAll();
+//            }
+           
             
                 
             
@@ -52,6 +54,20 @@
             </div>
         </header>
             <h1 style="font-family: emoji; font-size: 250%;">Danh sách dịch vụ</h1>
+
+                    <form action="./gdQLDichVu.jsp" method="GET">
+                        <input name="timkiemdv" type="text" placeholder="Tìm kiếm dịch vụ" style="height: 40px; width: 30%; text-align: center;margin-left:16px">
+
+                        <button type="submit" >
+                            Tìm kiếm
+                        </button>
+                        <button style="float: right; padding: 0 21px;" class="btn btn--radius-2 btn--red" type="submit"><a href=gdThemDichVu.jsp>Thêm dịch vụ</a></button>
+                        
+
+                    </form>
+     
+               
+            </div>
             <table class="table">
               <tr>
                   
@@ -88,7 +104,6 @@
 
                 
             </table>
-            <button class="btn btn--radius-2 btn--red" type="submit"><a href=gdThemDichVu.jsp>Thêm dịch vụ</a></button>
             </body>
             
             

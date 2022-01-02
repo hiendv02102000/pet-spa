@@ -120,12 +120,8 @@ public class LichHenDAO extends DAO{
         }
        
      }
-     public LichHen[] getAll(){
-        return null;
-    }
-    public LichHen[] getByKhachHangCondition(String condition){
-        return null;
-    }
+
+
 //    public LichHen[] getByID(int ID){
 //        return null;
 //    }
