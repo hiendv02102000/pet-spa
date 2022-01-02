@@ -216,6 +216,23 @@ public class NhanVienDAO extends DAO{
         }
         return listNV.toArray(result);
     }
-    
+    public void setIDKH(NhanVien nv){
+        String sql1 = "SELECT kh.* FROM tblnhanvien kh\n"
+                    + "inner join tblnguoidung nd  on kh.tblNguoiDungid=nd.id\n"
+                    + "where nd.tendangnhap = '"+nv.getTenDangNhap()+"';";
+            Statement stm;
+        try {
+            stm = this.conn.createStatement();
+             ResultSet rs1 = stm.executeQuery(sql1);;
+           
+            if(rs1.next()){
+                nv.setId(rs1.getInt(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+           
+    }
 }
 

@@ -19,6 +19,7 @@
 
         if (kh == null) {
             response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+            return;
         }
         if (kh.getId() == 0) {
             KhachHangDAO dao = new KhachHangDAO();
@@ -39,7 +40,7 @@
                     <li><a href="#contact">Liên hệ</a></li>
                     <li><a href="gdXemLichHen.jsp">Xem lịch hẹn</a></li>
                     <li><a href="../nguoidung/gdSuaThongTin.jsp">Sửa thông tin</a></li>
-                    <li ><a href="#">Đăng xuất</a></li>
+                    <li ><a href="../nguoidung/gdDangNhap.jsp">Đăng xuất</a></li>
 
 
                 </ul> 

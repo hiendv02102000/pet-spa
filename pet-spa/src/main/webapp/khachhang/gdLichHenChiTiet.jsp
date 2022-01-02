@@ -22,7 +22,7 @@
     <%
         KhachHang kh = (KhachHang) session.getAttribute("khachhang");
         if (kh == null) {
-            response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+            response.sendRedirect("../nguoidung/gdDangNhap.jsp");return;
         }
         LichHenDichVuDAO dao = new LichHenDichVuDAO();
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm  dd-MM-yyyy");

@@ -31,7 +31,7 @@
                 <li><a href="gdTKDoanhThu.jsp">TK doanh thu</a></li>   
                 <li><a href="gdQuanLyNV.jsp">QL Nhân viên</a></li>
                 <li><a href="gdQLDichVu.jsp">QL Dịch vụ</a></li>
-                <li ><a href="#">Đăng xuất</a></li>
+                <li ><a href="../nguoidung/gdDangNhap.jsp">Đăng xuất</a></li>
             </ul> 
            
            

@@ -4,6 +4,8 @@
     Author     : admin
 --%>
 
+<%@page import="utils.FormateDateTime"%>
+<%@page import="java.math.BigInteger"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="model.*"%>
@@ -26,6 +28,7 @@
         KhachHang kh = (KhachHang) session.getAttribute("khachhang");
         if (kh == null) {
             response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+            return;
         }
         DichVuDAO dvdao = new DichVuDAO();
         DichVu[] listDV = dvdao.getAll();
@@ -37,7 +40,7 @@
         if (listLHDV == null) {
             listLHDV = new ArrayList<LichHenDichVu>();
         }
-
+        BigInteger tong = new BigInteger("0");
         session.setAttribute("list_lhdv", listLHDV);
         session.setAttribute("list_dv", listDV);
     %>
@@ -81,6 +84,7 @@
                         int x = 0;
                         for (LichHenDichVu lhdv : listLHDV) {
                             x++;
+                            tong = tong.add(lhdv.getDichVu().getGiaCa().multiply(new BigInteger(""+lhdv.getSoLuong())));
                     %>
                     <tr class="table__row" id =<%="lhdv" + lhdv.getDichVu().getId()%> >
                         <td class="table__content" ><%=x%></td>
@@ -88,7 +92,7 @@
                         <td class="table__content" >
                             <input style="width: 75px"  type="number" id=<%="sl" + lhdv.getDichVu().getId()%>     min='1'  max="1000000000" onchange=<%="themDV(" + lhdv.getDichVu().getId() + ",'them')"%> value= <%=lhdv.getSoLuong() + ""%>   />
                         </td>
-                        <td class="table__content" > <%= lhdv.getDichVu().getGiaCa()%>đ</td>
+                        <td class="table__content" > <%= FormateDateTime.convertBigNumToCurrency(lhdv.getDichVu().getGiaCa())%>đ</td>
 
                         <td class="table__content" ><div class="btn-box" style="text-align: center;">
                                 <button type="submit" style="background-color: red; margin-left: 15px;" onclick=<%="themDV(" + lhdv.getDichVu().getId() + ",'xoa')"%>>
@@ -103,7 +107,7 @@
 
                 </table>
                 <div style="text-align: right; margin-right: 170px; margin-top: 10px; font-weight: bold;">
-                    Giá dự kiến = 
+                    <%=" Giá dự kiến = "+FormateDateTime.convertBigNumToCurrency(tong)+"đ"%>
                 </div>
 
             </div>
@@ -114,7 +118,7 @@
                     <form action = "./gdDatLich.jsp">
                         <div class="input-box" style=" text-align: center;margin-top:70px;">
                             <i ></i>
-                            <input type="text" name = "tenDV" placeholder="Tên dịch vụ" style="height: 55px; width: 70%;" value=<%=(request.getParameter("tendangnhap") != null) ? request.getParameter("tenDV") : ""%>>
+                            <input type="text" name = "tenDV" placeholder="Tên dịch vụ" style="height: 55px; width: 70%;" value=<%=(request.getParameter("tenDV") != null) ? request.getParameter("tenDV") : ""%>>
                         </div>
                         <div class="btn-box" style="margin-right: 142px;">
                             <button type="submit">
@@ -145,7 +149,7 @@
                     <tr class="table__row" style="text-align: center;<%=display%>" id = <%="dv" + listDV[i].getId()%> >
                         <td class="table__content" ><%=listDV[i].getId()%></td>
                         <td class="table__content" ><%=listDV[i].getTen()%></td>
-                        <td class="table__content" ><%=listDV[i].getGiaCa() + "đ"%></td>
+                        <td class="table__content" ><%=FormateDateTime.convertBigNumToCurrency(listDV[i].getGiaCa() )+ "đ"%></td>
                         <td class="table__content" ><div class="btn-box" style="text-align: center;">
                                 <button  style="background-color: rgb(5, 199, 5);margin-left: 15px;" onclick=<%="themDV(" + listDV[i].getId() + ",'themmoi')"%>>
                                     Thêm

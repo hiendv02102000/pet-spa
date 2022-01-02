@@ -29,4 +29,10 @@ public class HoTen {
     public String getTen() {
         return ten;
     }
+
+    @Override
+    public String toString() {
+        return "HoTen{" + "ho=" + ho + ", tenDem=" + tenDem + ", ten=" + ten + '}';
+    }
+    
 }

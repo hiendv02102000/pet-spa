@@ -30,7 +30,7 @@ public class KhachHangDAO extends DAO{
         return null;
     }
     public void setIDKH(KhachHang kh){
-        String sql1 = "SELECT kh.* FROM pet_spa.tblkhachhang kh\n"
+        String sql1 = "SELECT kh.* FROM tblkhachhang kh\n"
                     + "inner join tblnguoidung nd  on kh.tblNguoiDungid=nd.id\n"
                     + "where nd.tendangnhap = '"+kh.getTenDangNhap()+"';";
             Statement stm;

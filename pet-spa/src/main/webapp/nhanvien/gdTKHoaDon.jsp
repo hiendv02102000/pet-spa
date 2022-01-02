@@ -22,6 +22,12 @@
         <title>Thống kê hóa đơn</title>
     </head>
     <%
+        NhanVien nv = (NhanVien) session.getAttribute("nhanvien");
+
+        if (nv == null) {
+            response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+            return;
+        }
         TKHoaDonDAO dao = new TKHoaDonDAO();
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm  dd-MM-yyyy");
         //  KhachHang kh = (KhachHang)session.getAttribute("khachhang");

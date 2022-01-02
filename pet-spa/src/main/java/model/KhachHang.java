@@ -6,7 +6,6 @@ package model;
 
 import java.math.BigInteger;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 /**
  *
@@ -58,6 +57,14 @@ public class KhachHang extends NguoiDung{
 
     public void setLoaiKhachHang(LoaiKhachHang loaiKhachHang) {
         this.loaiKhachHang = loaiKhachHang;
+    }
+
+    public HoTen getHoTen() {
+        return hoTen;
+    }
+
+    public void setHoTen(HoTen hoTen) {
+        this.hoTen = hoTen;
     }
 
 
