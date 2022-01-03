@@ -29,6 +29,62 @@ public class LichHenDAO extends DAO {
         super();
     }
 
+    public LichHen[] getByKhanhHangCondition(String condition) {
+
+        String sql = "Select * from tblLichHen WHERE " + ConditionsOfExist;
+        Vector<LichHen> listLH = new Vector<LichHen>();
+        LichHen[] result;
+        ResultSet rs;
+        try {
+            Statement statement = this.conn.createStatement();
+            rs = statement.executeQuery(sql);
+            int count = 0;
+            while (rs.next()) {
+                LichHen lh = new LichHen(rs.getInt(1),
+                        FormateDateTime.convertDBToLocalDateTime(rs.getDate(2), rs.getTime(2)),
+                        new BigInteger(rs.getString(3)),
+                        null,
+                        null);
+                listLH.add(lh);
+
+            }
+
+            result = new LichHen[count];
+
+        } catch (Exception e) {
+            return null;
+        }
+        return listLH.toArray(result);
+    }
+
+    public LichHen[] getAll() {
+        String sql = "Select * from tblLichHen" + " Where " + ConditionsOfExist;
+        Vector<LichHen> listLH = new Vector<LichHen>();
+        LichHen[] result;
+        ResultSet rs;
+        try {
+            Statement statement = this.conn.createStatement();
+            rs = statement.executeQuery(sql);
+            int count = 0;
+            while (rs.next()) {
+                LichHen lh = new LichHen(rs.getInt(1),
+                        FormateDateTime.convertDBToLocalDateTime(rs.getDate(2), rs.getTime(2)),
+                        new BigInteger(rs.getString(3)),
+                        null,
+                        null);
+                listLH.add(lh);
+
+            }
+
+            result = new LichHen[count];
+
+        } catch (Exception e) {
+            return null;
+        }
+        return listLH.toArray(result);
+
+    }
+
     public LichHen[] getByKhachHangID(int khID) {
         String sql = "Select * from tblLichHen Where tblKhachHangid = " + khID + " AND " + ConditionsOfExist;
         ResultSet rs;
@@ -113,7 +169,7 @@ public class LichHenDAO extends DAO {
                 kh.setId(rs.getInt(4));
                 LoaiKhachHang loai = new LoaiKhachHang(rs.getInt(5), rs.getString(6), rs.getFloat(7), new BigInteger(rs.getString(8)));
                 kh.setLoaiKhachHang(loai);
-                HoTen ht =new HoTen(rs.getString("ho"),rs.getString("tendem"),rs.getString("ten"));
+                HoTen ht = new HoTen(rs.getString("ho"), rs.getString("tendem"), rs.getString("ten"));
                 kh.setHoTen(ht);
                 LichHen lh = new LichHen(rs.getInt(1),
                         FormateDateTime.convertDBToLocalDateTime(rs.getDate(2), rs.getTime(2)),
@@ -130,13 +186,7 @@ public class LichHenDAO extends DAO {
 
     }
 
-    public LichHen[] getAll() {
-        return null;
-    }
-
-    public LichHen[] getByKhachHangCondition(String condition) {
-        return null;
-    }
+   
 //    public LichHen[] getByID(int ID){
 //        return null;
 //    }
