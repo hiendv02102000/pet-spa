@@ -26,9 +26,25 @@ public class TKDichVu extends  DichVu{
         this.soLan = soLan;
     }
 
-    public TKDichVu(float tyle, int soLan, String ten, BigInteger giaCa, int gioiHan, String moTa, LocalDateTime ngayTao, LocalDateTime ngayXoa) {
-        super(ten, giaCa, gioiHan, moTa, ngayTao, ngayXoa);
+    public TKDichVu(float tyle, int soLan, String ten, BigInteger giaCa) {
+        super(ten, giaCa, 0, "", null, null);
         this.tyle = tyle;
+        this.soLan = soLan;
+    }
+
+    public float getTyle() {
+        return tyle;
+    }
+
+    public void setTyle(float tyle) {
+        this.tyle = tyle;
+    }
+
+    public int getSoLan() {
+        return soLan;
+    }
+
+    public void setSoLan(int soLan) {
         this.soLan = soLan;
     }
     

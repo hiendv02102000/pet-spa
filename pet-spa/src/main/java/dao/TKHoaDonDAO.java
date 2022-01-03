@@ -40,10 +40,10 @@ public class TKHoaDonDAO extends DAO {
             int count = 0;
             while (rs.next()) {
                 TKHoaDon hd = new TKHoaDon(rs.getInt(1),
-                         new BigInteger(rs.getString(2)),
+                        new BigInteger(rs.getString(2)),
                         FormateDateTime.convertDBToLocalDateTime(rs.getDate(3), rs.getTime(3)),
-                         rs.getString(4)
-                      );
+                        rs.getString(4)
+                );
                 //return FormatVI.decodeVI(rs.getString(2));
                 listTKHD.add(hd);
                 count++;
@@ -56,14 +56,5 @@ public class TKHoaDonDAO extends DAO {
             return null;
         }
         return listTKHD.toArray(result);
-    }
-    public static void main(String[] args) {
-        TKHoaDonDAO dao = new TKHoaDonDAO();
-             DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm  dd-MM-yyyy");
-            //  KhachHang kh = (KhachHang)session.getAttribute("khachhang");
-            // if(kh==null){
-            //   return;
-            // }
-             TKHoaDon[] listtkhd =  dao.getAllonday();
     }
 }
