@@ -64,13 +64,5 @@ public class TKKhachHangDAO extends DAO {
 
     }
 
-    public static void main(String[] args) {
-        TKKhachHangDAO dao = new TKKhachHangDAO();
-        TKKhachHang[] listKH = dao.getKHOnMonth(10, 2021);
-        for (TKKhachHang tKKhachHang : listKH) {
-            listKH.toString();
-            System.out.println("1");
-        }
-    }
 
 }
