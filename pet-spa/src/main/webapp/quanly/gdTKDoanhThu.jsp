@@ -28,6 +28,7 @@
         TKDoanhThuDAO dao = new TKDoanhThuDAO();
         LocalDate date = LocalDate.now();
         TKDoanhThu[] listDoanhThu = dao.getOnMonth(date.getMonthValue(), date.getYear());
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         if (request.getParameter("thang") != null && request.getParameter("nam") != null) {
             try {
                 String t = request.getParameter("thang");

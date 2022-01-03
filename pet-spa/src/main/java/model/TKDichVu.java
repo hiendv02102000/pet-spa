@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
  * @author admin
  */
 public class TKDichVu extends  DichVu{
-    private float tyle;
-    private int soLan;
+    protected float tyle;
+    protected int soLan;
 
     public TKDichVu(float tyle, int soLan) {
         this.tyle = tyle;
@@ -38,6 +38,10 @@ public class TKDichVu extends  DichVu{
 
     public void setTyle(float tyle) {
         this.tyle = tyle;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getSoLan() {

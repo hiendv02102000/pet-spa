@@ -11,8 +11,8 @@ import java.time.LocalDate;
  * @author admin
  */
 public class TKChiTietDichVu extends DichVu{
-    private int solan ;
-    private LocalDate ngay;
+    protected int solan ;
+    protected LocalDate ngay;
 
     public TKChiTietDichVu(int solan, LocalDate ngay) {
         this.solan = solan;
