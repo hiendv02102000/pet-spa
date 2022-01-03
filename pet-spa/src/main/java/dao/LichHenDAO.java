@@ -131,6 +131,7 @@ public class LichHenDAO extends DAO {
     }
 
     public LichHen[] getAll() {
+        
         return null;
     }
 
