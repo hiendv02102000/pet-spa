@@ -3,6 +3,7 @@
     Created on : Nov 17, 2021, 9:03:33 PM
     Author     : admin
 --%>
+<%@page import="utils.FormateDateTime"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="model.NhanVien"%>
 <%@page import="model.LichHen"%>
@@ -28,6 +29,9 @@
             return;
         }
         LichHen[] listLichHen = dao.getAll();
+        if(request.getParameter("timkiemlh")!=null){
+                listLichHen = dao.getByKhanhHangCondition(request.getParameter("timkiemlh"));
+            }
     %>  
     <body>
         <header>
@@ -39,15 +43,25 @@
                 </div>
         </header>
         <h1 style="font-size: 300%;">Lịch hẹn của khách hàng</h1>
-        <div class="btn-box">
-            <button type="submit">
-                Tìm kiếm
-            </button>
-        </div> 
+        <div class="item2">
+            <div class="btn-box">
+                <div class="input-box" style=" text-align: center;margin-top:70px;">
+                    <form action="./gdKTLichHen.jsp" method="GET">
+                        <input name="timkiemlh" type="text" placeholder="Tìm kiếm lịch hẹn" style="height: 40px; width: 30%; text-align: center">
+
+                        <button type="submit" style="background-color: black">
+                            Tìm kiếm
+                        </button>
+
+                    </form>
+                </div> 
+            </div>
+        </div>
+       
         <table class="table">
             <tr>
                 <th class="table__heading">STT</th>
-                <th class="table__heading">Mã KH</th>
+                <th class="table__heading">Mã LH</th>
                 <th class="table__heading">Tên Khách Hàng</th>
                 <th class="table__heading">Số điện thoại</th>
                 <th class="table__heading">Thời gian hẹn</th>
@@ -56,14 +70,15 @@
             </tr>
             <%
                 for (int i = 0; i < listLichHen.length; i++) {
+                    String tien = FormateDateTime.convertBigNumToCurrency(listLichHen[i].getGiaDuKien());
             %>
             <tr class="table__row">
                 <td class="table__content" ><%=i + 1%></td>
-                <td class="table__content" ><%=listLichHen[i].getKhachHang().getId()%></td>
-                <td class="table__content" ><a href="gdChiTietLichHen.jsp"><%=listLichHen[i].getKhachHang().getHoTen().toString()%></a></td>
+                <td class="table__content" ><%=listLichHen[i].getId() %></td>
+                <td class="table__content" ><a href=<%="gdChiTietLichHen.jsp?id_lh="+listLichHen[i].getId() %>><%=listLichHen[i].getKhachHang().getHoTen().toString()%></a></td>
                 <td class="table__content" ><%=listLichHen[i].getKhachHang().getSdt()%></td>
                 <td class="table__content" ><%=listLichHen[i].getThoiGianHen().format(myFormatObj)%></td>
-                <td class="table__content" ><%=listLichHen[i].getGiaDuKien()%></td>
+                <td class="table__content" ><%=tien+"đ" %></td>
             </tr>
             <%
                 }

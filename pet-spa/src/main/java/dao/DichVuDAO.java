@@ -48,6 +48,7 @@ public class DichVuDAO extends DAO{
             return null;
         }
     }
+    
     public boolean insert(DichVu dv){
         try {
             String sql = "INSERT INTO tblDichVu (ten, giaca, gioihan, mota, ngaytao)" +
@@ -64,6 +65,44 @@ public class DichVuDAO extends DAO{
             return false;
         }
     }
+    public boolean update(DichVu dv, int id){
+        String sql1 = "UPDATE tblDichVu"
+                + " SET ten = ? , giaca = ?, gioihan = ?, mota = ?,"
+                + "ngaytao = ? "
+                + "WHERE id = ?;";
+
+        try {
+            PreparedStatement prepareStatement=this.conn.prepareStatement(sql1);
+            prepareStatement.setString(1, dv.getTen());
+            prepareStatement.setInt(2,Integer.parseInt(dv.getGiaCa().toString()));
+            prepareStatement.setInt(3, dv.getGioiHan());
+            prepareStatement.setString(4, dv.getMoTa());
+            prepareStatement.setString(5, LocalDateTime.now().toString());
+            prepareStatement.setInt(6, id);
+            int rowCount= prepareStatement.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            
+        }return false;
+        
+    }
+    public void delete(DichVu dv, int id){
+        String sql1 = "UPDATE tblDichVu SET ngayxoa = ? WHERE id = ? ";
+        try {
+            PreparedStatement prepareStatement=this.conn.prepareStatement(sql1);            
+            prepareStatement.setString(1, LocalDateTime.now().toString());
+            prepareStatement.setInt(2, id);
+            int rowCount= prepareStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    /*
+    public DichVu[] getByTenDV(String tenDV){
+     // tenDV = FormatVI.encodeVI(tenDV);
+      String sql = "Select * from tblDichVu WHERE ten LIKE '%"+tenDV+"%'"+" AND "+ConditionsOfExist;
+    }*/
     public DichVu[] getByCondition(String condition){
      // tenDV = FormatVI.encodeVI(tenDV);
       String sql = "Select * from tblDichVu WHERE "+ConditionsOfExist;
@@ -93,6 +132,7 @@ public class DichVuDAO extends DAO{
         //System.out.println(condition);
         return listDV.toArray(result);
     }
+    
     public DichVu[] getAll(){
          String sql = "Select * from tblDichVu"+" Where "+ConditionsOfExist;// câu lệnh sql
          Vector<DichVu> listDV = new Vector<DichVu>();
@@ -117,17 +157,9 @@ public class DichVuDAO extends DAO{
             return null;
         }
         return listDV.toArray(result);
+    }
 
-    }
-    public boolean update(DichVu dv){
-        return false;
-    }
-    public boolean delete(DichVu dv){
-        return false;
-    }
-    public DichVu[] getOnDay(int ngay ,int nam,int thang){
-        return null;
-    }
+
     public DichVu[] getOnMonthbyIDKH(int idkh ,int nam,int thang){
         return null;
 

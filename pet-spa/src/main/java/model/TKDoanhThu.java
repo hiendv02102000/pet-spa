@@ -4,10 +4,14 @@
  */
 package model;
 
+import com.mysql.cj.result.LocalDateTimeValueFactory;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
+import java.sql.*;
+import java.time.*;
+import utils.FormateDateTime;
+import static utils.FormateDateTime.formatDateTimeVi;
 /**
  *
  * @author admin
@@ -15,4 +19,29 @@ import java.time.LocalDateTime;
 public class TKDoanhThu {
     private BigInteger tongDoanhThu;
     private LocalDate ngay;
+
+    public TKDoanhThu() {
+    }
+
+    public TKDoanhThu(BigInteger tongDoanhThu, LocalDate ngay) {
+        this.tongDoanhThu = tongDoanhThu;
+        this.ngay = ngay;
+    }
+
+    @Override
+    public String toString() {
+        return tongDoanhThu + " " + ngay;
+    }
+    
+
+    public BigInteger getTongDoanhThu() {
+        return tongDoanhThu;
+    }
+
+    public LocalDate getNgay() {
+        return ngay;
+    }
+
+ 
+    
 }

@@ -19,18 +19,7 @@ public class HoTen {
         this.ten = ten;
     }
 
-    public String getHo() {
-        return ho;
-    }
-    public String getTenDem() {
-        return tenDem;
-    }
-
-    public String getTen() {
-        return ten;
-    }
     
-
     @Override
     public String toString() {
         String rs = "";
@@ -45,5 +34,20 @@ public class HoTen {
         }
         return rs;
     }
+    
+
+    public String getHo() {
+        return ho;
+    }
+    public String getTenDem() {
+        return tenDem;
+    }
+
+    public String getTen() {
+        return ten;
+    }
+    
+
+
     
 }

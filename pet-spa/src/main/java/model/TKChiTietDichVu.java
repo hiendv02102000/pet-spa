@@ -13,4 +13,42 @@ import java.time.LocalDate;
 public class TKChiTietDichVu extends DichVu{
     private int solan ;
     private LocalDate ngay;
+
+    public TKChiTietDichVu(int solan, LocalDate ngay) {
+        this.solan = solan;
+        this.ngay = ngay;
+    }
+
+    public int getSolan() {
+        return solan;
+    }
+
+    public void setSolan(int solan) {
+        this.solan = solan;
+    }
+
+    public LocalDate getNgay() {
+        return ngay;
+    }
+
+    public void setNgay(LocalDate ngay) {
+        this.ngay = ngay;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTen() {
+        return ten;
+    }
+
+    public void setTen(String ten) {
+        this.ten = ten;
+    }
+    
 }
