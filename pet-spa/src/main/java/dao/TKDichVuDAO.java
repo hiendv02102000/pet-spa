@@ -22,7 +22,7 @@ public class TKDichVuDAO extends DAO {
     
     public TKDichVu[] getAllOnMonth(int thang, int nam) {
         
-        String sql = "SELECT hddv.*,sum(hddv.soluong) as solan\n"
+        String sql = "SELECT dv.*,sum(hddv.soluong) as solan\n"
                 + "FROM pet_spa.tblhoadon hd\n"
                 + "inner join tblhoadondichvu hddv on hddv.tblHoaDonid = hd.id\n"
                 + "inner join tbldichvu dv on hddv.tblDichVuid = dv.id\n"
@@ -38,6 +38,7 @@ public class TKDichVuDAO extends DAO {
             int sum = 0;
             while (rs.next()) { 
                 TKDichVu tk = new TKDichVu(0, rs.getInt("solan"), rs.getString("ten"), new BigInteger(rs.getString("giaca")));
+                tk.setId(rs.getInt("id"));
                 sum += rs.getInt("solan");
                 listTK.add(tk);
             }
@@ -47,10 +48,12 @@ public class TKDichVuDAO extends DAO {
             result = new TKDichVu[count];
         } catch (Exception e) {
             System.out.println("Ko lay dc");
+            System.out.println(e);
             return null;
             
         }
         return listTK.toArray(result);
         
     }
+
 }
