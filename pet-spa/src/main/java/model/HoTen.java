@@ -19,6 +19,23 @@ public class HoTen {
         this.ten = ten;
     }
 
+    
+    @Override
+    public String toString() {
+        String rs = "";
+        if(ho!=null && !ho.isEmpty()){
+            rs += ho +" ";
+        }
+        if(tenDem!=null && !tenDem.isEmpty()){
+            rs += tenDem +" ";
+        }
+        if(ten!=null && !ten.isEmpty()){
+            rs += ten;
+        }
+        return rs;
+    }
+    
+
     public String getHo() {
         return ho;
     }
@@ -29,10 +46,8 @@ public class HoTen {
     public String getTen() {
         return ten;
     }
+    
 
-    @Override
-    public String toString() {
-        return "HoTen{" + "ho=" + ho + ", tenDem=" + tenDem + ", ten=" + ten + '}';
-    }
+
     
 }

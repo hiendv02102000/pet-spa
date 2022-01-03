@@ -1,3 +1,4 @@
+Nguyễn HIếu
 <%-- 
     Document   : gdQuanLy
     Created on : Nov 17, 2021, 8:54:18 PM
@@ -27,11 +28,29 @@
                 <li><a href="#dv">Dịch vụ</a></li>             
                 <li><a href="#gt">Giới thiệu</a></li>
                 <li><a href="../nguoidung/gdSuaThongTin.jsp">Sửa thông tin</a></li>
-                <li><a href="gdTKDichVu.jsp">TK dịch vụ</a></li>
-                <li><a href="gdTKDoanhThu.jsp">TK doanh thu</a></li>   
-                <li><a href="gdQuanLyNV.jsp">QL Nhân viên</a></li>
+                <li style ="min-width:200px;">
+                    <a href="#">
+                        Thống kê
+                        <i class="nav-arrow-down ti-angle-down"></i>
+                    </a>
+                    <ul class="subnav">
+                        <li><a href="gdTKDichVu.jsp">TK dịch vụ</a></li> 
+                        <li><a href="gdTKDoanhThu.jsp">TK Doanh Thu</a></li>  
+                        <li><a href="gdTKKhachHang.jsp">TK Khách hàng</a></li> 
+                        
+                    </ul>
+                </li>
+                <li style ="min-width:200px ">
+                    <a href="#">
+                        Quản lý
+                        <i class="nav-arrow-down ti-angle-down"></i>
+                    </a>
+                    <ul class="subnav">
+                        <li><a href="gdQuanLyNV.jsp">QL Nhân viên</a></li>
                 <li><a href="gdQLDichVu.jsp">QL Dịch vụ</a></li>
-                <li ><a href="../nguoidung/gdDangNhap.jsp">Đăng xuất</a></li>
+                    </ul>
+                </li>
+                <li ><a href="#">Đăng xuất</a></li>
             </ul> 
            
            
