@@ -30,28 +30,11 @@
     </head>
     <body>
         <%
-            // request.get
+            response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
             String err = "";
 
-            String tenDangNhap = request.getParameter("tendangnhap");
-            if (tenDangNhap != null && tenDangNhap.isEmpty()) {
-                request.setAttribute("errTenDangNhap", "Tên đăng nhập không để trống");
-                err = "Tên đăng nhập không để trống";
-
-            }
-            String matKhau = request.getParameter("matkhau");
-            if (matKhau != null && matKhau.isEmpty()) {
-                request.setAttribute("errMatKhau", "Mật khẩu không để trống");
-                err = "Mật khẩu không để trống";
-
-            }
-            String nhaplaiMatkhau = request.getParameter("nhaplai_matkhau");
-
-            if (nhaplaiMatkhau == null || !matKhau.equals(nhaplaiMatkhau)) {
-                request.setAttribute("errNhapLai", "Nhập lại mật khẩu không khớp");
-                err = "Nhập lại mật khẩu không khớp";
-
-            }
+            String tenDangNhap = request.getParameter("nv_tendangnhap");
             String ngaysinh = request.getParameter("ngaysinh");
             //  ngaySinh=null;
             if (ngaysinh != null && ngaysinh.isEmpty()) {
@@ -88,7 +71,7 @@
             if (err.isEmpty()) {
                 LocalDate ngaySinh = LocalDate.parse(ngaysinh);
                 DiaChi diaChi = new DiaChi(soNha, cumDanCu, xaPhuong, quanHuyen, tinhThanh);
-                NhanVien nv = new NhanVien(tenDangNhap, matKhau, ngaySinh, email, sdt, soCCCD, loaiTaiKhoan, hoTen, diaChi);
+                NhanVien nv = new NhanVien(tenDangNhap, null, ngaySinh, email, sdt, soCCCD, loaiTaiKhoan, hoTen, diaChi);
                 NhanVienDAO dao = new NhanVienDAO();
                 if (!dao.update(nv)) {
 

@@ -62,7 +62,7 @@
                             <h2 class="title">Tùy chỉnh thông tin nhân viên</h2>
                         </div>
                         <div class="card-body">
-                            <form action=<%="doSuaNV.jsp?nv_id=" + nvid%> method="POST">
+                            <form action=<%="doSuaNV.jsp?nv_id=" + nvid+"&nv_tendangnhap="+nv.getTenDangNhap() %> method="POST">
 
                                 <div class="form-row m-b-55">
                                     <div class="name">Họ và tên</div>
