@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@page import="utils.FormateDateTime"%>
 <%@page import="java.math.BigInteger"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="java.time.LocalTime"%>
@@ -29,7 +30,7 @@
             return;
         }
         TKHoaDonDAO dao = new TKHoaDonDAO();
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm  dd-MM-yyyy");
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm 'ngày'  dd-MM-yyyy");
         //  KhachHang kh = (KhachHang)session.getAttribute("khachhang");
         // if(kh==null){
         //   return;
@@ -63,13 +64,14 @@
                     for(int i=0;i<listtkhd.length;i++){
                      TKHoaDon t= listtkhd[i];
                      tong += t.getThanhTien().intValue();
+                     String tien = FormateDateTime.convertBigNumToCurrency(t.getThanhTien());
                         %>
                         <tr class="table__row">
                             <td class="table__content" ><a href=<%="gdTKChiTietHoaDon.jsp?hd_id="+t.getId()%> ><%=t.getId()%></a></td>
                            
                             <td class="table__content" ><%=ca%></td>
                             <td class="table__content" ><%=t.getNgayTao().format(myFormatObj)%></td>
-                            <td class="table__content" ><%=t.getThanhTien()%></td>
+                            <td class="table__content" ><%=tien+"đ"%></td>
                          </tr>
                    <%
                     }     
@@ -80,7 +82,7 @@
                 <td class="table__content" ></td>
                 <td class="table__content" >Tổng : </td>
                 <td class="table__content" ></td>
-                <td class="table__content" ><%=tong%></td>
+                <td class="table__content" ><%=FormateDateTime.convertBigNumToCurrency(new BigInteger(tong+""))+"đ"%></td>
             </tr>
         </table>
     </body>

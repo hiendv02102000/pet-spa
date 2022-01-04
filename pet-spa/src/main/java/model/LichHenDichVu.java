@@ -42,6 +42,7 @@ public class LichHenDichVu {
     public void setSoLuong(int soLuong) {
         this.soLuong = soLuong;
     }
+    
 
     @Override
     public String toString() {

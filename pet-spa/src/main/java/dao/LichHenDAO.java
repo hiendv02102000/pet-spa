@@ -31,7 +31,12 @@ public class LichHenDAO extends DAO {
 
     public LichHen[] getByKhanhHangCondition(String condition) {
 
-        String sql = "Select * from tblLichHen WHERE " + ConditionsOfExist;
+        String sql = "select khlh.id, nd.ho, nd.tendem, nd.ten ,nd.sdt ,  khlh.thoigianhen , khlh.giadukien\n"
+                + "from (select lh.id, lh.giadukien, lh.thoigianhen, kh.tblNguoiDungid  from pet_spa.tbllichhen as lh\n"
+                + "inner join pet_spa.tblkhachhang as kh\n"
+                + "where lh.tblKhachHangid = kh.id and lh.ngayxoa is null and lh.thoigianhen >= now() ) as khlh\n"
+                + "inner join pet_spa.tblnguoidung as nd\n"
+                + "where khlh.tblNguoiDungid = nd.id";
         Vector<LichHen> listLH = new Vector<LichHen>();
         LichHen[] result;
         ResultSet rs;
@@ -39,26 +44,42 @@ public class LichHenDAO extends DAO {
             Statement statement = this.conn.createStatement();
             rs = statement.executeQuery(sql);
             int count = 0;
+
             while (rs.next()) {
+                KhachHang kh = new KhachHang();
+                kh.setHoTen(new HoTen(rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4)));
+                kh.setSdt(rs.getString(5));
+
                 LichHen lh = new LichHen(rs.getInt(1),
-                        FormateDateTime.convertDBToLocalDateTime(rs.getDate(2), rs.getTime(2)),
-                        new BigInteger(rs.getString(3)),
-                        null,
+                        FormateDateTime.convertDBToLocalDateTime(rs.getDate(6), rs.getTime(6)),
+                        new BigInteger(rs.getString(7)),
+                        kh,
                         null);
-                listLH.add(lh);
+                String s = kh.getHoTen() + kh.getSdt();
+                if (s.contains(condition)) {
+                    listLH.add(lh);
+                }
 
             }
 
             result = new LichHen[count];
 
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             return null;
         }
         return listLH.toArray(result);
     }
 
     public LichHen[] getAll() {
-        String sql = "Select * from tblLichHen" + " Where " + ConditionsOfExist;
+        String sql = "select khlh.id, nd.ho, nd.tendem, nd.ten ,nd.sdt ,  khlh.thoigianhen , khlh.giadukien\n"
+                + "from (select lh.id, lh.giadukien, lh.thoigianhen, kh.tblNguoiDungid  from pet_spa.tbllichhen as lh\n"
+                + "inner join pet_spa.tblkhachhang as kh\n"
+                + "where lh.tblKhachHangid = kh.id and lh.ngayxoa is null and lh.thoigianhen >= now() ) as khlh\n"
+                + "inner join pet_spa.tblnguoidung as nd\n"
+                + "where khlh.tblNguoiDungid = nd.id";
         Vector<LichHen> listLH = new Vector<LichHen>();
         LichHen[] result;
         ResultSet rs;
@@ -66,11 +87,18 @@ public class LichHenDAO extends DAO {
             Statement statement = this.conn.createStatement();
             rs = statement.executeQuery(sql);
             int count = 0;
+
             while (rs.next()) {
+                KhachHang kh = new KhachHang();
+                kh.setHoTen(new HoTen(rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4)));
+                kh.setSdt(rs.getString(5));
+
                 LichHen lh = new LichHen(rs.getInt(1),
-                        FormateDateTime.convertDBToLocalDateTime(rs.getDate(2), rs.getTime(2)),
-                        new BigInteger(rs.getString(3)),
-                        null,
+                        FormateDateTime.convertDBToLocalDateTime(rs.getDate(6), rs.getTime(6)),
+                        new BigInteger(rs.getString(7)),
+                        kh,
                         null);
                 listLH.add(lh);
 
@@ -79,6 +107,7 @@ public class LichHenDAO extends DAO {
             result = new LichHen[count];
 
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             return null;
         }
         return listLH.toArray(result);
@@ -130,7 +159,7 @@ public class LichHenDAO extends DAO {
             String sql = "INSERT INTO `tbllichhen` (`thoigianhen`, `giadukien`, `tblKhachHangid`)  "
                     + "VALUES (?, ?, ?);";
             PreparedStatement prepareStatement = this.conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            prepareStatement.setString(1, LocalDateTime.now().toString());
+            prepareStatement.setString(1, lh.getThoiGianHen().toString());
             prepareStatement.setString(2, lh.getGiaDuKien().toString());
 
             prepareStatement.setInt(3, lh.getKhachHang().getId());
@@ -183,8 +212,9 @@ public class LichHenDAO extends DAO {
             System.out.println(e.getMessage());
             return null;
         }
-       
-     }
+
+    }
+
 
 
 }
