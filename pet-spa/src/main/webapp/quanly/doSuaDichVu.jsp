@@ -36,7 +36,7 @@
                 DichVuDAO dao = new DichVuDAO();
                 DichVu dv = (DichVu)session.getAttribute("dichvu");                
                         
-                       if( !dao.update(dv,dv.getId()))err = 2;
+                       if( !dao.update(dv))err = 2;
                        else {
                           
 //                          DichVu dv1 =(DichVu)session.getAttribute("dichvu");

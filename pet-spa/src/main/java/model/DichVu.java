@@ -17,9 +17,9 @@ import static utils.FormateDateTime.formatDateTimeVi;
 public class DichVu {
     protected int id;
     protected String ten;
-    private BigInteger giaCa;
-    private int gioiHan;
-    private String moTa;
+    protected BigInteger giaCa;
+    protected int gioiHan;
+    protected String moTa;
     private LocalDateTime ngayTao;
     private LocalDateTime ngayXoa;
 

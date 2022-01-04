@@ -30,6 +30,8 @@
         <title>Thống kê chi tiết</title>
     </head>
     <%
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         TKChiTietDichVuDAO dao = new TKChiTietDichVuDAO();
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         String tk = request.getParameter("dv_id");
