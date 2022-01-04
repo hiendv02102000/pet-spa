@@ -65,7 +65,8 @@ public class DichVuDAO extends DAO{
             return false;
         }
     }
-    public boolean update(DichVu dv, int id){
+    public boolean update(DichVu dv){
+        int id=dv.getId();
         String sql1 = "UPDATE tblDichVu"
                 + " SET ten = ? , giaca = ?, gioihan = ?, mota = ?,"
                 + "ngaytao = ? "
@@ -87,15 +88,18 @@ public class DichVuDAO extends DAO{
         }return false;
         
     }
-    public void delete(DichVu dv, int id){
+    public boolean delete(DichVu dv){
+        int id=dv.getId();
         String sql1 = "UPDATE tblDichVu SET ngayxoa = ? WHERE id = ? ";
         try {
             PreparedStatement prepareStatement=this.conn.prepareStatement(sql1);            
             prepareStatement.setString(1, LocalDateTime.now().toString());
             prepareStatement.setInt(2, id);
             int rowCount= prepareStatement.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
     /*

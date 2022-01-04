@@ -29,6 +29,8 @@
         <title>Thống kê chi tiết</title>
     </head>
     <%
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         HoaDonDAO dao = new HoaDonDAO();
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm  dd-MM-yyyy");
         //  KhachHang kh = (KhachHang)session.getAttribute("khachhang");

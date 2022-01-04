@@ -24,7 +24,8 @@
         <title>Thống kê doanh thu</title>
     </head>
     <%
-
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         TKDoanhThuDAO dao = new TKDoanhThuDAO();
         LocalDate date = LocalDate.now();
         TKDoanhThu[] listDoanhThu = dao.getOnMonth(date.getMonthValue(), date.getYear());

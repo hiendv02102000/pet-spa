@@ -31,9 +31,9 @@ Nguyễn HIếu
                         <i class="nav-arrow-down ti-angle-down"></i>
                     </a>
                     <ul class="subnav">
-                        <li><a href="gdTKDichVu.jsp">TK dịch vụ</a></li> 
+                        <li><a href="gdTKDichVu.jsp">TK Dịch Vụ</a></li> 
                         <li><a href="gdTKDoanhThu.jsp">TK Doanh Thu</a></li>  
-                        <li><a href="gdTKKhachHang.jsp">TK Khách hàng</a></li> 
+                        <li><a href="gdTKKhachHang.jsp">TK Khách Hàng</a></li> 
                         
                     </ul>
                 </li>
@@ -43,8 +43,8 @@ Nguyễn HIếu
                         <i class="nav-arrow-down ti-angle-down"></i>
                     </a>
                     <ul class="subnav">
-                        <li><a href="gdQuanLyNV.jsp">QL Nhân viên</a></li>
-                <li><a href="gdQLDichVu.jsp">QL Dịch vụ</a></li>
+                        <li><a href="gdQuanLyNV.jsp">QL Nhân Viên</a></li>
+                <li><a href="gdQLDichVu.jsp">QL Dịch Vụ</a></li>
                     </ul>
                 </li>
                 <li ><a href="#">Đăng xuất</a></li>
