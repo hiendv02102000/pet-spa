@@ -40,6 +40,12 @@
     </head>
     <%
         // request.get
+        QuanLy ql = (QuanLy) session.getAttribute("quanly");
+
+        if (ql == null) {
+            response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+            return;
+        }
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
         String err = "";
@@ -60,10 +66,10 @@
             }
             String moTa = request.getParameter("moTa");
             //  ngaySinh=null;
-    //                if(ngaysinh!=null&&ngaysinh.isEmpty()){
-    //                        err = "Ngày sinh không để trống";
-    //                        
-    //                }
+            //                if(ngaysinh!=null&&ngaysinh.isEmpty()){
+            //                        err = "Ngày sinh không để trống";
+            //                        
+            //                }
 
             String gioiHan = request.getParameter("gioiHan");
             if (gioiHan != null && gioiHan.isEmpty()) {

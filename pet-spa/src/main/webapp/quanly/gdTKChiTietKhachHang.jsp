@@ -30,6 +30,12 @@
         <title>Thống kê chi tiết</title>
     </head>
     <%
+        QuanLy ql = (QuanLy) session.getAttribute("quanly");
+
+        if (ql == null) {
+            response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+            return;
+        }
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
         HoaDonDAO dao = new HoaDonDAO();
@@ -72,8 +78,8 @@
                         String tt = listHD[i].getThanhTien().toString();
                         tong += Integer.parseInt(tt);
                         String tien = FormateDateTime.convertBigNumToCurrency(listHD[i].getThanhTien());
-                        
-                        if(listHD[i].getMoTa()==null){
+
+                        if (listHD[i].getMoTa() == null) {
                             listHD[i].setMoTa("");
                         }
                 %>
@@ -81,7 +87,7 @@
                 <td class="table__content" ><%=STT%></td>
                 <td class="table__content" ><%=listHD[i].getId()%></td>
                 <td class="table__content" ><%=tien + "" + "₫"%></td>
-                <td class="table__content" ><%=listHD[i].getNhanVien().getHoTen() %></td>
+                <td class="table__content" ><%=listHD[i].getNhanVien().getHoTen()%></td>
                 <td class="table__content" ><%=listHD[i].getMoTa()%></td>
             </tr>
             <%

@@ -41,18 +41,23 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     </head>
     <%
-        // request.get
+        QuanLy ql = (QuanLy) session.getAttribute("quanly");
+
+        if (ql == null) {
+            response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+            return;
+        }
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
-        
+
         DichVu dv1 = new DichVu();
-        String du="toi khong biet";
+        String du = "toi khong biet";
         if (request.getParameter("dv_id") != null) {
             String tk = request.getParameter("dv_id");
             int id = Integer.parseInt(tk);
             DichVuDAO dao = new DichVuDAO();
             dv1 = dao.getByID(id);
-            
+
         }
 
         String err = "";
@@ -61,27 +66,27 @@
         }
         if (request.getParameter("check") != null) {
             String tenDV = request.getParameter("tenDV");
-                   if(tenDV!=null&&tenDV.isEmpty()){
-                            err = "Tên dịch vụ không để trống";
-                           
-                    }
+            if (tenDV != null && tenDV.isEmpty()) {
+                err = "Tên dịch vụ không để trống";
+
+            }
             String giaCa = request.getParameter("giaCa");
-                    if(giaCa!=null&&giaCa.isEmpty()){
-                            err = "Giá cả không để trống";
-                            
-                    }
+            if (giaCa != null && giaCa.isEmpty()) {
+                err = "Giá cả không để trống";
+
+            }
             String moTa = request.getParameter("moTa");
             //  ngaySinh=null;
-    //                if(ngaysinh!=null&&ngaysinh.isEmpty()){
-    //                        err = "Ngày sinh không để trống";
-    //                        
-    //                }
+            //                if(ngaysinh!=null&&ngaysinh.isEmpty()){
+            //                        err = "Ngày sinh không để trống";
+            //                        
+            //                }
 
             String gioiHan = request.getParameter("gioiHan");
-                    if(gioiHan !=null&&gioiHan.isEmpty()){
-                            err = "Giới hạn không để trống";
-                            
-                    }
+            if (gioiHan != null && gioiHan.isEmpty()) {
+                err = "Giới hạn không để trống";
+
+            }
 
             if (err.isEmpty()) {
                 int gh = Integer.parseInt(gioiHan);
@@ -114,13 +119,13 @@
                             <p class="title" style="font-size: 14px;color: red"><%=err%></p>
                         </div>
                         <div class="card-body">
-                            <form method="POST" action=<%="./gdTuyChinhDichVu.jsp?check=true&dv_id="+dv1.getId()%> >
-                                
+                            <form method="POST" action=<%="./gdTuyChinhDichVu.jsp?check=true&dv_id=" + dv1.getId()%> >
+
                                 <div class="form-row">
                                     <div class="name">Tên dịch vụ</div>
                                     <div class="value">
                                         <div class="input-group">
-                                            <input class="input--style-5" type="text" id = "tenDV" name="tenDV" value=<%="'"+dv1.getTen()+"'" %>>
+                                            <input class="input--style-5" type="text" id = "tenDV" name="tenDV" value=<%="'" + dv1.getTen() + "'"%>>
                                         </div>
                                     </div>
                                 </div>
@@ -138,7 +143,7 @@
                                     <div class="name">Mô tả</div>
                                     <div class="value">
                                         <div class="input-group">
-                                            <input class="input--style-5" type="text" id = "moTa" name="moTa" value=<%="'"+dv1.getMoTa()+"'"%>>
+                                            <input class="input--style-5" type="text" id = "moTa" name="moTa" value=<%="'" + dv1.getMoTa() + "'"%>>
                                         </div>
                                     </div>
                                 </div>

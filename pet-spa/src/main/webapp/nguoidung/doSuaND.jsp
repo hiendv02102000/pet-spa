@@ -76,7 +76,7 @@
                 } else {
                     session.setAttribute("acc", nd1);
 
-                    response.sendRedirect("./gdSuaThongTin.jsp");
+                    response.sendRedirect("./gdNguoiDung.jsp?redirect=true");
 
                 }
             } else {

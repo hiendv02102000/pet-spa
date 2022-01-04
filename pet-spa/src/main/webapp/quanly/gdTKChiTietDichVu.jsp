@@ -30,6 +30,12 @@
         <title>Thống kê chi tiết</title>
     </head>
     <%
+        QuanLy ql = (QuanLy) session.getAttribute("quanly");
+
+        if (ql == null) {
+            response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+            return;
+        }
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
         TKChiTietDichVuDAO dao = new TKChiTietDichVuDAO();
@@ -60,18 +66,17 @@
 
 
 
-                <%                    
-                    int STT = 0;
+                <%                    int STT = 0;
                     int tong = 0;
                     for (int i = 0; i < listTKDV.length; i++) {
                         STT += 1;
-                        
+
 
                 %>
             <tr class="table__row">
                 <td class="table__content" ><%=STT%></td>
-                <td class="table__content" ><%=listTKDV[i].getNgay().format(myFormatObj) %></td>
-                <td class="table__content" ><%=listTKDV[i].getSolan() %></td>
+                <td class="table__content" ><%=listTKDV[i].getNgay().format(myFormatObj)%></td>
+                <td class="table__content" ><%=listTKDV[i].getSolan()%></td>
 
             </tr>
             <%

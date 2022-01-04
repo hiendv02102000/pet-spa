@@ -1,4 +1,5 @@
-Nguyễn HIếu
+<%@page import="model.QuanLy"%>
+
 <%-- 
     Document   : gdQuanLy
     Created on : Nov 17, 2021, 8:54:18 PM
@@ -7,81 +8,89 @@ Nguyễn HIếu
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý</title>
-    <link href="../style/main.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="../assets/css/fonts/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
-<body>
-    <div id="main">
-        <div id="header">
-            <div class="logo">
-                <a href="#content"><img src="../assets/img/logo.png" alt="logo" class="place-img"> </a>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quản lý</title>
+        <link href="../style/main.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="../assets/css/fonts/themify-icons/themify-icons.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+    <%
+        QuanLy ql = (QuanLy) session.getAttribute("quanly");
+
+        if (ql == null) {
+            response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+            return;
+        }
+    %>
+    <body>
+        <div id="main">
+            <div id="header">
+                <div class="logo">
+                    <a href="#content"><img src="../assets/img/logo.png" alt="logo" class="place-img"> </a>
+                </div>
+                <!-- begin nav -->
+                <ul id="nav">
+                    <li><a href="../nguoidung/gdSuaThongTin.jsp">Sửa thông tin</a></li>
+                    <li style ="min-width:200px;">
+                        <a href="#">
+                            Thống kê
+                            <i class="nav-arrow-down ti-angle-down"></i>
+                        </a>
+                        <ul class="subnav">
+                            <li><a href="gdTKDichVu.jsp">TK Dịch Vụ</a></li> 
+                            <li><a href="gdTKDoanhThu.jsp">TK Doanh Thu</a></li>  
+                            <li><a href="gdTKKhachHang.jsp">TK Khách Hàng</a></li> 
+
+                        </ul>
+                    </li>
+                    <li style ="min-width:200px ">
+                        <a href="#">
+                            Quản lý
+                            <i class="nav-arrow-down ti-angle-down"></i>
+                        </a>
+                        <ul class="subnav">
+                            <li><a href="gdQuanLyNV.jsp">QL Nhân Viên</a></li>
+                            <li><a href="gdQLDichVu.jsp">QL Dịch Vụ</a></li>
+                        </ul>
+                    </li>
+                    <li ><a href="../nguoidung/gdDangNhap.jsp">Đăng xuất</a></li>
+                </ul> 
+
+
             </div>
-            <!-- begin nav -->
-            <ul id="nav">
-                <li><a href="../nguoidung/gdSuaThongTin.jsp">Sửa thông tin</a></li>
-                <li style ="min-width:200px;">
-                    <a href="#">
-                        Thống kê
-                        <i class="nav-arrow-down ti-angle-down"></i>
-                    </a>
-                    <ul class="subnav">
-                        <li><a href="gdTKDichVu.jsp">TK Dịch Vụ</a></li> 
-                        <li><a href="gdTKDoanhThu.jsp">TK Doanh Thu</a></li>  
-                        <li><a href="gdTKKhachHang.jsp">TK Khách Hàng</a></li> 
-                        
-                    </ul>
-                </li>
-                <li style ="min-width:200px ">
-                    <a href="#">
-                        Quản lý
-                        <i class="nav-arrow-down ti-angle-down"></i>
-                    </a>
-                    <ul class="subnav">
-                        <li><a href="gdQuanLyNV.jsp">QL Nhân Viên</a></li>
-                <li><a href="gdQLDichVu.jsp">QL Dịch Vụ</a></li>
-                    </ul>
-                </li>
-               <li ><a href="../nguoidung/gdDangNhap.jsp">Đăng xuất</a></li>
-            </ul> 
-           
-           
-        </div>
-        <div id="content">
-            <!-- About section -->
-            <div class="content-section1">
+            <div id="content">
+                <!-- About section -->
+                <div class="content-section1">
                     <div class="img"></div> 
                     <div class="centered">
                         <h1>LODU Pet Spa</h1>   
                         <p>Shop chăm sóc động vật, thú cưng</p>
                     </div>              
-    
-            </div>
 
-            <div id="gt">
-                <div class="intro">
-                    <div class="head2"><h2>Giới thiệu</h2></div>
-                    <div class="if"><p>LODU Pet Spa được xây dựng dựa trên tiêu chí là cổng thông tin khổng lồ và hoàn toàn miễn phí về các vấn đề xung quanh động vật , đặc biệt là thú cưng, cụ thể như các bệnh về chó mèo, các thực phẩm dinh dưỡng dành cho thú cưng, cách chăm sóc và điều trị bệnh cho chó mèo...</p></div>
-                   <br> <div class="if"><p>Tất cả những thông tin tại LODU được sưu tầm và tham khảo từ nhiều nguồn khác nhau có chọn lọc, bên cạnh đó còn là trải nghiệm thực tế của chúng tôi trong quá trình nuôi thú cưng để đem đến cho độc giả những thông tin chính xác và hữu ích nhất.</p></div>
                 </div>
 
-                <div class="shiba"></div>
-
-            </div>
-
-
-            <!-- Tour section -->
-            <div class="tour-section" id="dv">
-                <div class="content-section">
-                    <div class="place-list">
-                        <h2 style="font-size: 45px;" class="section-heading text-white">Dịch vụ</h2> 
-                        <p style="font-size: 25px;" class="section-sub-heading text-white">Chúng tôi sẽ tạo ra trải nghiệm tốt nhất với thú cưng của bạn</p>
+                <div id="gt">
+                    <div class="intro">
+                        <div class="head2"><h2>Giới thiệu</h2></div>
+                        <div class="if"><p>LODU Pet Spa được xây dựng dựa trên tiêu chí là cổng thông tin khổng lồ và hoàn toàn miễn phí về các vấn đề xung quanh động vật , đặc biệt là thú cưng, cụ thể như các bệnh về chó mèo, các thực phẩm dinh dưỡng dành cho thú cưng, cách chăm sóc và điều trị bệnh cho chó mèo...</p></div>
+                        <br> <div class="if"><p>Tất cả những thông tin tại LODU được sưu tầm và tham khảo từ nhiều nguồn khác nhau có chọn lọc, bên cạnh đó còn là trải nghiệm thực tế của chúng tôi trong quá trình nuôi thú cưng để đem đến cho độc giả những thông tin chính xác và hữu ích nhất.</p></div>
                     </div>
+
+                    <div class="shiba"></div>
+
+                </div>
+
+
+                <!-- Tour section -->
+                <div class="tour-section" id="dv">
+                    <div class="content-section">
+                        <div class="place-list">
+                            <h2 style="font-size: 45px;" class="section-heading text-white">Dịch vụ</h2> 
+                            <p style="font-size: 25px;" class="section-sub-heading text-white">Chúng tôi sẽ tạo ra trải nghiệm tốt nhất với thú cưng của bạn</p>
+                        </div>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -119,7 +128,7 @@ Nguyễn HIếu
                     </div>
 
                 </div>
-                
+
             </div>
             <!-- Contact section -->
             <div class="content-section2" id="contact">

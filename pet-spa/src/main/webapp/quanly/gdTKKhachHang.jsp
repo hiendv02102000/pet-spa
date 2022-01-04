@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@page import="model.QuanLy"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="utils.FormateDateTime"%>
 <%@page import="java.time.LocalDateTime"%>
@@ -25,23 +26,29 @@
         <title>Thống kê khách hàng</title>
     </head>
     <%
+        QuanLy ql = (QuanLy) session.getAttribute("quanly");
+
+        if (ql == null) {
+            response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+            return;
+        }
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
         TKKhachHangDAO dao = new TKKhachHangDAO();
         LocalDate date = LocalDate.now();
-        int thang=date.getMonthValue();
-        int nam=date.getYear();
+        int thang = date.getMonthValue();
+        int nam = date.getYear();
         TKKhachHang[] listTKKH = dao.getKHOnMonth(thang, nam);
         if (request.getParameter("thang") != null && request.getParameter("nam") != null) {
             try {
-                    String t = request.getParameter("thang");
-            String n = request.getParameter("nam");
-            thang = Integer.parseInt(t);
-            nam = Integer.parseInt(n);
-            listTKKH = dao.getKHOnMonth(thang, nam);
-                } catch (Exception e) {
-                }
-            
+                String t = request.getParameter("thang");
+                String n = request.getParameter("nam");
+                thang = Integer.parseInt(t);
+                nam = Integer.parseInt(n);
+                listTKKH = dao.getKHOnMonth(thang, nam);
+            } catch (Exception e) {
+            }
+
         }
 
     %>  
@@ -81,7 +88,7 @@
 
                     %>
             <tr class="table__row">
-                <td class="table__content" ><a href=<%="gdTKChiTietKhachHang.jsp?kh_id=" + listTKKH[i].getId()+ "&thang=" + thang + "&nam=" + nam%>><%=listTKKH[i].getId()%></a></td>
+                <td class="table__content" ><a href=<%="gdTKChiTietKhachHang.jsp?kh_id=" + listTKKH[i].getId() + "&thang=" + thang + "&nam=" + nam%>><%=listTKKH[i].getId()%></a></td>
                 <td class="table__content" ><%=listTKKH[i].getHoTen()%></td>
                 <td class="table__content" ><%=listTKKH[i].getSolan()%></td>
                 <td class="table__content" ><%=tien + "" + "₫"%></td>

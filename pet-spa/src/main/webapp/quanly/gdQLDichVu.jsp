@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@page import="model.QuanLy"%>
 <%@page import="utils.FormateDateTime"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
@@ -22,6 +23,12 @@
         <title>QL dịch vụ</title>
     </head>
     <%
+        QuanLy ql = (QuanLy) session.getAttribute("quanly");
+
+        if (ql == null) {
+            response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+            return;
+        }
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
         // request.get

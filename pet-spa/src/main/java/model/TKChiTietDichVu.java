@@ -35,6 +35,7 @@ public class TKChiTietDichVu extends DichVu{
         this.ngay = ngay;
     }
 
+    @Override
     public int getId() {
         return id;
     }
@@ -43,6 +44,7 @@ public class TKChiTietDichVu extends DichVu{
         this.id = id;
     }
 
+    @Override
     public String getTen() {
         return ten;
     }
