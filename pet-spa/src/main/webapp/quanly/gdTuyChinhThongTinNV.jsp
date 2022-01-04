@@ -39,6 +39,12 @@
     </head>
 
     <%
+        QuanLy ql = (QuanLy) session.getAttribute("quanly");
+
+        if (ql == null) {
+            response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+            return;
+        }
         int nvid = Integer.parseInt(request.getParameter("nv_id"));
         NhanVienDAO dao = new NhanVienDAO();
         NhanVien nv = dao.getByID(nvid);
@@ -62,7 +68,7 @@
                             <h2 class="title">Tùy chỉnh thông tin nhân viên</h2>
                         </div>
                         <div class="card-body">
-                            <form action=<%="doSuaNV.jsp?nv_id=" + nvid+"&nv_tendangnhap="+nv.getTenDangNhap() %> method="POST">
+                            <form action=<%="doSuaNV.jsp?nv_id=" + nvid + "&nv_tendangnhap=" + nv.getTenDangNhap()%> method="POST">
 
                                 <div class="form-row m-b-55">
                                     <div class="name">Họ và tên</div>
@@ -70,19 +76,19 @@
                                         <div class="row row-space">
                                             <div class="col-3">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "ho" name="ho" value=<%="'"+nv.getHoTen().getHo()+"'"%>>
+                                                    <input class="input--style-5" type="text" id = "ho" name="ho" value=<%="'" + nv.getHoTen().getHo() + "'"%>>
                                                     <label class="label--desc">Họ</label>
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "tendem" name="tendem" value=<%="'"+nv.getHoTen().getTenDem()+"'"%>>
+                                                    <input class="input--style-5" type="text" id = "tendem" name="tendem" value=<%="'" + nv.getHoTen().getTenDem() + "'"%>>
                                                     <label class="label--desc">Tên đệm</label>
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "ten" name="ten" value=<%="'"+nv.getHoTen().getTen()+"'"%>>
+                                                    <input class="input--style-5" type="text" id = "ten" name="ten" value=<%="'" + nv.getHoTen().getTen() + "'"%>>
                                                     <label class="label--desc">Tên</label>
                                                 </div>
                                             </div>
@@ -104,19 +110,19 @@
                                         <div class="row row-space">
                                             <div class="col-3">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "sonha" name="sonha" value=<%="'"+nv.getDiaChi().getSoNha()+"'"%>>
+                                                    <input class="input--style-5" type="text" id = "sonha" name="sonha" value=<%="'" + nv.getDiaChi().getSoNha() + "'"%>>
                                                     <label class="label--desc">Số nhà</label>
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "cumdancu" name="cumdancu" value=<%="'"+nv.getDiaChi().getCumDanCu()+"'"%>>
+                                                    <input class="input--style-5" type="text" id = "cumdancu" name="cumdancu" value=<%="'" + nv.getDiaChi().getCumDanCu() + "'"%>>
                                                     <label class="label--desc">Cụm dân cư</label>
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "xaphuong" name="xaphuong" value=<%="'"+nv.getDiaChi().getXaPhuong()+"'"%>>
+                                                    <input class="input--style-5" type="text" id = "xaphuong" name="xaphuong" value=<%="'" + nv.getDiaChi().getXaPhuong() + "'"%>>
                                                     <label class="label--desc">Xã phường</label>
                                                 </div>
                                             </div>                                 
@@ -130,13 +136,13 @@
                                         <div class="row row-space">
                                             <div class="col-2">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "quanhuyen" name="quanhuyen" value=<%="'"+nv.getDiaChi().getQuanHuyen()+"'"%>>
+                                                    <input class="input--style-5" type="text" id = "quanhuyen" name="quanhuyen" value=<%="'" + nv.getDiaChi().getQuanHuyen() + "'"%>>
                                                     <label class="label--desc">Quận huyện</label>
                                                 </div>
                                             </div>
                                             <div class="col-2">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "tinhthanh" name="tinhthanh" value=<%="'"+nv.getDiaChi().getTinhThanh()+"'"%>>
+                                                    <input class="input--style-5" type="text" id = "tinhthanh" name="tinhthanh" value=<%="'" + nv.getDiaChi().getTinhThanh() + "'"%>>
                                                     <label class="label--desc">Tỉnh thành</label>
                                                 </div>
                                             </div>                               

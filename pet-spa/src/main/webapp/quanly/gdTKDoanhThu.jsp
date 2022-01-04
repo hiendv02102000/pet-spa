@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@page import="model.QuanLy"%>
 <%@page import="java.math.BigInteger"%>
 <%@page import="utils.FormateDateTime"%>
 <%@page import="java.time.LocalDate"%>
@@ -24,6 +25,12 @@
         <title>Thống kê doanh thu</title>
     </head>
     <%
+        QuanLy ql = (QuanLy) session.getAttribute("quanly");
+
+        if (ql == null) {
+            response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+            return;
+        }
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
         TKDoanhThuDAO dao = new TKDoanhThuDAO();

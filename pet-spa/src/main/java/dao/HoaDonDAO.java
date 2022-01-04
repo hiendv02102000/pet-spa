@@ -41,10 +41,10 @@ public class HoaDonDAO extends DAO{
             "(select hd.id as idhd, hd.thanhtien as ttien, hd.ngaytao as ngaytao1, hd.mota as mota1, nd1.ho as honv, nd1.tendem as tendemnv, nd1.ten as tennv\n" +
             ",nd2.ho as hokh, nd2.tendem as tendemkh, nd2.ten as tenkh\n" +
             "from (((pet_spa.tblhoadon hd\n" +
-            "inner join pet_spa.tblnhanvien nv on hd.tblNhanVienid=nv.id)\n" +
-            "inner join pet_spa.tblnguoidung nd1 on nv.tblNguoiDungid=nd1.id)\n" +
-            "inner join pet_spa.tblkhachhang kh on hd.tblKhachHangid=kh.id)\n" +
-            "inner join pet_spa.tblnguoidung nd2 on kh.tblNguoiDungid=nd2.id ) as tb\n" +
+            "left join pet_spa.tblnhanvien nv on hd.tblNhanVienid=nv.id)\n" +
+            "left join pet_spa.tblnguoidung nd1 on nv.tblNguoiDungid=nd1.id)\n" +
+            "left join pet_spa.tblkhachhang kh on hd.tblKhachHangid=kh.id)\n" +
+            "left join pet_spa.tblnguoidung nd2 on kh.tblNguoiDungid=nd2.id ) as tb\n" +
             "where  month(ngaytao1)="+thang+" and day(ngaytao1)="+ngay+" and year(ngaytao1)="+nam+" ;";
         
         Vector<HoaDon> listHD=new Vector<HoaDon>();
@@ -67,6 +67,7 @@ public class HoaDonDAO extends DAO{
         } catch (Exception e) {
             return null;
         }
+        System.out.println(sql);
         return listHD.toArray(result);
     }
     public HoaDon getByID(int id){

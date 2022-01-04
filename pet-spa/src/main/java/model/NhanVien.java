@@ -24,6 +24,7 @@ public class NhanVien extends NguoiDung {
         super(nd);
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }
@@ -31,10 +32,12 @@ public class NhanVien extends NguoiDung {
     public void setNgayXoa(LocalDateTime ngayXoa) {
         this.ngayXoa = ngayXoa;
     }
+    @Override
    public String toString() {
         return this.hoTen.getHo()+" "+this.hoTen.getTenDem()+" "+this.getHoTen().getTen();
     }
 
+    @Override
     public int getId() {
         return this.id;
     }

@@ -19,9 +19,15 @@
 
     <body>
         <%
+            QuanLy ql = (QuanLy) session.getAttribute("quanly");
+
+            if (ql == null) {
+                response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+                return;
+            }
             NhanVienDAO dao = new NhanVienDAO();
             NhanVien[] listNV = dao.getAll();
-            if(request.getParameter("timkiemnv")!=null){
+            if (request.getParameter("timkiemnv") != null) {
                 listNV = dao.getByTenNV(request.getParameter("timkiemnv"));
             }
         %>

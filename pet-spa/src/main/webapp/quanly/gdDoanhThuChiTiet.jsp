@@ -29,6 +29,12 @@
         <title>Thống kê chi tiết</title>
     </head>
     <%
+        QuanLy ql = (QuanLy) session.getAttribute("quanly");
+
+        if (ql == null) {
+            response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+            return;
+        }
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
         HoaDonDAO dao = new HoaDonDAO();
@@ -50,7 +56,7 @@
 //            hd.setListHD(dao.getOnDay(ngay,10,2020));
 //            session.setAttribute("tkct", hd);
         //LichHenDichVu[] listLichHen =  ;
-%>   
+    %>   
     <body>
         <header>
             <div class="nav1">
@@ -72,7 +78,7 @@
 
                 <%
                     int STT = 0;
-                    int tong=0;
+                    int tong = 0;
                     for (int i = 0; i < listHoaDon.length; i++) {
                         String t = listHoaDon[i].getThanhTien().toString();
                         tong += Integer.parseInt(t);
@@ -94,7 +100,7 @@
 
 
         </table>
-        <p style="float:right; margin-right: 30px"><strong>Tổng doanh thu: <%=FormateDateTime.convertBigNumToCurrency(BigInteger.valueOf(tong))+ "" + "₫"%></strong></p>
+        <p style="float:right; margin-right: 30px"><strong>Tổng doanh thu: <%=FormateDateTime.convertBigNumToCurrency(BigInteger.valueOf(tong)) + "" + "₫"%></strong></p>
 
         <style>
 

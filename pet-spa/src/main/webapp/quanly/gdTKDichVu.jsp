@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@page import="model.QuanLy"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="utils.FormateDateTime"%>
 <%@page import="java.time.LocalDateTime"%>
@@ -25,23 +26,29 @@
         <title>Thống kê dịch vụ</title>
     </head>
     <%
+        QuanLy ql = (QuanLy) session.getAttribute("quanly");
+
+        if (ql == null) {
+            response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+            return;
+        }
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
         TKDichVuDAO dao = new TKDichVuDAO();
         LocalDate date = LocalDate.now();
-        int thang=date.getMonthValue();
-        int nam=date.getYear();
+        int thang = date.getMonthValue();
+        int nam = date.getYear();
         TKDichVu[] listTKDV = dao.getAllOnMonth(thang, nam);
         if (request.getParameter("thang") != null && request.getParameter("nam") != null) {
             try {
-                    String t = request.getParameter("thang");
-            String n = request.getParameter("nam");
-            thang = Integer.parseInt(t);
-            nam = Integer.parseInt(n);
-            listTKDV = dao.getAllOnMonth(thang, nam);
-                } catch (Exception e) {
-                }
-            
+                String t = request.getParameter("thang");
+                String n = request.getParameter("nam");
+                thang = Integer.parseInt(t);
+                nam = Integer.parseInt(n);
+                listTKDV = dao.getAllOnMonth(thang, nam);
+            } catch (Exception e) {
+            }
+
         }
 
     %>  
@@ -80,11 +87,11 @@
 
                     %>
             <tr class="table__row">
-                <td class="table__content" ><a href=<%="gdTKChiTietDichVu.jsp?dv_id=" + listTKDV[i].getId()+ "&thang=" + thang + "&nam=" + nam%>><%=listTKDV[i].getId()%></a></td>
+                <td class="table__content" ><a href=<%="gdTKChiTietDichVu.jsp?dv_id=" + listTKDV[i].getId() + "&thang=" + thang + "&nam=" + nam%>><%=listTKDV[i].getId()%></a></td>
                 <td class="table__content" ><%=listTKDV[i].getTen()%></td>
                 <td class="table__content" ><%=listTKDV[i].getSoLan()%></td>
-                <td class="table__content" ><%=Math.round(listTKDV[i].getTyle()*100) +"%" %></td>
-                
+                <td class="table__content" ><%=Math.round(listTKDV[i].getTyle() * 100) + "%"%></td>
+
             </tr>
             <%
                 }
