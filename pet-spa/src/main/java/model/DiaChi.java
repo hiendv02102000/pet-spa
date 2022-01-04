@@ -54,7 +54,7 @@ public class DiaChi {
             rs += quanHuyen+", ";
         }
         if(tinhThanh!=null && !tinhThanh.isEmpty()){
-            rs += tinhThanh+", ";
+            rs += tinhThanh;
         }
         return rs;
     }

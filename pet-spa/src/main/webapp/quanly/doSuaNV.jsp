@@ -31,7 +31,7 @@
     <body>
         <%
             response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("utf-8");
+            request.setCharacterEncoding("utf-8");
             String err = "";
 
             String tenDangNhap = request.getParameter("nv_tendangnhap");
@@ -49,13 +49,12 @@
 
             }
             String sdt = request.getParameter("sdt");
-            if(sdt.isEmpty() || sdt.length() != 10 ){
+            if (sdt.isEmpty() || sdt.length() != 10) {
                 request.setAttribute("errSDT", "Số điện thoại để trống hoặc không đủ 10 chữ số");
                 err = "Số điện thoại để trống hoặc không đủ 10 chữ số";
             }
             String soCCCD = request.getParameter("CCCD");
 
-            
             String ho = request.getParameter("ho");
             String ten = request.getParameter("ten");
             String tenDem = request.getParameter("tendem");
@@ -75,13 +74,13 @@
                 NhanVienDAO dao = new NhanVienDAO();
                 if (!dao.update(nv)) {
 
-                    response.sendRedirect("./gdTuyChinhThongTinNV.jsp?nv_id="+nvid);
+                    response.sendRedirect("./gdTuyChinhThongTinNV.jsp?nv_id=" + nvid);
                 } else {
 
                     response.sendRedirect("./gdQuanLyNV.jsp");
                 }
             } else {
-                request.getRequestDispatcher("./gdTuyChinhThongTinNV.jsp?nv_id="+nvid).forward(request, response);
+                request.getRequestDispatcher("./gdTuyChinhThongTinNV.jsp?nv_id=" + nvid).forward(request, response);
             }
 
         %>

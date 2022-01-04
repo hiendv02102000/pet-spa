@@ -39,10 +39,12 @@ public class KhachHang extends NguoiDung{
     public KhachHang(NguoiDung nd) {
       super(nd);
     }
+    @Override
     public void setId(int id) {
         this.id = id;
     }
 
+    @Override
     public int getId() {
         return id;
     }
@@ -52,10 +54,12 @@ public class KhachHang extends NguoiDung{
         return this.hoTen.getHo()+" "+this.hoTen.getTenDem()+" "+this.getHoTen().getTen();
     }
 
+    @Override
     public HoTen getHoTen() {
         return hoTen;
     }
 
+    @Override
     public void setHoTen(HoTen hoTen) {
         this.hoTen = hoTen;
     }
