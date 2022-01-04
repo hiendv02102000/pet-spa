@@ -138,10 +138,5 @@
         <div id="footer">
 
         </div>
-    </div>
-</body>
+    </body>
 </html>
-<<<<<<< HEAD
-
-=======
->>>>>>> 570ff5e1ceeb6f2c9b60ce649062a5519718e819

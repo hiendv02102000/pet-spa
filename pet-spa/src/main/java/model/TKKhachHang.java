@@ -45,10 +45,12 @@ public class TKKhachHang extends KhachHang {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }
 
+    @Override
     public String toString() {
         return solan + " " + tongThanhToan;
     }
@@ -61,10 +63,12 @@ public class TKKhachHang extends KhachHang {
         return tongThanhToan;
     }
 
+    @Override
     public LoaiKhachHang getLoaiKhachHang() {
         return loaiKhachHang;
     }
 
+    @Override
     public String getTenDangNhap() {
         return tenDangNhap;
     }
@@ -73,22 +77,27 @@ public class TKKhachHang extends KhachHang {
         return matKhau;
     }
 
+    @Override
     public LocalDate getNgaySinh() {
         return ngaySinh;
     }
 
+    @Override
     public String getEmail() {
         return email;
     }
 
+    @Override
     public String getSdt() {
         return sdt;
     }
 
+    @Override
     public String getSoCCCD() {
         return soCCCD;
     }
 
+    @Override
     public LocalDateTime getNgayTao() {
         return ngayTao;
     }
@@ -97,6 +106,7 @@ public class TKKhachHang extends KhachHang {
         return hoTen;
     }
 
+    @Override
     public DiaChi getDiaChi() {
         return diaChi;
     }

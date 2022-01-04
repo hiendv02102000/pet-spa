@@ -30,7 +30,8 @@
     </head>
     <body>
         <%
-            // request.get
+            response.setContentType("text/html;charset=UTF-8");
+            request.setCharacterEncoding("utf-8");
             String err = "";
 
             String tenDangNhap = request.getParameter("tendangnhap");
@@ -66,13 +67,12 @@
 
             }
             String sdt = request.getParameter("sdt");
-            if(sdt.isEmpty() || sdt.length() != 10 ){
+            if (sdt.isEmpty() || sdt.length() != 10) {
                 request.setAttribute("errSDT", "Số điện thoại để trống hoặc không đủ 10 chữ số");
                 err = "Số điện thoại để trống hoặc không đủ 10 chữ số";
             }
             String soCCCD = request.getParameter("CCCD");
 
-            
             String ho = request.getParameter("ho");
             String ten = request.getParameter("ten");
             String tenDem = request.getParameter("tendem");
