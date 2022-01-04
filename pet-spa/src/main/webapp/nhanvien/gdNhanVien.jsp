@@ -34,9 +34,6 @@
                 </div>
                 <ul id="nav">
                     <li><a href="#content">Trang chủ </a></li>
-                    <li><a href="#dv">Dịch vụ</a></li>             
-                    <li><a href="#contact">Liên hệ</a></li>
-                    <li><a href="#gt">Giới thiệu</a></li>
                     <li><a href="../nguoidung/gdSuaThongTin.jsp">Sửa thông tin</a></li>
                     <li>
                         <a href="gdThanhToan.jsp">Thanh toán</a>

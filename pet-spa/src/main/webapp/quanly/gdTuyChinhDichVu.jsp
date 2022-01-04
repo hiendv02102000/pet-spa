@@ -105,7 +105,7 @@
                 <div class="wrapper wrapper--w790">
                     <div class="card card-5">
                         <div class="card-heading" style = "margin-top: 35px">
-                            <h2 class="title">Thêm dịch vụ</h2>
+                            <h2 class="title">Chi tiết dịch vụ</h2>
                             <p class="title" style="font-size: 14px;color: red"><%=err%></p>
                         </div>
                         <div class="card-body">

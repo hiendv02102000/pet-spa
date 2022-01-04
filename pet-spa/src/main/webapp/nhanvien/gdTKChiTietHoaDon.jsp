@@ -1,3 +1,5 @@
+<%@page import="java.math.BigInteger"%>
+<%@page import="utils.FormateDateTime"%>
 <%@page import="model.NhanVien"%>
 <%@page import="model.DichVu"%>
 <%@page import="model.HoaDonDichVu"%>
@@ -32,11 +34,8 @@
             return;
         }
         HoaDonDAO dao = new HoaDonDAO();
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm  dd-MM-yyyy");
-        //  KhachHang kh = (KhachHang)session.getAttribute("khachhang");
-        // if(kh==null){
-        //   return;
-        // }
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm 'ngày'  dd-MM-yyyy");
+
         int hdid = Integer.parseInt(request.getParameter("hd_id"));
         HoaDon hd = dao.getByID(hdid);
         HoaDonDichVuDAO hddvDAO = new HoaDonDichVuDAO();
@@ -90,8 +89,8 @@
                                             <tr>
                                                 <td><%=dv.getTen()%></td>
                                                 <td><%=hddv[i].getSoLuong()%></td>
-                                                <td><%=hddv[i].getGiaDV() + "đ"%></td>
-                                                <td><%=hddv[i].getGiaDV().intValue() * hddv[i].getSoLuong() + "đ"%></td>
+                                                <td><%=FormateDateTime.convertBigNumToCurrency(hddv[i].getGiaDV()) + "đ"%></td>
+                                                <td><%=FormateDateTime.convertBigNumToCurrency(new BigInteger(hddv[i].getGiaDV().intValue() * hddv[i].getSoLuong()+""))+ "đ"%></td>
                                             </tr>
                                             <%                                                }
                                             %>  
@@ -99,7 +98,7 @@
                                                 <td></td>
                                                 <td><%="Tổng"%></td>
                                                 <td></td>
-                                                <td><%=hd.getThanhTien() + "đ"%></td>
+                                                <td><%=FormateDateTime.convertBigNumToCurrency(hd.getThanhTien())+ "đ"%></td>
                                             </tr>
                                         </tbody>
                                     </table>
