@@ -159,7 +159,7 @@ public class LichHenDAO extends DAO {
             String sql = "INSERT INTO `tbllichhen` (`thoigianhen`, `giadukien`, `tblKhachHangid`)  "
                     + "VALUES (?, ?, ?);";
             PreparedStatement prepareStatement = this.conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            prepareStatement.setString(1, LocalDateTime.now().toString());
+            prepareStatement.setString(1, lh.getThoiGianHen().toString());
             prepareStatement.setString(2, lh.getGiaDuKien().toString());
 
             prepareStatement.setInt(3, lh.getKhachHang().getId());
@@ -215,10 +215,6 @@ public class LichHenDAO extends DAO {
 
     }
 
-    public static void main(String[] args) {
-        LichHenDAO lh = new LichHenDAO();
-        LichHen[] listlh = lh.getAll();
 
-    }
 
 }

@@ -24,9 +24,6 @@ Nguyễn HIếu
             </div>
             <!-- begin nav -->
             <ul id="nav">
-                <li><a href="#content">Trang chủ </a></li>
-                <li><a href="#dv">Dịch vụ</a></li>             
-                <li><a href="#gt">Giới thiệu</a></li>
                 <li><a href="../nguoidung/gdSuaThongTin.jsp">Sửa thông tin</a></li>
                 <li style ="min-width:200px;">
                     <a href="#">
