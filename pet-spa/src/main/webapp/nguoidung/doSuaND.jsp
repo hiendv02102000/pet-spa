@@ -22,7 +22,8 @@
     </head>
     <body>
         <%
-            // request.get
+            response.setContentType("text/html;charset=UTF-8");
+            request.setCharacterEncoding("utf-8");
             String err = "";
 
             String ngaysinh = request.getParameter("ngaysinh");

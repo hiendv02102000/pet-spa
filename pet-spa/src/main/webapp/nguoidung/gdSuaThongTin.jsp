@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
     <% 
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         NguoiDungDAO dao= new NguoiDungDAO();
         NguoiDung nd = (NguoiDung)session.getAttribute("acc");
   
@@ -66,19 +68,19 @@
                                         <div class="row row-space">
                                             <div class="col-3">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "ho" name="ho" value=<%=nd.getHoTen().getHo()%>>
+                                                    <input class="input--style-5" type="text" id = "ho" name="ho" value=<%="'"+nd.getHoTen().getHo()+"'"%>>
                                                     <label class="label--desc">Họ</label>
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "tendem" name="tendem" value=<%=nd.getHoTen().getTenDem()%>>
+                                                    <input class="input--style-5" type="text" id = "tendem" name="tendem" value=<%="'"+nd.getHoTen().getTenDem()+"'"%>>
                                                     <label class="label--desc">Tên đệm</label>
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "ten" name="ten" value=<%=nd.getHoTen().getTen()%>>
+                                                    <input class="input--style-5" type="text" id = "ten" name="ten" value=<%="'"+nd.getHoTen().getTen()+"'"%>>
                                                     <label class="label--desc">Tên</label>
                                                 </div>
                                             </div>
@@ -100,19 +102,19 @@
                                         <div class="row row-space">
                                             <div class="col-3">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "sonha" name="sonha" value=<%=nd.getDiaChi().getSoNha()%>>
+                                                    <input class="input--style-5" type="text" id = "sonha" name="sonha" value=<%="'"+nd.getDiaChi().getSoNha()+"'"%>>
                                                     <label class="label--desc">Số nhà</label>
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "cumdancu" name="cumdancu" value=<%=nd.getDiaChi().getCumDanCu()%>>
+                                                    <input class="input--style-5" type="text" id = "cumdancu" name="cumdancu" value=<%="'"+nd.getDiaChi().getCumDanCu()+"'"%>>
                                                     <label class="label--desc">Cụm dân cư</label>
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "xaphuong" name="xaphuong" value=<%=nd.getDiaChi().getXaPhuong()%>>
+                                                    <input class="input--style-5" type="text" id = "xaphuong" name="xaphuong" value=<%="'"+nd.getDiaChi().getXaPhuong()+"'"%>>
                                                     <label class="label--desc">Xã phường</label>
                                                 </div>
                                             </div>                                 
@@ -126,13 +128,13 @@
                                         <div class="row row-space">
                                             <div class="col-2">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "quanhuyen" name="quanhuyen" value=<%=nd.getDiaChi().getQuanHuyen()%>>
+                                                    <input class="input--style-5" type="text" id = "quanhuyen" name="quanhuyen" value=<%="'"+nd.getDiaChi().getQuanHuyen()+"'"%>>
                                                     <label class="label--desc">Quận huyện</label>
                                                 </div>
                                             </div>
                                             <div class="col-2">
                                                 <div class="input-group-desc">
-                                                    <input class="input--style-5" type="text" id = "tinhthanh" name="tinhthanh" value=<%=nd.getDiaChi().getTinhThanh()%>>
+                                                    <input class="input--style-5" type="text" id = "tinhthanh" name="tinhthanh" value=<%="'"+nd.getDiaChi().getTinhThanh()+"'"%>>
                                                     <label class="label--desc">Tỉnh thành</label>
                                                 </div>
                                             </div>                               

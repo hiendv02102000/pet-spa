@@ -40,6 +40,7 @@
                        else {
                           
                          // KhachHang kh1 =(KhachHang)session.getAttribute("khachhang");
+                         session.setAttribute("acc", (NguoiDung)kh);
                           session.setAttribute("khachhang", kh);
                           response.sendRedirect("./gdKhachHang.jsp"); 
                           return;

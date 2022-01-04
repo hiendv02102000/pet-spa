@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@page import="utils.FormateDateTime"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="model.KhachHang"%>
 <%@page import="model.LichHen"%>
@@ -51,7 +52,7 @@
                 <td class="table__content" ><a href=<%="gdLichHenChiTiet.jsp?lh_id=" + listLichHen[i].getId()%>><%=listLichHen[i].getId()%></a></td>
                 <td class="table__content" ><%=listLichHen[i].getThoiGianHen().format(myFormatObj)%></td>
 
-                <td class="table__content" ><%=listLichHen[i].getGiaDuKien() + "" + "₫"%></td>
+                <td class="table__content" ><%=FormateDateTime.convertBigNumToCurrency(listLichHen[i].getGiaDuKien()) + "" + "₫"%></td>
             </tr>
             <%
                 }

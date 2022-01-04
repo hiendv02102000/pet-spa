@@ -44,7 +44,7 @@ public class LichHenDichVuDAO extends  DAO{
                 FormateDateTime.convertDBToLocalDateTime(rs.getDate(6), rs.getTime(6)),
                 FormateDateTime.convertDBToLocalDateTime(rs.getDate(7), rs.getTime(7)));
                 dv= new DichVuDAO().getByID(rs.getInt(1));
-                LichHenDichVu lhdv=new LichHenDichVu(rs.getInt(8),dv,rs.getInt(9));
+                LichHenDichVu lhdv=new LichHenDichVu(rs.getInt(9),dv,rs.getInt(8));
                 
                 listLHDV.add(lhdv);
            }
