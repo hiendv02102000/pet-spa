@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@page import="utils.FormateDateTime"%>
 <%@page import="java.math.BigInteger"%>
 <%@page import="model.*"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
@@ -22,7 +23,8 @@
     <%
         KhachHang kh = (KhachHang) session.getAttribute("khachhang");
         if (kh == null) {
-            response.sendRedirect("../nguoidung/gdDangNhap.jsp");return;
+            response.sendRedirect("../nguoidung/gdDangNhap.jsp");
+            return;
         }
         LichHenDichVuDAO dao = new LichHenDichVuDAO();
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm  dd-MM-yyyy");
@@ -61,7 +63,7 @@
             <tr class="table__row">
                 <td class="table__content" ><%=list[i].getDichVu().getTen()%></td>
                 <td class="table__content" ><%=list[i].getSoLuong()%></td>
-                <td class="table__content" ><%=list[i].getDichVu().getGiaCa() + "₫"%></td>
+                <td class="table__content" ><%=FormateDateTime.convertBigNumToCurrency(list[i].getDichVu().getGiaCa()) + "₫"%></td>
 
             </tr>
             <%
@@ -82,7 +84,7 @@
             <tr class="table__row" style ="font-weight: bold">
                 <td class="table__content"  >Tổng : </td>
                 <td class="table__content" ></td>
-                <td class="table__content" ><%=tong + "₫"%></td>
+                <td class="table__content" ><%=FormateDateTime.convertBigNumToCurrency(tong) + "₫"%></td>
 
             </tr>
 

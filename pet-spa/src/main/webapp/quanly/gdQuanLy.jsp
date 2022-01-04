@@ -47,7 +47,7 @@ Nguyễn HIếu
                 <li><a href="gdQLDichVu.jsp">QL Dịch Vụ</a></li>
                     </ul>
                 </li>
-                <li ><a href="#">Đăng xuất</a></li>
+               <li ><a href="../nguoidung/gdDangNhap.jsp">Đăng xuất</a></li>
             </ul> 
            
            

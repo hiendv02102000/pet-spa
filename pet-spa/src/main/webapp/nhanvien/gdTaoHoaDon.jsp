@@ -55,7 +55,7 @@
                 if (oldLH != null && oldLH.getId() != idlh) {
                     LichHenDichVuDAO lhdv_dao = new LichHenDichVuDAO();
                     lh.setListLHDV(lhdv_dao.getByLichHenID(idlh));
-
+                    //err = ""+lh.getListLHDV().;
                     for (LichHenDichVu lhdv : lh.getListLHDV()) {
                         boolean isNew = true;
                         for (HoaDonDichVu hddv : listHDDV) {

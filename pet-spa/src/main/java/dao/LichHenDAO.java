@@ -34,7 +34,7 @@ public class LichHenDAO extends DAO {
         String sql = "select khlh.id, nd.ho, nd.tendem, nd.ten ,nd.sdt ,  khlh.thoigianhen , khlh.giadukien\n"
                 + "from (select lh.id, lh.giadukien, lh.thoigianhen, kh.tblNguoiDungid  from pet_spa.tbllichhen as lh\n"
                 + "inner join pet_spa.tblkhachhang as kh\n"
-                + "where lh.tblKhachHangid = kh.id and lh.ngayxoa is null and lh.thoigianhen >= now() ) as khlh\n"
+                + "where lh.tblKhachHangid = kh.id and lh.ngayxoa is null and date(lh.thoigianhen) >= date(now()) ) as khlh\n"
                 + "inner join pet_spa.tblnguoidung as nd\n"
                 + "where khlh.tblNguoiDungid = nd.id";
         Vector<LichHen> listLH = new Vector<LichHen>();
@@ -77,7 +77,7 @@ public class LichHenDAO extends DAO {
         String sql = "select khlh.id, nd.ho, nd.tendem, nd.ten ,nd.sdt ,  khlh.thoigianhen , khlh.giadukien\n"
                 + "from (select lh.id, lh.giadukien, lh.thoigianhen, kh.tblNguoiDungid  from pet_spa.tbllichhen as lh\n"
                 + "inner join pet_spa.tblkhachhang as kh\n"
-                + "where lh.tblKhachHangid = kh.id and lh.ngayxoa is null and lh.thoigianhen >= now() ) as khlh\n"
+                + "where lh.tblKhachHangid = kh.id and lh.ngayxoa is null and date(lh.thoigianhen) >= date(now()) ) as khlh\n"
                 + "inner join pet_spa.tblnguoidung as nd\n"
                 + "where khlh.tblNguoiDungid = nd.id";
         Vector<LichHen> listLH = new Vector<LichHen>();

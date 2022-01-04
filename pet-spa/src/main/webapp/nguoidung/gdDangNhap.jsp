@@ -23,7 +23,6 @@
             session.setAttribute("quanly", null);
 
             session.setAttribute("nhanvien", null);
-
         
     %>
     <body>
