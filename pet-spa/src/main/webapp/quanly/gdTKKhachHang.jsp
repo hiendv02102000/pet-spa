@@ -25,6 +25,8 @@
         <title>Thống kê khách hàng</title>
     </head>
     <%
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         TKKhachHangDAO dao = new TKKhachHangDAO();
         LocalDate date = LocalDate.now();
         int thang=date.getMonthValue();

@@ -25,6 +25,8 @@
         <title>Thống kê dịch vụ</title>
     </head>
     <%
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         TKDichVuDAO dao = new TKDichVuDAO();
         LocalDate date = LocalDate.now();
         int thang=date.getMonthValue();
