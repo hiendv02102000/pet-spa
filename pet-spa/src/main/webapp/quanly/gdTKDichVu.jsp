@@ -81,7 +81,7 @@
                 <td class="table__content" ><a href=<%="gdTKChiTietDichVu.jsp?dv_id=" + listTKDV[i].getId()+ "&thang=" + thang + "&nam=" + nam%>><%=listTKDV[i].getId()%></a></td>
                 <td class="table__content" ><%=listTKDV[i].getTen()%></td>
                 <td class="table__content" ><%=listTKDV[i].getSoLan()%></td>
-                <td class="table__content" ><%=listTKDV[i].getTyle() %></td>
+                <td class="table__content" ><%=Math.round(listTKDV[i].getTyle()*100) +"%" %></td>
                 
             </tr>
             <%
